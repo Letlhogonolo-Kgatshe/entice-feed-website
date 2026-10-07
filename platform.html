@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform | Entice Feed</title>
+    <meta name="description" content="One platform for the whole agricultural value chain: stakeholder tools, AI yield insights from real El Niño data, open produce auctions and real-time plant tracking.">
+    <meta name="author" content="Entice Feed Pty Ltd">
+    <meta property="og:title" content="Platform | Entice Feed">
+    <meta property="og:description" content="One platform for the whole agricultural value chain: stakeholder tools, AI yield insights from real El Niño data, open produce auctions and real-time plant tracking.">
+    <meta property="og:image" content="https://letlhogonolo-kgatshe.github.io/entice-feed-website/logo.jpg">
+    <meta name="theme-color" content="#1b5e20">
+    <link rel="icon" href="logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/theme.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="bg-white text-gray-800 font-sans">
+    <main id="main">
+        <section class="page-head">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">The platform</p>
+                <h1 class="mt-2 text-4xl sm:text-5xl font-extrabold text-brand-900 tracking-tight max-w-3xl">Every tool the value chain needs, in one place</h1>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl">Choose your role below, then explore AI insights, produce auctions and plant tracking.</p>
+            </div>
+        </section>
+        <!-- Ecosystem -->
+        <section id="ecosystem" class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto reveal">
+                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Ecosystem integration</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Every stakeholder, one platform</h2>
+                    <p class="mt-4 text-gray-600">Our platform connects all key stakeholders in the agricultural value chain, creating a seamless ecosystem for collaboration and growth.</p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8 reveal">
+                    <div role="tablist" aria-label="Stakeholders" class="flex lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0" id="eco-tabs"></div>
+                    <div class="lg:col-span-2 rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-7 sm:p-9" id="eco-panel" role="tabpanel" tabindex="0"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI -->
+        <section id="ai" class="py-20 bg-brand-900 text-white relative overflow-hidden">
+            <div class="absolute -right-24 -top-24 w-96 h-96 bg-brand-500/30 rounded-full blur-3xl" aria-hidden="true"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <p class="text-sm font-semibold text-harvest-400 uppercase tracking-wider">AI &amp; analytics</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">Data-driven agriculture, explained simply</h2>
+                    <p class="mt-4 text-brand-100">Our platform uses AI and machine learning to deliver:</p>
+                    <ul class="mt-6 space-y-4">
+                        <li class="flex gap-3"><span class="check-dark"></span><span>Yield prediction based on weather, soil and historical data</span></li>
+                        <li class="flex gap-3"><span class="check-dark"></span><span>Market price forecasting and demand analysis</span></li>
+                        <li class="flex gap-3"><span class="check-dark"></span><span>Automated risk alerts for disease, drought and pests</span></li>
+                        <li class="flex gap-3"><span class="check-dark"></span><span>Personalised recommendations for crop management</span></li>
+                    </ul>
+                </div>
+                <div class="reveal rounded-3xl bg-white/5 ring-1 ring-white/10 p-6">
+                    <div class="flex items-start justify-between gap-3 flex-wrap">
+                        <div>
+                            <p class="font-semibold">El Niño vs South African harvests</p>
+                            <p class="text-xs text-brand-100/80 mt-0.5">Cereal yield (kg/ha), with El Niño seasons highlighted</p>
+                        </div>
+                        <span class="text-xs font-semibold bg-harvest-400 text-brand-900 px-2.5 py-1 rounded-full" id="ai-badge">Real data</span>
+                    </div>
+                    <div class="h-64 mt-4"><canvas id="ai-chart" aria-label="South African cereal yields by year compared with the trend, with El Niño seasons highlighted and next season's projection" role="img"></canvas></div>
+                    <p class="mt-3 text-sm text-brand-50" id="ai-summary"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auctions -->
+        <section id="auctions" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 reveal">
+                    <div class="max-w-2xl">
+                        <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Produce auctions</p>
+                        <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Fair prices through open bidding</h2>
+                        <p class="mt-4 text-gray-600">Farmers list produce, verified buyers and processors bid, and everyone sees transparent prices, with no middlemen taking the margin.</p>
+                    </div>
+                    <span class="inline-flex items-center gap-2 text-xs font-semibold text-brand-700 bg-brand-50 px-3 py-1.5 rounded-full self-start md:self-auto"><span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> Live preview (sample lots)</span>
+                </div>
+                <div id="auction-grid" class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+            </div>
+        </section>
+
+        <!-- Plant tracking -->
+        <section id="tracking" class="py-20 bg-brand-50/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-2xl reveal">
+                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Plant tracking</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Monitor crop health in real time</h2>
+                    <p class="mt-4 text-gray-600">See the status of every field and greenhouse at a glance, and act on problems before they cost you a harvest.</p>
+                </div>
+                <div class="mt-10 rounded-3xl bg-white ring-1 ring-black/5 shadow-soft overflow-hidden reveal">
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row gap-3 sm:items-center justify-between border-b border-gray-100">
+                        <div class="relative sm:w-72">
+                            <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="m20 20-3.5-3.5"/></svg>
+                            <label for="plant-search" class="sr-only">Search crops or locations</label>
+                            <input id="plant-search" type="search" placeholder="Search crop or location" class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none text-sm">
+                        </div>
+                        <div class="flex gap-2 text-sm overflow-x-auto" role="group" aria-label="Filter by status" id="status-filters"></div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-50 text-left text-xs uppercase tracking-wider text-gray-500">
+                                <tr><th class="px-5 py-3 font-semibold">Crop</th><th class="px-5 py-3 font-semibold">Location</th><th class="px-5 py-3 font-semibold">Status</th><th class="px-5 py-3 font-semibold">Moisture</th><th class="px-5 py-3 font-semibold">Last update</th></tr>
+                            </thead>
+                            <tbody id="plant-body" class="divide-y divide-gray-100"></tbody>
+                        </table>
+                    </div>
+                    <p id="plant-empty" class="hidden p-8 text-center text-gray-500 text-sm">No crops match your search.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA band -->
+        <section class="py-16">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="reveal rounded-3xl bg-gradient-to-br from-brand-700 to-brand-900 text-white p-10 sm:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-16 w-72 h-72 bg-harvest-400/30 rounded-full blur-3xl" aria-hidden="true"></div>
+                    <div class="relative">
+                        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Unlock the power of data-driven agriculture</h2>
+                        <p class="mt-2 text-brand-100">See Entice Feed working with your own farm data.</p>
+                    </div>
+                    <a href="contact.html" data-topic="Demo request" class="topic-link relative shrink-0 px-6 py-3.5 rounded-xl font-semibold bg-harvest-400 text-brand-900 hover:bg-harvest-300 transition">Book a demo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/site.js"></script>
+    <script src="assets/live.js"></script>
+    <script>
+    (function () {
+        'use strict';
+        const { $, $$, icon, ICONS, reduceMotion } = window.EF;
+        // ── Ecosystem tabs ──────────────────────────────────────────────────
+        const STAKEHOLDERS = [
+            { id: 'farmers', icon: 'users', label: 'Farmers & producers', title: 'Farmers & producer organisations',
+              text: 'Our platform gives farmers and producer organisations the tools to optimise operations, access markets and adopt sustainable practices.',
+              groups: [{ h: 'Key organisations', items: ['Agri South Africa (AgriSA)', 'National African Farmers Union (NAFU)', 'African Farmers Association of South Africa (AFASA)'] },
+                       { h: 'Platform benefits', items: ['Profile creation and management', 'Cooperative tools and resource sharing', 'Sustainability reporting and certification', 'Market access and price discovery'] }] },
+            { id: 'suppliers', icon: 'box', label: 'Input suppliers', title: 'Input suppliers',
+              text: 'Suppliers can connect with farmers, manage inventory and streamline supply chains through the platform.',
+              groups: [{ h: 'Platform benefits', items: ['Reach farmers by region and crop', 'Demand signals from planting data', 'Inventory and order management', 'Direct ordering and delivery tracking'] }] },
+            { id: 'financial', icon: 'bank', label: 'Financial institutions', title: 'Financial institutions',
+              text: 'Financial partners gain access to farmer data for better credit risk assessment and loan offerings.',
+              groups: [{ h: 'Platform benefits', items: ['Verified production and sales history', 'Data-backed credit risk assessment', 'Input finance and crop insurance offers', 'Portfolio monitoring with risk alerts'] }] },
+            { id: 'buyers', icon: 'cart', label: 'Buyers & processors', title: 'Buyers & processors',
+              text: 'Buyers can source produce directly, with transparency and fair pricing.',
+              groups: [{ h: 'Platform benefits', items: ['Produce auctions and direct contracts', 'Traceability from field to factory', 'Forward visibility of supply', 'Quality and certification records'] }] },
+            { id: 'government', icon: 'gov', label: 'Government bodies', title: 'Government bodies',
+              text: 'Government agencies can monitor agricultural trends and support policy-making with real-time data.',
+              groups: [{ h: 'Platform benefits', items: ['Regional production dashboards', 'Early warning for drought and disease', 'Targeting of support programmes', 'Sustainability and emissions reporting'] }] },
+        ];
+        const tabs = $('#eco-tabs'), panel = $('#eco-panel');
+        tabs.innerHTML = STAKEHOLDERS.map((s, i) => `
+            <button type="button" role="tab" id="tab-${s.id}" aria-controls="eco-panel" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-id="${s.id}"
+                class="tab-btn shrink-0 flex items-center gap-3 px-4 py-3.5 rounded-2xl text-left font-semibold text-brand-900 bg-brand-50 hover:bg-brand-100 transition whitespace-nowrap">
+                <span class="text-brand-500">${icon(ICONS[s.icon])}</span>${s.label}
+            </button>`).join('');
+        function showTab(id, focus) {
+            const s = STAKEHOLDERS.find((x) => x.id === id);
+            $$('.tab-btn', tabs).forEach((b) => { const on = b.dataset.id === id; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); });
+            panel.setAttribute('aria-labelledby', 'tab-' + id);
+            panel.innerHTML = `
+                <h3 class="text-2xl font-bold text-brand-900">${s.title}</h3>
+                <p class="mt-3 text-gray-600">${s.text}</p>
+                <div class="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-7">${s.groups.map((g) => `
+                    <div><p class="font-semibold text-brand-900">${g.h}</p>
+                    <ul class="mt-3 space-y-2.5 text-sm text-gray-700">${g.items.map((it) => `<li class="flex gap-2"><span class="check"></span>${it}</li>`).join('')}</ul></div>`).join('')}
+                </div>`;
+        }
+        tabs.addEventListener('click', (e) => { const b = e.target.closest('.tab-btn'); if (b) showTab(b.dataset.id); });
+        tabs.addEventListener('keydown', (e) => {
+            if (!['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+            e.preventDefault();
+            const ids = STAKEHOLDERS.map((s) => s.id);
+            const cur = ids.indexOf($('.tab-btn[aria-selected="true"]', tabs).dataset.id);
+            const step = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : -1;
+            showTab(ids[(cur + step + ids.length) % ids.length], true);
+        });
+        showTab('farmers');
+
+        // Open a stakeholder tab from a link like platform.html#farmers
+        const fromHash = STAKEHOLDERS.find((x) => x.id === location.hash.slice(1));
+        if (fromHash) { showTab(fromHash.id); setTimeout(() => document.getElementById('ecosystem').scrollIntoView(), 50); }
+        // ── Auctions (sample lots) ──────────────────────────────────────────
+        const now = Date.now();
+        const LOTS = [
+            { crop: 'Yellow maize', grade: 'Grade YM1', qty: '120 t', region: 'Free State', bid: 4120, bids: 14, ends: now + 2 * 3600e3 + 14 * 60e3, emoji: '🌽' },
+            { crop: 'Wheat', grade: 'Grade B1', qty: '80 t', region: 'Western Cape', bid: 5350, bids: 9, ends: now + 5 * 3600e3 + 3 * 60e3, emoji: '🌾' },
+            { crop: 'Soybeans', grade: 'Grade 1', qty: '45 t', region: 'Mpumalanga', bid: 7980, bids: 21, ends: now + 47 * 60e3, emoji: '🫘' },
+            { crop: 'Sunflower seed', grade: 'Grade FH1', qty: '60 t', region: 'North West', bid: 8240, bids: 6, ends: now + 26 * 3600e3, emoji: '🌻' },
+        ];
+        const rand = (n) => n.toLocaleString('en-ZA');
+        const fmtLeft = (ms) => {
+            if (ms <= 0) return 'Closed';
+            const h = Math.floor(ms / 3600e3), m = Math.floor((ms % 3600e3) / 60e3), s = Math.floor((ms % 60e3) / 1000);
+            return h > 23 ? `${Math.floor(h / 24)}d ${h % 24}h` : `${h}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`;
+        };
+        function renderLots() {
+            $('#auction-grid').innerHTML = LOTS.map((l, i) => `
+                <article class="reveal visible rounded-3xl bg-white ring-1 ring-black/5 p-5 flex flex-col hover:shadow-soft transition">
+                    <div class="flex items-start justify-between">
+                        <span class="text-4xl" aria-hidden="true">${l.emoji}</span>
+                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full ${l.ends - Date.now() < 3600e3 ? 'bg-red-50 text-red-600' : 'bg-brand-50 text-brand-700'}" data-countdown="${i}">${fmtLeft(l.ends - Date.now())}</span>
+                    </div>
+                    <h3 class="mt-4 font-bold text-brand-900">${l.crop}</h3>
+                    <p class="text-xs text-gray-500">${l.grade} · ${l.qty} · ${l.region}</p>
+                    <div class="mt-4 flex items-end justify-between">
+                        <div><p class="text-[11px] text-gray-500">Current bid</p><p class="text-xl font-extrabold text-brand-900">R${rand(l.bid)}<span class="text-xs font-medium text-gray-500">/t</span></p></div>
+                        <p class="text-xs text-gray-500">${l.bids} bids</p>
+                    </div>
+                    <button type="button" class="bid-btn mt-4 py-2.5 rounded-xl text-sm font-semibold bg-brand-700 text-white hover:bg-brand-900 transition" data-lot="${i}">Place sample bid</button>
+                </article>`).join('');
+        }
+        renderLots();
+        $('#auction-grid').addEventListener('click', (e) => {
+            const b = e.target.closest('.bid-btn');
+            if (!b) return;
+            const lot = LOTS[+b.dataset.lot];
+            lot.bid += 25; lot.bids += 1;
+            renderLots();
+            const btn = $(`.bid-btn[data-lot="${b.dataset.lot}"]`);
+            btn.textContent = `✓ Bid placed: R${rand(lot.bid)}/t`;
+            btn.classList.replace('bg-brand-700', 'bg-harvest-400');
+            btn.classList.replace('text-white', 'text-brand-900');
+        });
+        setInterval(() => {
+            $$('[data-countdown]').forEach((el) => { el.textContent = fmtLeft(LOTS[+el.dataset.countdown].ends - Date.now()); });
+        }, 1000);
+
+        // ── Plant tracking ──────────────────────────────────────────────────
+        const STATUS = {
+            'Healthy':     'bg-brand-50 text-brand-700',
+            'Needs water': 'bg-amber-50 text-amber-700',
+            'Pest risk':   'bg-red-50 text-red-600',
+            'Harvest due': 'bg-blue-50 text-blue-700',
+        };
+        const minsAgo = (m) => m < 60 ? `${m} min ago` : `${Math.round(m / 60)} h ago`;
+        const PLANTS = [
+            { crop: 'Maize',     loc: 'Field A',      status: 'Healthy',     moisture: 34, ago: 4 },
+            { crop: 'Wheat',     loc: 'Field B',      status: 'Needs water', moisture: 18, ago: 9 },
+            { crop: 'Soybean',   loc: 'Greenhouse 1', status: 'Healthy',     moisture: 41, ago: 14 },
+            { crop: 'Tomatoes',  loc: 'Greenhouse 2', status: 'Pest risk',   moisture: 37, ago: 22 },
+            { crop: 'Sunflower', loc: 'Field C',      status: 'Harvest due', moisture: 26, ago: 65 },
+            { crop: 'Potatoes',  loc: 'Field D',      status: 'Healthy',     moisture: 31, ago: 130 },
+        ];
+        let statusFilter = 'All';
+        $('#status-filters').innerHTML = ['All', ...Object.keys(STATUS)].map((s) =>
+            `<button type="button" class="status-btn shrink-0 px-3 py-1.5 rounded-full border transition ${s === 'All' ? 'bg-brand-700 text-white border-brand-700' : 'border-gray-200 text-gray-600 hover:border-brand-500'}" data-status="${s}" aria-pressed="${s === 'All'}">${s}</button>`).join('');
+        function renderPlants() {
+            const q = $('#plant-search').value.trim().toLowerCase();
+            const rows = PLANTS.filter((p) => (statusFilter === 'All' || p.status === statusFilter) && (`${p.crop} ${p.loc}`.toLowerCase().includes(q)));
+            $('#plant-body').innerHTML = rows.map((p) => `
+                <tr class="hover:bg-gray-50/70">
+                    <td class="px-5 py-4 font-semibold text-brand-900">${p.crop}</td>
+                    <td class="px-5 py-4 text-gray-600">${p.loc}</td>
+                    <td class="px-5 py-4"><span class="text-xs font-semibold px-2.5 py-1 rounded-full ${STATUS[p.status]}">${p.status}</span></td>
+                    <td class="px-5 py-4"><div class="flex items-center gap-2"><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full ${p.moisture < 20 ? 'bg-amber-500' : 'bg-brand-500'}" style="width:${p.moisture * 2}%"></div></div><span class="text-gray-600 tabular-nums">${p.moisture}%</span></div></td>
+                    <td class="px-5 py-4 text-gray-500 whitespace-nowrap">${minsAgo(p.ago)}</td>
+                </tr>`).join('');
+            $('#plant-empty').classList.toggle('hidden', rows.length > 0);
+        }
+        $('#plant-search').addEventListener('input', renderPlants);
+        $('#status-filters').addEventListener('click', (e) => {
+            const b = e.target.closest('.status-btn');
+            if (!b) return;
+            statusFilter = b.dataset.status;
+            $$('.status-btn').forEach((x) => {
+                const on = x === b;
+                x.setAttribute('aria-pressed', on);
+                x.classList.toggle('bg-brand-700', on); x.classList.toggle('text-white', on); x.classList.toggle('border-brand-700', on);
+                x.classList.toggle('text-gray-600', !on); x.classList.toggle('border-gray-200', !on);
+            });
+            renderPlants();
+        });
+        renderPlants();
+
+    })();
+    </script>
+</body>
+</html>

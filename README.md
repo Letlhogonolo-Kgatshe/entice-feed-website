@@ -8,22 +8,17 @@ Marketing and product website for **Entice Feed Pty Ltd**, a South African agric
 
 ![Entice Feed homepage](docs/screenshot.jpg)
 
-## Sections
+## Pages
 
-| Section | What it does |
+| Page | What it offers |
 |---|---|
-| **Hero** | Value proposition, demo and investor-deck calls to action, and a product preview with a Chart.js yield forecast |
-| **Impact stats** | Key figures that count up as they scroll into view |
-| **How it works** | Three-step onboarding: profile, insights, then sell and finance |
-| **Platform** | Six pillars of the core differentiation strategy |
-| **Ecosystem** | Accessible tabs (arrow-key navigation) for each stakeholder group and what they get |
-| **AI insights** | Real South African cereal yields since 2000 with El Niño seasons highlighted, and next season's projection |
-| **Live data** | El Niño (ONI) outlook, a 6-month rand maize price forecast, an ECMWF seasonal rainfall outlook per growing region, and live 7-day weather and soil moisture |
-| **Produce auctions** | Sample live lots with countdown timers and bidding |
-| **Plant tracking** | Crop health dashboard with search, status filters and moisture levels |
-| **Plans** | Smallholder, Commercial and Enterprise subscription tiers |
-| **FAQ** | Expandable answers to common questions |
-| **Contact** | Validated form that opens the visitor's email app with the enquiry pre-filled; CTAs pre-select the topic |
+| **Home** (`index.html`) | Live "El Niño watch" hero, impact stats, a "who it's for" role picker that deep-links to each stakeholder's tools, how it works, and the six platform pillars |
+| **Platform** (`platform.html`) | Ecosystem tabs per stakeholder (open directly with `platform.html#farmers`, `#suppliers`, `#financial`, `#buyers`, `#government`), real SA yields vs El Niño, sample produce auctions with countdowns, and the plant tracking dashboard |
+| **Live data** (`insights.html`) | El Niño (ONI) outlook, 6-month rand maize price forecast, ECMWF seasonal rainfall per growing region, live 7-day weather and soil moisture, and the methodology (`#method`) |
+| **Plans** (`pricing.html`) | Smallholder, Commercial and Enterprise tiers, plus the FAQ |
+| **Contact** (`contact.html`) | Validated form that opens the visitor's email app; calls to action across the site pre-fill the topic (`contact.html?topic=…`) |
+
+All pages share one header, footer and theme (`assets/site.js`, `assets/site.css`, `assets/theme.js`). The live-data widgets live in `assets/live.js`, which skips any widget that isn't on the current page.
 
 Auction lots and plant-tracking rows are labelled as sample data. The climate, yield and price figures are real.
 

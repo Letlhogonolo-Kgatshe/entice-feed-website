@@ -4,94 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entice Feed | Agricultural SaaS for South Africa</title>
-    <meta name="description" content="Entice Feed is an agricultural Software-as-a-Service platform connecting farmers, suppliers, buyers, financiers and government in one smart, inclusive digital ecosystem.">
+    <meta name="description" content="Entice Feed connects farmers, suppliers, buyers, lenders and government in one smart, inclusive digital ecosystem, with live El Niño and market insights for South African agriculture.">
     <meta name="author" content="Entice Feed Pty Ltd">
     <meta property="og:title" content="Entice Feed | Agricultural SaaS for South Africa">
-    <meta property="og:description" content="One platform for the whole agricultural value chain: AI insights, produce auctions, plant tracking and carbon credits.">
-    <meta property="og:image" content="logo.jpg">
+    <meta property="og:description" content="Entice Feed connects farmers, suppliers, buyers, lenders and government in one smart, inclusive digital ecosystem, with live El Niño and market insights for South African agriculture.">
+    <meta property="og:image" content="https://letlhogonolo-kgatshe.github.io/entice-feed-website/logo.jpg">
     <meta name="theme-color" content="#1b5e20">
     <link rel="icon" href="logo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/theme.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] },
-                    colors: {
-                        brand: { 50: '#f1f8f1', 100: '#dcefdc', 200: '#b9dfba', 500: '#2e7d32', 600: '#256b29', 700: '#1b5e20', 900: '#0f3812' },
-                        harvest: { 300: '#ffe566', 400: '#ffd600', 500: '#f5c400' },
-                        soil: { 500: '#795548', 700: '#4e342e' },
-                    },
-                    boxShadow: { soft: '0 10px 40px -12px rgba(27, 94, 32, 0.25)' },
-                },
-            },
-        };
-    </script>
-    <style>
-        body { -webkit-font-smoothing: antialiased; }
-        [x-cloak] { display: none; }
-        .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
-        .reveal.visible { opacity: 1; transform: none; }
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            .reveal { opacity: 1; transform: none; transition: none; }
-        }
-        .tab-btn[aria-selected="true"] { background: #1b5e20; color: #fff; box-shadow: 0 6px 20px -8px rgba(27,94,32,.6); }
-        .tab-btn[aria-selected="true"] svg { color: #ffd600; }
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-        details[open] .faq-icon { transform: rotate(45deg); }
-        .grid-bg { background-image: radial-gradient(rgba(46,125,50,.12) 1px, transparent 1px); background-size: 22px 22px; }
-    </style>
+    <link rel="stylesheet" href="assets/site.css">
 </head>
 <body class="bg-white text-gray-800 font-sans">
-    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] bg-brand-700 text-white px-4 py-2 rounded-lg">Skip to content</a>
-
-    <!-- Header -->
-    <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-18 py-3">
-                <a href="#home" class="flex items-center gap-3" aria-label="Entice Feed home">
-                    <img src="logo.jpg" alt="" class="w-10 h-10 rounded-xl object-cover bg-white ring-1 ring-black/5">
-                    <span class="text-xl font-extrabold tracking-tight text-brand-900">Entice<span class="text-brand-500">Feed</span></span>
-                </a>
-                <nav class="hidden lg:flex items-center gap-1 text-sm font-medium" aria-label="Main">
-                    <a href="#features" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Platform</a>
-                    <a href="#ecosystem" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Ecosystem</a>
-                    <a href="#ai" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">AI Insights</a>
-                    <a href="#intel" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Live Data</a>
-                    <a href="#auctions" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Auctions</a>
-                    <a href="#tracking" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Plant Tracking</a>
-                    <a href="#pricing" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Plans</a>
-                    <a href="#faq" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">FAQ</a>
-                </nav>
-                <div class="hidden lg:flex items-center gap-3">
-                    <a href="#contact" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-brand-700 text-white hover:bg-brand-900 transition shadow-soft">Request a demo</a>
-                </div>
-                <button id="menu-btn" class="lg:hidden w-11 h-11 grid place-items-center rounded-xl text-brand-900 hover:bg-brand-50" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
-                </button>
-            </div>
-        </div>
-        <nav id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-100 shadow-lg" aria-label="Mobile">
-            <div class="px-4 py-4 grid gap-1 text-base font-medium">
-                <a href="#features" class="px-3 py-3 rounded-lg hover:bg-brand-50">Platform</a>
-                <a href="#ecosystem" class="px-3 py-3 rounded-lg hover:bg-brand-50">Ecosystem</a>
-                <a href="#ai" class="px-3 py-3 rounded-lg hover:bg-brand-50">AI Insights</a>
-                <a href="#intel" class="px-3 py-3 rounded-lg hover:bg-brand-50">Live Data</a>
-                <a href="#auctions" class="px-3 py-3 rounded-lg hover:bg-brand-50">Auctions</a>
-                <a href="#tracking" class="px-3 py-3 rounded-lg hover:bg-brand-50">Plant Tracking</a>
-                <a href="#pricing" class="px-3 py-3 rounded-lg hover:bg-brand-50">Plans</a>
-                <a href="#faq" class="px-3 py-3 rounded-lg hover:bg-brand-50">FAQ</a>
-                <a href="#contact" class="mt-2 px-3 py-3 rounded-xl bg-brand-700 text-white text-center font-semibold">Request a demo</a>
-            </div>
-        </nav>
-    </header>
-
     <main id="main">
         <!-- Hero -->
         <section id="home" class="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24 bg-gradient-to-b from-brand-50 via-white to-white">
@@ -106,11 +34,11 @@
                     </h1>
                     <p class="mt-6 text-lg text-gray-600 max-w-xl">Entice Feed is building a differentiated Agricultural Software-as-a-Service platform that connects all players in the agricultural value chain through a smart, inclusive digital ecosystem.</p>
                     <div class="mt-8 flex flex-col sm:flex-row gap-3">
-                        <a href="#contact" data-topic="Demo request" class="topic-link inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-xl font-semibold bg-brand-700 text-white hover:bg-brand-900 transition shadow-soft">
+                        <a href="contact.html" data-topic="Demo request" class="topic-link inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-xl font-semibold bg-brand-700 text-white hover:bg-brand-900 transition shadow-soft">
                             Request a demo
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
                         </a>
-                        <a href="#contact" data-topic="Investor deck request" class="topic-link inline-flex justify-center items-center px-6 py-3.5 rounded-xl font-semibold bg-white text-brand-900 border border-brand-200 hover:border-brand-500 transition">Get the investor deck</a>
+                        <a href="contact.html" data-topic="Investor deck request" class="topic-link inline-flex justify-center items-center px-6 py-3.5 rounded-xl font-semibold bg-white text-brand-900 border border-brand-200 hover:border-brand-500 transition">Get the investor deck</a>
                     </div>
                     <dl class="mt-10 grid grid-cols-3 gap-6 max-w-md">
                         <div><dt class="text-xs text-gray-500">Value chain</dt><dd class="font-bold text-brand-900">5 stakeholders</dd></div>
@@ -145,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <p class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-[11px] text-gray-400">Live data from NOAA, the World Bank and Open-Meteo · <span id="h-updated">updating weekly</span> · <a href="#intel" class="underline hover:text-brand-700">see methodology</a></p>
+            <p class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-[11px] text-gray-400">Live data from NOAA, the World Bank and Open-Meteo · <span id="h-updated">updating weekly</span> · <a href="insights.html#method" class="underline hover:text-brand-700">see methodology</a></p>
         </section>
 
         <!-- Stats -->
@@ -157,6 +85,18 @@
                     <div class="rounded-2xl bg-brand-50 p-6"><p class="text-4xl font-extrabold text-brand-900"><span class="counter" data-to="5000">0</span>+</p><p class="text-sm text-gray-600 mt-1">Farmers connected</p></div>
                     <div class="rounded-2xl bg-harvest-400 p-6"><p class="text-4xl font-extrabold text-brand-900"><span class="counter" data-to="20">0</span>%</p><p class="text-sm text-brand-900/80 mt-1">Yield improvement</p></div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Who it's for -->
+        <section id="roles" class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto reveal">
+                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Who it's for</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Pick your role, see what's in it for you</h2>
+                    <p class="mt-4 text-gray-600">No jargon and no guesswork: every part of the value chain gets clear, practical tools.</p>
+                </div>
+                <div class="mt-10 grid grid-cols-2 md:grid-cols-5 gap-4" id="role-grid"></div>
             </div>
         </section>
 
@@ -199,226 +139,6 @@
             </div>
         </section>
 
-        <!-- Ecosystem -->
-        <section id="ecosystem" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto reveal">
-                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Ecosystem integration</p>
-                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Every stakeholder, one platform</h2>
-                    <p class="mt-4 text-gray-600">Our platform connects all key stakeholders in the agricultural value chain, creating a seamless ecosystem for collaboration and growth.</p>
-                </div>
-                <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8 reveal">
-                    <div role="tablist" aria-label="Stakeholders" class="flex lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0" id="eco-tabs"></div>
-                    <div class="lg:col-span-2 rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-7 sm:p-9" id="eco-panel" role="tabpanel" tabindex="0"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AI -->
-        <section id="ai" class="py-20 bg-brand-900 text-white relative overflow-hidden">
-            <div class="absolute -right-24 -top-24 w-96 h-96 bg-brand-500/30 rounded-full blur-3xl" aria-hidden="true"></div>
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="reveal">
-                    <p class="text-sm font-semibold text-harvest-400 uppercase tracking-wider">AI &amp; analytics</p>
-                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">Data-driven agriculture, explained simply</h2>
-                    <p class="mt-4 text-brand-100">Our platform uses AI and machine learning to deliver:</p>
-                    <ul class="mt-6 space-y-4">
-                        <li class="flex gap-3"><span class="check-dark"></span><span>Yield prediction based on weather, soil and historical data</span></li>
-                        <li class="flex gap-3"><span class="check-dark"></span><span>Market price forecasting and demand analysis</span></li>
-                        <li class="flex gap-3"><span class="check-dark"></span><span>Automated risk alerts for disease, drought and pests</span></li>
-                        <li class="flex gap-3"><span class="check-dark"></span><span>Personalised recommendations for crop management</span></li>
-                    </ul>
-                </div>
-                <div class="reveal rounded-3xl bg-white/5 ring-1 ring-white/10 p-6">
-                    <div class="flex items-start justify-between gap-3 flex-wrap">
-                        <div>
-                            <p class="font-semibold">El Niño vs South African harvests</p>
-                            <p class="text-xs text-brand-100/80 mt-0.5">Cereal yield (kg/ha), with El Niño seasons highlighted</p>
-                        </div>
-                        <span class="text-xs font-semibold bg-harvest-400 text-brand-900 px-2.5 py-1 rounded-full" id="ai-badge">Real data</span>
-                    </div>
-                    <div class="h-64 mt-4"><canvas id="ai-chart" aria-label="South African cereal yields by year compared with the trend, with El Niño seasons highlighted and next season's projection" role="img"></canvas></div>
-                    <p class="mt-3 text-sm text-brand-50" id="ai-summary"></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Live climate & market intelligence -->
-        <section id="intel" class="py-20 bg-gradient-to-b from-white to-brand-50/60">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 reveal">
-                    <div class="max-w-2xl">
-                        <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Live climate &amp; market intelligence</p>
-                        <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Plan the season with real data</h2>
-                        <p class="mt-4 text-gray-600">Forecasts built from public climate and market data, refreshed every week, plus live weather for South Africa's main growing regions.</p>
-                    </div>
-                    <p class="text-xs text-gray-500" id="intel-updated"></p>
-                </div>
-
-                <div id="intel-error" class="hidden mt-8 rounded-2xl bg-amber-50 text-amber-800 p-4 text-sm"></div>
-
-                <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <!-- ENSO -->
-                    <article class="reveal rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-6">
-                        <div class="flex items-start justify-between gap-3">
-                            <div><p class="text-xs text-gray-500">Pacific Ocean · Niño 3.4</p><h3 class="font-bold text-brand-900 text-lg">El Niño–Southern Oscillation</h3></div>
-                            <span id="enso-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-gray-100 text-gray-600">…</span>
-                        </div>
-                        <div class="h-56 mt-4"><canvas id="enso-chart" aria-label="Oceanic Niño Index history and nine-month outlook" role="img"></canvas></div>
-                        <p class="mt-3 text-sm text-gray-600" id="enso-text"></p>
-                    </article>
-
-                    <!-- Price -->
-                    <article class="reveal rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-6">
-                        <div class="flex items-start justify-between gap-3">
-                            <div><p class="text-xs text-gray-500">World maize price in rand</p><h3 class="font-bold text-brand-900 text-lg">6-month price outlook</h3></div>
-                            <span id="price-now" class="text-right"></span>
-                        </div>
-                        <div class="h-56 mt-4"><canvas id="price-chart" aria-label="Maize price in rand per ton for three years with a six-month forecast range" role="img"></canvas></div>
-                        <p class="mt-3 text-sm text-gray-600" id="price-text"></p>
-                    </article>
-
-                    <!-- Rainfall outlook -->
-                    <article class="reveal rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-6">
-                        <div class="flex items-start justify-between gap-3 flex-wrap">
-                            <div><p class="text-xs text-gray-500">ECMWF seasonal ensemble</p><h3 class="font-bold text-brand-900 text-lg">Rainfall outlook vs normal</h3></div>
-                            <label class="text-sm"><span class="sr-only">Region</span>
-                                <select id="region-select" class="field !py-2 !text-sm"></select>
-                            </label>
-                        </div>
-                        <div class="h-56 mt-4"><canvas id="rain-chart" aria-label="Forecast monthly rainfall compared with the 1991 to 2020 normal for the selected region" role="img"></canvas></div>
-                        <p class="mt-3 text-sm text-gray-600" id="rain-text"></p>
-                    </article>
-
-                    <!-- Live weather -->
-                    <article class="reveal rounded-3xl bg-brand-900 text-white shadow-soft p-6">
-                        <div class="flex items-start justify-between gap-3">
-                            <div><p class="text-xs text-brand-100/80">Live · Open-Meteo</p><h3 class="font-bold text-lg">Next 7 days: <span id="wx-region"></span></h3></div>
-                            <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-white/10 px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-harvest-400 animate-pulse"></span>Live</span>
-                        </div>
-                        <div class="grid grid-cols-3 gap-3 mt-5">
-                            <div class="rounded-2xl bg-white/10 p-3"><p class="text-[11px] text-brand-100">Rain (7 days)</p><p class="text-xl font-extrabold" id="wx-rain">…</p></div>
-                            <div class="rounded-2xl bg-white/10 p-3"><p class="text-[11px] text-brand-100">Soil moisture</p><p class="text-xl font-extrabold" id="wx-soil">…</p></div>
-                            <div class="rounded-2xl bg-white/10 p-3"><p class="text-[11px] text-brand-100">Max temp</p><p class="text-xl font-extrabold" id="wx-tmax">…</p></div>
-                        </div>
-                        <div class="mt-5 grid grid-cols-7 gap-1.5 text-center text-xs" id="wx-days"></div>
-                        <p class="mt-4 text-sm text-brand-50" id="wx-advice"></p>
-                    </article>
-                </div>
-
-                <details class="mt-8 rounded-2xl bg-white ring-1 ring-black/5 px-6 py-5 reveal">
-                    <summary class="cursor-pointer font-semibold text-brand-900 flex items-center justify-between gap-4">Methodology, sources &amp; limitations
-                        <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-brand-50 text-brand-700 grid place-items-center transition"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg></span>
-                    </summary>
-                    <div class="mt-4 text-sm text-gray-600 space-y-3" id="method-text"></div>
-                </details>
-            </div>
-        </section>
-
-        <!-- Auctions -->
-        <section id="auctions" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 reveal">
-                    <div class="max-w-2xl">
-                        <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Produce auctions</p>
-                        <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Fair prices through open bidding</h2>
-                        <p class="mt-4 text-gray-600">Farmers list produce, verified buyers and processors bid, and everyone sees transparent prices, with no middlemen taking the margin.</p>
-                    </div>
-                    <span class="inline-flex items-center gap-2 text-xs font-semibold text-brand-700 bg-brand-50 px-3 py-1.5 rounded-full self-start md:self-auto"><span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> Live preview (sample lots)</span>
-                </div>
-                <div id="auction-grid" class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
-            </div>
-        </section>
-
-        <!-- Plant tracking -->
-        <section id="tracking" class="py-20 bg-brand-50/60">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-2xl reveal">
-                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Plant tracking</p>
-                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Monitor crop health in real time</h2>
-                    <p class="mt-4 text-gray-600">See the status of every field and greenhouse at a glance, and act on problems before they cost you a harvest.</p>
-                </div>
-                <div class="mt-10 rounded-3xl bg-white ring-1 ring-black/5 shadow-soft overflow-hidden reveal">
-                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row gap-3 sm:items-center justify-between border-b border-gray-100">
-                        <div class="relative sm:w-72">
-                            <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="m20 20-3.5-3.5"/></svg>
-                            <label for="plant-search" class="sr-only">Search crops or locations</label>
-                            <input id="plant-search" type="search" placeholder="Search crop or location" class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none text-sm">
-                        </div>
-                        <div class="flex gap-2 text-sm overflow-x-auto" role="group" aria-label="Filter by status" id="status-filters"></div>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-sm">
-                            <thead class="bg-gray-50 text-left text-xs uppercase tracking-wider text-gray-500">
-                                <tr><th class="px-5 py-3 font-semibold">Crop</th><th class="px-5 py-3 font-semibold">Location</th><th class="px-5 py-3 font-semibold">Status</th><th class="px-5 py-3 font-semibold">Moisture</th><th class="px-5 py-3 font-semibold">Last update</th></tr>
-                            </thead>
-                            <tbody id="plant-body" class="divide-y divide-gray-100"></tbody>
-                        </table>
-                    </div>
-                    <p id="plant-empty" class="hidden p-8 text-center text-gray-500 text-sm">No crops match your search.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing -->
-        <section id="pricing" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto reveal">
-                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">SaaS subscription model</p>
-                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Plans for every farm size</h2>
-                    <p class="mt-4 text-gray-600">Flexible subscription tiers for different farm sizes and needs, with pricing that scales as you grow.</p>
-                </div>
-                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-                    <div class="reveal rounded-3xl border border-gray-200 p-8 flex flex-col">
-                        <h3 class="text-lg font-bold text-brand-900">Smallholder</h3>
-                        <p class="text-sm text-gray-500 mt-1">For individual and emerging farmers</p>
-                        <p class="mt-6 text-3xl font-extrabold text-brand-900">Free pilot</p>
-                        <ul class="mt-6 space-y-3 text-sm text-gray-600 flex-1">
-                            <li class="flex gap-2"><span class="check"></span>Farm profile and plant tracking</li>
-                            <li class="flex gap-2"><span class="check"></span>Market prices and auction access</li>
-                            <li class="flex gap-2"><span class="check"></span>Offline mode and multi-language</li>
-                        </ul>
-                        <a href="#contact" data-topic="Smallholder plan" class="topic-link mt-8 text-center px-5 py-3 rounded-xl font-semibold border border-brand-200 text-brand-900 hover:border-brand-500 transition">Join the pilot</a>
-                    </div>
-                    <div class="reveal rounded-3xl bg-brand-900 text-white p-8 flex flex-col relative shadow-soft md:-translate-y-3">
-                        <span class="absolute -top-3 left-8 text-xs font-bold bg-harvest-400 text-brand-900 px-3 py-1 rounded-full">Most popular</span>
-                        <h3 class="text-lg font-bold">Commercial</h3>
-                        <p class="text-sm text-brand-100 mt-1">For commercial farms and cooperatives</p>
-                        <p class="mt-6 text-3xl font-extrabold">Monthly plan</p>
-                        <ul class="mt-6 space-y-3 text-sm text-brand-50 flex-1">
-                            <li class="flex gap-2"><span class="check-dark"></span>Everything in Smallholder</li>
-                            <li class="flex gap-2"><span class="check-dark"></span>AI yield forecasts and risk alerts</li>
-                            <li class="flex gap-2"><span class="check-dark"></span>Cooperative tools and resource sharing</li>
-                            <li class="flex gap-2"><span class="check-dark"></span>Sustainability reporting and carbon credits</li>
-                        </ul>
-                        <a href="#contact" data-topic="Commercial plan pricing" class="topic-link mt-8 text-center px-5 py-3 rounded-xl font-semibold bg-harvest-400 text-brand-900 hover:bg-harvest-300 transition">Get pricing</a>
-                    </div>
-                    <div class="reveal rounded-3xl border border-gray-200 p-8 flex flex-col">
-                        <h3 class="text-lg font-bold text-brand-900">Enterprise</h3>
-                        <p class="text-sm text-gray-500 mt-1">For suppliers, processors, lenders and government</p>
-                        <p class="mt-6 text-3xl font-extrabold text-brand-900">Custom</p>
-                        <ul class="mt-6 space-y-3 text-sm text-gray-600 flex-1">
-                            <li class="flex gap-2"><span class="check"></span>Data dashboards across many farms</li>
-                            <li class="flex gap-2"><span class="check"></span>API integrations and data exports</li>
-                            <li class="flex gap-2"><span class="check"></span>Dedicated onboarding and support</li>
-                        </ul>
-                        <a href="#contact" data-topic="Enterprise enquiry" class="topic-link mt-8 text-center px-5 py-3 rounded-xl font-semibold border border-brand-200 text-brand-900 hover:border-brand-500 transition">Talk to sales</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section id="faq" class="py-20 bg-brand-50/60">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center reveal">
-                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">FAQ</p>
-                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Questions, answered</h2>
-                </div>
-                <div class="mt-10 space-y-3" id="faq-list"></div>
-            </div>
-        </section>
-
         <!-- CTA band -->
         <section class="py-16">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -428,201 +148,25 @@
                         <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Unlock the power of data-driven agriculture</h2>
                         <p class="mt-2 text-brand-100">See Entice Feed working with your own farm data.</p>
                     </div>
-                    <a href="#contact" data-topic="Demo request" class="topic-link relative shrink-0 px-6 py-3.5 rounded-xl font-semibold bg-harvest-400 text-brand-900 hover:bg-harvest-300 transition">Book a demo</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-5 gap-10">
-                <div class="lg:col-span-2 reveal">
-                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Contact</p>
-                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Let's grow together</h2>
-                    <p class="mt-4 text-gray-600">Farmers, partners and investors: tell us what you need and our team will get back to you.</p>
-                    <ul class="mt-8 space-y-5">
-                        <li class="flex gap-4"><span class="contact-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><p class="text-sm text-gray-500">Location</p><p class="font-semibold text-brand-900">123 Agri Lane, Johannesburg, South Africa</p></div></li>
-                        <li class="flex gap-4"><span class="contact-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span><div><p class="text-sm text-gray-500">Phone</p><a href="tel:+27115550123" class="font-semibold text-brand-900 hover:text-brand-500">+27 11 555 0123</a></div></li>
-                        <li class="flex gap-4"><span class="contact-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="m3 7 9 6 9-6"/></svg></span><div><p class="text-sm text-gray-500">Email</p><a href="mailto:invest@enticefeed.com" class="font-semibold text-brand-900 hover:text-brand-500">invest@enticefeed.com</a></div></li>
-                    </ul>
-                </div>
-                <div class="lg:col-span-3 reveal">
-                    <form id="contact-form" class="rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 gap-5" novalidate>
-                        <div>
-                            <label for="c-name" class="text-sm font-medium text-gray-700">Full name</label>
-                            <input id="c-name" name="name" required autocomplete="name" class="field mt-1.5" placeholder="Thandi Mokoena">
-                            <p class="error-msg" data-for="c-name">Please enter your name.</p>
-                        </div>
-                        <div>
-                            <label for="c-email" class="text-sm font-medium text-gray-700">Email</label>
-                            <input id="c-email" name="email" type="email" required autocomplete="email" class="field mt-1.5" placeholder="you@farm.co.za">
-                            <p class="error-msg" data-for="c-email">Please enter a valid email address.</p>
-                        </div>
-                        <div>
-                            <label for="c-role" class="text-sm font-medium text-gray-700">I am a…</label>
-                            <select id="c-role" name="role" class="field mt-1.5">
-                                <option>Farmer / producer</option>
-                                <option>Cooperative</option>
-                                <option>Input supplier</option>
-                                <option>Buyer / processor</option>
-                                <option>Financial institution</option>
-                                <option>Government body</option>
-                                <option>Investor</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="c-topic" class="text-sm font-medium text-gray-700">Topic</label>
-                            <input id="c-topic" name="topic" class="field mt-1.5" value="Demo request">
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label for="c-message" class="text-sm font-medium text-gray-700">Message</label>
-                            <textarea id="c-message" name="message" rows="4" required class="field mt-1.5" placeholder="Tell us about your farm or organisation…"></textarea>
-                            <p class="error-msg" data-for="c-message">Please add a short message.</p>
-                        </div>
-                        <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                            <label class="flex items-start gap-2 text-sm text-gray-600"><input id="c-news" type="checkbox" class="mt-1 accent-brand-700"> Also send me monthly farming tips</label>
-                            <button type="submit" class="px-6 py-3.5 rounded-xl font-semibold bg-brand-700 text-white hover:bg-brand-900 transition">Send message</button>
-                        </div>
-                        <p class="sm:col-span-2 text-xs text-gray-400">Sending opens your email app with the message ready to go. We only use your details to reply to you, in line with POPIA.</p>
-                        <p id="form-status" class="sm:col-span-2 hidden text-sm rounded-xl bg-brand-50 text-brand-900 px-4 py-3" role="status"></p>
-                    </form>
+                    <a href="contact.html" data-topic="Demo request" class="topic-link relative shrink-0 px-6 py-3.5 rounded-xl font-semibold bg-harvest-400 text-brand-900 hover:bg-harvest-300 transition">Book a demo</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-brand-900 text-brand-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            <div>
-                <div class="flex items-center gap-3">
-                    <img src="logo.jpg" alt="" class="w-10 h-10 rounded-xl object-cover bg-white">
-                    <span class="text-xl font-extrabold text-white">Entice<span class="text-harvest-400">Feed</span></span>
-                </div>
-                <p class="mt-4 text-sm">A smart, inclusive digital ecosystem for South African agriculture.</p>
-            </div>
-            <div>
-                <p class="font-semibold text-white">Platform</p>
-                <ul class="mt-4 space-y-2 text-sm">
-                    <li><a href="#ai" class="hover:text-white">AI insights</a></li>
-                    <li><a href="#auctions" class="hover:text-white">Produce auctions</a></li>
-                    <li><a href="#tracking" class="hover:text-white">Plant tracking</a></li>
-                    <li><a href="#pricing" class="hover:text-white">Plans</a></li>
-                </ul>
-            </div>
-            <div>
-                <p class="font-semibold text-white">Company</p>
-                <ul class="mt-4 space-y-2 text-sm">
-                    <li><a href="#ecosystem" class="hover:text-white">Ecosystem</a></li>
-                    <li><a href="#contact" data-topic="Investor deck request" class="topic-link hover:text-white">Investors</a></li>
-                    <li><a href="#faq" class="hover:text-white">FAQ</a></li>
-                    <li><a href="#contact" class="hover:text-white">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <p class="font-semibold text-white">Get in touch</p>
-                <ul class="mt-4 space-y-2 text-sm">
-                    <li>123 Agri Lane, Johannesburg</li>
-                    <li><a href="tel:+27115550123" class="hover:text-white">+27 11 555 0123</a></li>
-                    <li><a href="mailto:invest@enticefeed.com" class="hover:text-white">invest@enticefeed.com</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="border-t border-white/10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between gap-2 text-xs">
-                <p>© <span id="year"></span> Entice Feed Pty Ltd. All rights reserved.</p>
-                <p>Proudly South African 🇿🇦</p>
-            </div>
-        </div>
-    </footer>
-
-    <button id="back-to-top" class="fixed bottom-5 right-5 z-40 w-12 h-12 rounded-full bg-harvest-400 text-brand-900 shadow-soft grid place-items-center opacity-0 pointer-events-none transition" aria-label="Back to top">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m6 15 6-6 6 6"/></svg>
-    </button>
-
-    <style>
-        .check, .check-dark { flex: none; width: 1.25rem; height: 1.25rem; margin-top: .1rem; border-radius: 999px; background-repeat: no-repeat; background-position: center; background-size: .75rem; }
-        .check { background-color: #dcefdc; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231b5e20' stroke-width='3.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m5 12 5 5 9-10'/%3E%3C/svg%3E"); }
-        .check-dark { background-color: #ffd600; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f3812' stroke-width='3.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m5 12 5 5 9-10'/%3E%3C/svg%3E"); }
-        .contact-icon { flex: none; width: 2.75rem; height: 2.75rem; border-radius: .9rem; display: grid; place-items: center; background: #f1f8f1; color: #1b5e20; }
-        .field { width: 100%; border: 1px solid #e5e7eb; border-radius: .8rem; padding: .7rem .9rem; font-size: .95rem; outline: none; background: #fff; transition: border-color .2s, box-shadow .2s; }
-        .field:focus { border-color: #2e7d32; box-shadow: 0 0 0 3px #dcefdc; }
-        .field.invalid { border-color: #dc2626; box-shadow: 0 0 0 3px #fee2e2; }
-        .error-msg { display: none; color: #dc2626; font-size: .8rem; margin-top: .35rem; }
-        .error-msg.show { display: block; }
-        #site-header.scrolled { background: rgba(255,255,255,.92); backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(0,0,0,.06); }
-    </style>
-
+    <script src="assets/site.js"></script>
+    <script src="assets/live.js"></script>
     <script>
     (function () {
         'use strict';
-        const $ = (s, r = document) => r.querySelector(s);
-        const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const icon = (d) => `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="${d}"/></svg>`;
-        const ICONS = {
-            network: 'M7.5 7.5a3 3 0 1 0 0-.01M16.5 7.5a3 3 0 1 0 0-.01M12 16.5a3 3 0 1 0 0-.01M9 9.5l2 4.5M15 9.5l-2 4.5M10 7.5h4',
-            chart: 'M4 20V10m6 10V4m6 16v-7m4 7H2',
-            leaf: 'M5 19c9 0 14-5 14-14-9 0-14 5-14 14Zm0 0 7-7',
-            hand: 'M8 13V5.5a1.5 1.5 0 0 1 3 0V12m0-1V4.5a1.5 1.5 0 0 1 3 0V12m0-1.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L3.6 14.6a1.5 1.5 0 0 1 2.4-1.8L8 15',
-            users: 'M16 19v-1a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v1m20 0v-1a4 4 0 0 0-3-3.9M15 3.1a4 4 0 0 1 0 7.8M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z',
-            cloud: 'M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9a4.5 4.5 0 0 0 1 9Z',
-            box: 'M21 8 12 3 3 8m18 0-9 5m9-5v8l-9 5m0-8L3 8m9 5v8M3 8v8l9 5',
-            bank: 'M3 10h18M5 10v8m4-8v8m6-8v8m4-8v8M3 21h18M12 3l9 5H3l9-5Z',
-            cart: 'M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.7a1 1 0 0 0 1-.8L20 8H6.2M9 20.5a.5.5 0 1 0 0-.01M17 20.5a.5.5 0 1 0 0-.01',
-            gov: 'M4 21V10m16 11V10M12 3 2 8h20L12 3ZM8 21v-7h8v7M2 21h20',
-        };
-
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // ── Header & mobile menu ────────────────────────────────────────────
-        const header = $('#site-header');
-        const onScroll = () => {
-            header.classList.toggle('scrolled', window.scrollY > 10);
-            const top = $('#back-to-top');
-            const show = window.scrollY > 600;
-            top.classList.toggle('opacity-0', !show);
-            top.classList.toggle('pointer-events-none', !show);
-        };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-        $('#back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
-
-        const menuBtn = $('#menu-btn'), menu = $('#mobile-menu');
-        const setMenu = (open) => {
-            menu.classList.toggle('hidden', !open);
-            menuBtn.setAttribute('aria-expanded', open);
-            menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-            $('#menu-icon').innerHTML = open ? '<path stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/>' : '<path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/>';
-            if (open) header.classList.add('scrolled'); else onScroll();
-        };
-        menuBtn.addEventListener('click', () => setMenu(menu.classList.contains('hidden')));
-        $$('#mobile-menu a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
-
-        // Active nav link while scrolling
-        const sections = $$('main section[id]');
-        const navLinks = $$('.nav-link');
-        if ('IntersectionObserver' in window) {
-            const spy = new IntersectionObserver((entries) => {
-                entries.forEach((e) => {
-                    if (!e.isIntersecting) return;
-                    navLinks.forEach((l) => {
-                        const on = l.getAttribute('href') === '#' + e.target.id;
-                        l.classList.toggle('text-brand-700', on);
-                        l.classList.toggle('bg-brand-50', on);
-                    });
-                });
-            }, { rootMargin: '-45% 0px -50% 0px' });
-            sections.forEach((s) => spy.observe(s));
-        }
-
-        // Header offset for anchor jumps
-        sections.forEach((s) => (s.style.scrollMarginTop = '80px'));
-
-        // Pre-fill the contact topic from CTAs
-        $$('.topic-link').forEach((a) => a.addEventListener('click', () => { $('#c-topic').value = a.dataset.topic; }));
-
+        const { $, $$, icon, ICONS, reduceMotion } = window.EF;
+        const ROLES = [['farmers', 'users', 'Farmers & co-ops', 'Sell at fair prices, track crops, get drought alerts'], ['suppliers', 'box', 'Input suppliers', 'Reach farmers and forecast demand'],
+            ['financial', 'bank', 'Lenders & insurers', 'Assess risk with verified farm data'], ['buyers', 'cart', 'Buyers & processors', 'Source traceable produce directly'], ['government', 'gov', 'Government', 'Monitor regions and target support']];
+        $('#role-grid').innerHTML = ROLES.map(([id, ic, t, d]) => `
+            <a href="platform.html#${id}" class="reveal group rounded-3xl bg-white ring-1 ring-black/5 p-5 hover:shadow-soft hover:-translate-y-1 transition">
+                <span class="w-11 h-11 rounded-2xl bg-brand-50 text-brand-700 grid place-items-center group-hover:bg-brand-700 group-hover:text-harvest-400 transition">${icon(ICONS[ic])}</span>
+                <span class="block mt-4 font-bold text-brand-900">${t}</span><span class="block mt-1 text-sm text-gray-600">${d}</span>
+                <span class="block mt-3 text-sm font-semibold text-brand-500">See your tools →</span></a>`).join('');
         // ── Features ────────────────────────────────────────────────────────
         const FEATURES = [
             { icon: 'network', title: 'B2B ecosystem integration', text: 'A seamless business-to-business ecosystem connecting farmers, suppliers, buyers, financial institutions and government bodies.', points: ['Simplified operations', 'Enhanced collaboration', 'Streamlined value chain'] },
@@ -640,402 +184,6 @@
                 <ul class="mt-5 space-y-2 text-sm text-gray-700">${f.points.map((p) => `<li class="flex gap-2"><span class="check"></span>${p}</li>`).join('')}</ul>
             </article>`).join('');
 
-        // ── Ecosystem tabs ──────────────────────────────────────────────────
-        const STAKEHOLDERS = [
-            { id: 'farmers', icon: 'users', label: 'Farmers & producers', title: 'Farmers & producer organisations',
-              text: 'Our platform gives farmers and producer organisations the tools to optimise operations, access markets and adopt sustainable practices.',
-              groups: [{ h: 'Key organisations', items: ['Agri South Africa (AgriSA)', 'National African Farmers Union (NAFU)', 'African Farmers Association of South Africa (AFASA)'] },
-                       { h: 'Platform benefits', items: ['Profile creation and management', 'Cooperative tools and resource sharing', 'Sustainability reporting and certification', 'Market access and price discovery'] }] },
-            { id: 'suppliers', icon: 'box', label: 'Input suppliers', title: 'Input suppliers',
-              text: 'Suppliers can connect with farmers, manage inventory and streamline supply chains through the platform.',
-              groups: [{ h: 'Platform benefits', items: ['Reach farmers by region and crop', 'Demand signals from planting data', 'Inventory and order management', 'Direct ordering and delivery tracking'] }] },
-            { id: 'financial', icon: 'bank', label: 'Financial institutions', title: 'Financial institutions',
-              text: 'Financial partners gain access to farmer data for better credit risk assessment and loan offerings.',
-              groups: [{ h: 'Platform benefits', items: ['Verified production and sales history', 'Data-backed credit risk assessment', 'Input finance and crop insurance offers', 'Portfolio monitoring with risk alerts'] }] },
-            { id: 'buyers', icon: 'cart', label: 'Buyers & processors', title: 'Buyers & processors',
-              text: 'Buyers can source produce directly, with transparency and fair pricing.',
-              groups: [{ h: 'Platform benefits', items: ['Produce auctions and direct contracts', 'Traceability from field to factory', 'Forward visibility of supply', 'Quality and certification records'] }] },
-            { id: 'government', icon: 'gov', label: 'Government bodies', title: 'Government bodies',
-              text: 'Government agencies can monitor agricultural trends and support policy-making with real-time data.',
-              groups: [{ h: 'Platform benefits', items: ['Regional production dashboards', 'Early warning for drought and disease', 'Targeting of support programmes', 'Sustainability and emissions reporting'] }] },
-        ];
-        const tabs = $('#eco-tabs'), panel = $('#eco-panel');
-        tabs.innerHTML = STAKEHOLDERS.map((s, i) => `
-            <button type="button" role="tab" id="tab-${s.id}" aria-controls="eco-panel" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-id="${s.id}"
-                class="tab-btn shrink-0 flex items-center gap-3 px-4 py-3.5 rounded-2xl text-left font-semibold text-brand-900 bg-brand-50 hover:bg-brand-100 transition whitespace-nowrap">
-                <span class="text-brand-500">${icon(ICONS[s.icon])}</span>${s.label}
-            </button>`).join('');
-        function showTab(id, focus) {
-            const s = STAKEHOLDERS.find((x) => x.id === id);
-            $$('.tab-btn', tabs).forEach((b) => { const on = b.dataset.id === id; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); });
-            panel.setAttribute('aria-labelledby', 'tab-' + id);
-            panel.innerHTML = `
-                <h3 class="text-2xl font-bold text-brand-900">${s.title}</h3>
-                <p class="mt-3 text-gray-600">${s.text}</p>
-                <div class="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-7">${s.groups.map((g) => `
-                    <div><p class="font-semibold text-brand-900">${g.h}</p>
-                    <ul class="mt-3 space-y-2.5 text-sm text-gray-700">${g.items.map((it) => `<li class="flex gap-2"><span class="check"></span>${it}</li>`).join('')}</ul></div>`).join('')}
-                </div>`;
-        }
-        tabs.addEventListener('click', (e) => { const b = e.target.closest('.tab-btn'); if (b) showTab(b.dataset.id); });
-        tabs.addEventListener('keydown', (e) => {
-            if (!['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'].includes(e.key)) return;
-            e.preventDefault();
-            const ids = STAKEHOLDERS.map((s) => s.id);
-            const cur = ids.indexOf($('.tab-btn[aria-selected="true"]', tabs).dataset.id);
-            const step = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : -1;
-            showTab(ids[(cur + step + ids.length) % ids.length], true);
-        });
-        showTab('farmers');
-
-        // ── Auctions (sample lots) ──────────────────────────────────────────
-        const now = Date.now();
-        const LOTS = [
-            { crop: 'Yellow maize', grade: 'Grade YM1', qty: '120 t', region: 'Free State', bid: 4120, bids: 14, ends: now + 2 * 3600e3 + 14 * 60e3, emoji: '🌽' },
-            { crop: 'Wheat', grade: 'Grade B1', qty: '80 t', region: 'Western Cape', bid: 5350, bids: 9, ends: now + 5 * 3600e3 + 3 * 60e3, emoji: '🌾' },
-            { crop: 'Soybeans', grade: 'Grade 1', qty: '45 t', region: 'Mpumalanga', bid: 7980, bids: 21, ends: now + 47 * 60e3, emoji: '🫘' },
-            { crop: 'Sunflower seed', grade: 'Grade FH1', qty: '60 t', region: 'North West', bid: 8240, bids: 6, ends: now + 26 * 3600e3, emoji: '🌻' },
-        ];
-        const rand = (n) => n.toLocaleString('en-ZA');
-        const fmtLeft = (ms) => {
-            if (ms <= 0) return 'Closed';
-            const h = Math.floor(ms / 3600e3), m = Math.floor((ms % 3600e3) / 60e3), s = Math.floor((ms % 60e3) / 1000);
-            return h > 23 ? `${Math.floor(h / 24)}d ${h % 24}h` : `${h}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`;
-        };
-        function renderLots() {
-            $('#auction-grid').innerHTML = LOTS.map((l, i) => `
-                <article class="reveal visible rounded-3xl bg-white ring-1 ring-black/5 p-5 flex flex-col hover:shadow-soft transition">
-                    <div class="flex items-start justify-between">
-                        <span class="text-4xl" aria-hidden="true">${l.emoji}</span>
-                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full ${l.ends - Date.now() < 3600e3 ? 'bg-red-50 text-red-600' : 'bg-brand-50 text-brand-700'}" data-countdown="${i}">${fmtLeft(l.ends - Date.now())}</span>
-                    </div>
-                    <h3 class="mt-4 font-bold text-brand-900">${l.crop}</h3>
-                    <p class="text-xs text-gray-500">${l.grade} · ${l.qty} · ${l.region}</p>
-                    <div class="mt-4 flex items-end justify-between">
-                        <div><p class="text-[11px] text-gray-500">Current bid</p><p class="text-xl font-extrabold text-brand-900">R${rand(l.bid)}<span class="text-xs font-medium text-gray-500">/t</span></p></div>
-                        <p class="text-xs text-gray-500">${l.bids} bids</p>
-                    </div>
-                    <button type="button" class="bid-btn mt-4 py-2.5 rounded-xl text-sm font-semibold bg-brand-700 text-white hover:bg-brand-900 transition" data-lot="${i}">Place sample bid</button>
-                </article>`).join('');
-        }
-        renderLots();
-        $('#auction-grid').addEventListener('click', (e) => {
-            const b = e.target.closest('.bid-btn');
-            if (!b) return;
-            const lot = LOTS[+b.dataset.lot];
-            lot.bid += 25; lot.bids += 1;
-            renderLots();
-            const btn = $(`.bid-btn[data-lot="${b.dataset.lot}"]`);
-            btn.textContent = `✓ Bid placed: R${rand(lot.bid)}/t`;
-            btn.classList.replace('bg-brand-700', 'bg-harvest-400');
-            btn.classList.replace('text-white', 'text-brand-900');
-        });
-        setInterval(() => {
-            $$('[data-countdown]').forEach((el) => { el.textContent = fmtLeft(LOTS[+el.dataset.countdown].ends - Date.now()); });
-        }, 1000);
-
-        // ── Plant tracking ──────────────────────────────────────────────────
-        const STATUS = {
-            'Healthy':     'bg-brand-50 text-brand-700',
-            'Needs water': 'bg-amber-50 text-amber-700',
-            'Pest risk':   'bg-red-50 text-red-600',
-            'Harvest due': 'bg-blue-50 text-blue-700',
-        };
-        const minsAgo = (m) => m < 60 ? `${m} min ago` : `${Math.round(m / 60)} h ago`;
-        const PLANTS = [
-            { crop: 'Maize',     loc: 'Field A',      status: 'Healthy',     moisture: 34, ago: 4 },
-            { crop: 'Wheat',     loc: 'Field B',      status: 'Needs water', moisture: 18, ago: 9 },
-            { crop: 'Soybean',   loc: 'Greenhouse 1', status: 'Healthy',     moisture: 41, ago: 14 },
-            { crop: 'Tomatoes',  loc: 'Greenhouse 2', status: 'Pest risk',   moisture: 37, ago: 22 },
-            { crop: 'Sunflower', loc: 'Field C',      status: 'Harvest due', moisture: 26, ago: 65 },
-            { crop: 'Potatoes',  loc: 'Field D',      status: 'Healthy',     moisture: 31, ago: 130 },
-        ];
-        let statusFilter = 'All';
-        $('#status-filters').innerHTML = ['All', ...Object.keys(STATUS)].map((s) =>
-            `<button type="button" class="status-btn shrink-0 px-3 py-1.5 rounded-full border transition ${s === 'All' ? 'bg-brand-700 text-white border-brand-700' : 'border-gray-200 text-gray-600 hover:border-brand-500'}" data-status="${s}" aria-pressed="${s === 'All'}">${s}</button>`).join('');
-        function renderPlants() {
-            const q = $('#plant-search').value.trim().toLowerCase();
-            const rows = PLANTS.filter((p) => (statusFilter === 'All' || p.status === statusFilter) && (`${p.crop} ${p.loc}`.toLowerCase().includes(q)));
-            $('#plant-body').innerHTML = rows.map((p) => `
-                <tr class="hover:bg-gray-50/70">
-                    <td class="px-5 py-4 font-semibold text-brand-900">${p.crop}</td>
-                    <td class="px-5 py-4 text-gray-600">${p.loc}</td>
-                    <td class="px-5 py-4"><span class="text-xs font-semibold px-2.5 py-1 rounded-full ${STATUS[p.status]}">${p.status}</span></td>
-                    <td class="px-5 py-4"><div class="flex items-center gap-2"><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full ${p.moisture < 20 ? 'bg-amber-500' : 'bg-brand-500'}" style="width:${p.moisture * 2}%"></div></div><span class="text-gray-600 tabular-nums">${p.moisture}%</span></div></td>
-                    <td class="px-5 py-4 text-gray-500 whitespace-nowrap">${minsAgo(p.ago)}</td>
-                </tr>`).join('');
-            $('#plant-empty').classList.toggle('hidden', rows.length > 0);
-        }
-        $('#plant-search').addEventListener('input', renderPlants);
-        $('#status-filters').addEventListener('click', (e) => {
-            const b = e.target.closest('.status-btn');
-            if (!b) return;
-            statusFilter = b.dataset.status;
-            $$('.status-btn').forEach((x) => {
-                const on = x === b;
-                x.setAttribute('aria-pressed', on);
-                x.classList.toggle('bg-brand-700', on); x.classList.toggle('text-white', on); x.classList.toggle('border-brand-700', on);
-                x.classList.toggle('text-gray-600', !on); x.classList.toggle('border-gray-200', !on);
-            });
-            renderPlants();
-        });
-        renderPlants();
-
-        // ── FAQ ─────────────────────────────────────────────────────────────
-        const FAQS = [
-            ['Who is Entice Feed for?', 'Everyone in the agricultural value chain: farmers and producer organisations, input suppliers, financial institutions, buyers and processors, and government bodies.'],
-            ['Do I need a smartphone or good internet?', 'The platform is designed for people with limited technology experience and supports offline use, so data captured in the field syncs when you are back in signal.'],
-            ['Which languages are supported?', 'Multi-language support is a core part of the platform, so farmers can use it in the language they are most comfortable with.'],
-            ['How do produce auctions work?', 'Farmers list produce with grade, quantity and location. Verified buyers and processors bid openly, so prices are transparent and fair.'],
-            ['How can I earn from carbon credits?', 'The platform tracks sustainable practices and environmental impact, creating the records needed to access global carbon credit markets.'],
-            ['Is my farm data safe?', 'Your data is yours. It is only shared with partners you choose, and personal information is handled in line with POPIA.'],
-        ];
-        $('#faq-list').innerHTML = FAQS.map(([q, a]) => `
-            <details class="reveal group rounded-2xl bg-white ring-1 ring-black/5 px-6 py-5">
-                <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold text-brand-900">${q}
-                    <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-brand-50 text-brand-700 grid place-items-center transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
-                    </span>
-                </summary>
-                <p class="mt-3 text-gray-600 leading-relaxed">${a}</p>
-            </details>`).join('');
-
-        // ── Contact form ────────────────────────────────────────────────────
-        const form = $('#contact-form');
-        const fields = { 'c-name': (v) => v.trim().length > 1, 'c-email': (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), 'c-message': (v) => v.trim().length > 4 };
-        function validate(id) {
-            const el = $('#' + id), ok = fields[id](el.value);
-            el.classList.toggle('invalid', !ok);
-            el.setAttribute('aria-invalid', !ok);
-            $(`.error-msg[data-for="${id}"]`).classList.toggle('show', !ok);
-            return ok;
-        }
-        Object.keys(fields).forEach((id) => $('#' + id).addEventListener('blur', () => validate(id)));
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const ok = Object.keys(fields).map(validate).every(Boolean);
-            if (!ok) { $('.field.invalid', form).focus(); return; }
-            const subject = `${$('#c-topic').value || 'Enquiry'} from ${$('#c-name').value.trim()}`;
-            const body = [`Name: ${$('#c-name').value.trim()}`, `Email: ${$('#c-email').value.trim()}`, `I am a: ${$('#c-role').value}`,
-                          `Monthly farming tips: ${$('#c-news').checked ? 'Yes' : 'No'}`, '', $('#c-message').value.trim()].join('\n');
-            window.location.href = `mailto:invest@enticefeed.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            const status = $('#form-status');
-            status.textContent = 'Your email app should open with your message ready. If it didn\'t, email us at invest@enticefeed.com.';
-            status.classList.remove('hidden');
-        });
-
-        // ── Live data: weekly model output + live weather ───────────────────
-        // data/agri-data.json is rebuilt weekly by scripts/update-data.mjs
-        // (NOAA ONI, World Bank prices & yields, ECB FX, ECMWF seasonal).
-        // The 7-day weather is fetched live from Open-Meteo in the browser.
-        const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        const mLabel = (k) => `${MONTHS[+k.slice(5, 7) - 1]} ${k.slice(2, 4)}`;
-        const zar = (n) => 'R' + Math.round(n).toLocaleString('en-ZA');
-        const sign = (n) => (n > 0 ? '+' : '') + n;
-        const charts = {};
-        const chartReady = Boolean(window.Chart);
-        if (chartReady) Chart.defaults.font.family = '"Plus Jakarta Sans", system-ui, sans-serif';
-        const baseOpts = (extra = {}) => ({
-            responsive: true, maintainAspectRatio: false, animation: reduceMotion ? false : undefined,
-            interaction: { mode: 'index', intersect: false },
-            plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, font: { size: 11 }, filter: (i) => !i.text.startsWith('_') } },
-                       tooltip: { filter: (i) => !i.dataset.label.startsWith('_') } },
-            ...extra,
-        });
-        function draw(id, config) {
-            if (!chartReady) return;
-            if (charts[id]) charts[id].destroy();
-            charts[id] = new Chart(document.getElementById(id), config);
-        }
-        const ensoColor = (o) => (o >= 0.5 ? '#d97706' : o <= -0.5 ? '#2563eb' : '#9ca3af');
-
-        function renderEnso(d, dark) {
-            const hist = d.enso.history.slice(dark ? -24 : -48), fc = d.enso.forecast;
-            const labels = [...hist.map((h) => mLabel(h.month)), ...fc.map((f) => mLabel(f.month))];
-            const pad = Array(hist.length - 1).fill(null);
-            const lastVal = hist[hist.length - 1].oni;
-            return {
-                type: 'line',
-                data: { labels, datasets: [
-                    { label: 'Observed ONI', data: [...hist.map((h) => h.oni), ...fc.map(() => null)], borderColor: '#1b5e20', backgroundColor: '#1b5e20', tension: .3, pointRadius: 0, borderWidth: 2.5,
-                      segment: { borderColor: (c) => ensoColor(c.p1.parsed.y) } },
-                    { label: 'Outlook', data: [...pad, lastVal, ...fc.map((f) => f.oni)], borderColor: '#f5c400', borderDash: [5, 4], pointRadius: 0, tension: .3 },
-                    { label: '_hi', data: [...pad, lastVal, ...fc.map((f) => f.hi)], borderColor: 'transparent', backgroundColor: 'rgba(255,214,0,.18)', fill: '+1', pointRadius: 0 },
-                    { label: '_lo', data: [...pad, lastVal, ...fc.map((f) => f.lo)], borderColor: 'transparent', pointRadius: 0, fill: false },
-                    { label: '_el', data: labels.map(() => 0.5), borderColor: 'rgba(217,119,6,.35)', borderDash: [2, 3], pointRadius: 0, borderWidth: 1 },
-                    { label: '_la', data: labels.map(() => -0.5), borderColor: 'rgba(37,99,235,.35)', borderDash: [2, 3], pointRadius: 0, borderWidth: 1 },
-                ] },
-                options: baseOpts({ plugins: { legend: { display: !dark, position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, font: { size: 11 }, filter: (i) => !i.text.startsWith('_') } },
-                                                tooltip: { filter: (i) => !i.dataset.label.startsWith('_') } },
-                    scales: { x: { ticks: { maxTicksLimit: 8, font: { size: 10 } }, grid: { display: false } },
-                              y: { suggestedMin: -2, suggestedMax: 2.5, ticks: { font: { size: 10 } }, grid: { color: '#f1f1f1' } } } }),
-            };
-        }
-
-        function renderLive(d) {
-            const e = d.enso.latest, y = d.yield, p = d.price;
-            const lastPrice = p.history[p.history.length - 1];
-            const updated = new Date(d.updated).toLocaleDateString('en-ZA', { day: 'numeric', month: 'long', year: 'numeric' });
-
-            // Hero
-            $('#h-oni-label').textContent = `ONI (${mLabel(e.month)})`;
-            $('#h-oni').textContent = sign(e.oni);
-            $('#h-yield-label').textContent = `${y.outlook.harvestYear} harvest`;
-            $('#h-yield').textContent = `${sign(y.outlook.changeVsTrendPct)}% vs trend`;
-            $('#h-price').textContent = `${zar(lastPrice.zar)}/t`;
-            $('#h-alert').textContent = e.phase === 'El Niño' ? `${e.strength[0].toUpperCase() + e.strength.slice(1)} El Niño: plan for drought risk`
-                : e.phase === 'La Niña' ? 'La Niña: wetter summer, watch for flooding' : 'ENSO neutral: normal season odds';
-            $('#h-updated').textContent = `updated ${updated}`;
-            draw('hero-chart', renderEnso(d, true));
-
-            // ENSO card
-            const badge = $('#enso-badge');
-            badge.textContent = `${e.strength ? e.strength + ' ' : ''}${e.phase}`;
-            badge.className = 'text-xs font-bold px-3 py-1 rounded-full capitalize ' + (e.phase === 'El Niño' ? 'bg-amber-100 text-amber-800' : e.phase === 'La Niña' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-600');
-            const endFc = d.enso.forecast[d.enso.forecast.length - 1];
-            $('#enso-text').innerHTML = `The Oceanic Niño Index was <strong>${sign(e.oni)}</strong> in ${mLabel(e.month)}. Readings above +0.5 mean El Niño, which for South Africa usually brings a <strong>hotter, drier summer</strong> in the maize belt. The outlook keeps it near <strong>${sign(endFc.oni)}</strong> by ${mLabel(endFc.month)}.`;
-            draw('enso-chart', renderEnso(d, false));
-
-            // AI section: yields vs El Niño
-            const yh = y.history.slice(-25);
-            const yLabels = [...yh.map((r) => String(r.year)), `${y.outlook.harvestYear}*`];
-            draw('ai-chart', {
-                type: 'bar',
-                data: { labels: yLabels, datasets: [
-                    { type: 'bar', label: 'Actual yield', data: [...yh.map((r) => r.kgha), null], backgroundColor: yh.map((r) => (r.oni >= 0.5 ? '#ffd600' : 'rgba(255,255,255,.55)')), borderRadius: 4 },
-                    { type: 'bar', label: 'Projected', data: [...yh.map(() => null), y.outlook.predictedKgha], backgroundColor: '#f97316', borderRadius: 4 },
-                    { type: 'line', label: 'Trend', data: [...yh.map((r) => r.trend), y.outlook.trendKgha], borderColor: '#b9dfba', borderDash: [5, 4], pointRadius: 0, borderWidth: 1.5 },
-                ] },
-                options: baseOpts({ plugins: { legend: { position: 'bottom', labels: { color: '#dcefdc', boxWidth: 10, usePointStyle: true, font: { size: 11 } } },
-                    tooltip: { callbacks: { afterBody: (items) => { const r = yh[items[0].dataIndex]; return r ? `Growing-season ONI: ${sign(r.oni)}` : `Season ONI (outlook): ${sign(y.outlook.seasonOni)}`; } } } },
-                    scales: { x: { stacked: true, ticks: { color: '#b9dfba', maxTicksLimit: 9, font: { size: 10 } }, grid: { display: false } },
-                              y: { ticks: { color: '#b9dfba', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,.06)' } } } }),
-            });
-            $('#ai-summary').innerHTML = `Over ${y.model.n} seasons, every +1 on the growing-season ONI cut yields by about <strong>${Math.abs(y.model.betaPctPerOni)}%</strong> against the long-term trend (yellow bars are El Niño years). With the current outlook, the <strong>${y.outlook.harvestYear} harvest</strong> is projected near <strong>${y.outlook.predictedKgha.toLocaleString('en-ZA')} kg/ha (${sign(y.outlook.changeVsTrendPct)}% vs trend)</strong>.`;
-
-            // Price
-            const ph = p.history, pf = p.forecast;
-            const pLabels = [...ph.map((h) => mLabel(h.month)), ...pf.map((f) => mLabel(f.month))];
-            const ppad = Array(ph.length - 1).fill(null);
-            const pLast = lastPrice.zar;
-            draw('price-chart', {
-                type: 'line',
-                data: { labels: pLabels, datasets: [
-                    { label: 'Actual (R/t)', data: [...ph.map((h) => h.zar), ...pf.map(() => null)], borderColor: '#1b5e20', backgroundColor: '#1b5e20', tension: .3, pointRadius: 0, borderWidth: 2.5 },
-                    { label: 'Forecast', data: [...ppad, pLast, ...pf.map((f) => f.zar)], borderColor: '#f5c400', borderDash: [5, 4], pointRadius: 0, tension: .3, borderWidth: 2 },
-                    { label: 'If ENSO were neutral', data: [...ppad, pLast, ...pf.map((f) => f.neutralZar)], borderColor: '#9ca3af', borderDash: [2, 3], pointRadius: 0, tension: .3, borderWidth: 1.5 },
-                    { label: '_hi', data: [...ppad, pLast, ...pf.map((f) => f.hi)], borderColor: 'transparent', backgroundColor: 'rgba(255,214,0,.18)', fill: '+1', pointRadius: 0 },
-                    { label: '_lo', data: [...ppad, pLast, ...pf.map((f) => f.lo)], borderColor: 'transparent', pointRadius: 0, fill: false },
-                ] },
-                options: baseOpts({ plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, font: { size: 11 }, filter: (i) => !i.text.startsWith('_') } },
-                    tooltip: { filter: (i) => !i.dataset.label.startsWith('_'), callbacks: { label: (c) => `${c.dataset.label}: ${zar(c.parsed.y)}` } } },
-                    scales: { x: { ticks: { maxTicksLimit: 8, font: { size: 10 } }, grid: { display: false } },
-                              y: { ticks: { font: { size: 10 }, callback: (v) => zar(v) }, grid: { color: '#f1f1f1' } } } }),
-            });
-            const pEnd = pf[pf.length - 1];
-            $('#price-now').innerHTML = `<span class="block text-xl font-extrabold text-brand-900">${zar(pLast)}</span><span class="text-[11px] text-gray-500">per ton · ${mLabel(lastPrice.month)}</span>`;
-            const dir = p.model.oniEffect6mPct < 0 ? 'lower' : 'higher';
-            $('#price-text').innerHTML = `Forecast for ${mLabel(pEnd.month)}: <strong>${zar(pEnd.zar)}/t</strong> (range ${zar(pEnd.lo)}–${zar(pEnd.hi)}). Historically, El Niño has meant <strong>${dir} world maize prices</strong> (${sign(p.model.oniEffect6mPct)}% per +1 ONI over six months), because it tends to favour US crops. Local South African prices can move the other way when drought cuts our own harvest and pushes prices towards import parity.`;
-
-            // Rainfall + regions
-            const sel = $('#region-select');
-            sel.innerHTML = d.rainfall.map((r) => `<option value="${r.id}">${r.name} · ${r.crop}</option>`).join('');
-            sel.addEventListener('change', () => { renderRain(d, sel.value); loadWeather(d, sel.value); });
-            renderRain(d, sel.value);
-            loadWeather(d, sel.value);
-
-            // Footer bits
-            $('#intel-updated').textContent = `Model data updated ${updated}`;
-            $('#method-text').innerHTML = `
-                <p><strong>El Niño outlook.</strong> Monthly Oceanic Niño Index from NOAA (1950–present), projected forward with a fitted persistence model (AR(1), φ = ${d.enso.model.phi}). This is a statistical extension, not NOAA's official forecast. See the <a class="underline" href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/" target="_blank" rel="noopener">CPC ENSO advisory</a>.</p>
-                <p><strong>Harvest outlook.</strong> ${y.model.type}, fitted on South African cereal yields (World Bank, ${y.model.n} seasons since 1980). Effect: ${y.model.betaPctPerOni}% per +1 ONI (±${y.model.betaSe}), trend +${y.model.trendPctPerYear}%/year, R² ${y.model.r2}. The 80% range for ${y.outlook.harvestYear} is ${y.outlook.lo.toLocaleString('en-ZA')}–${y.outlook.hi.toLocaleString('en-ZA')} kg/ha.</p>
-                <p><strong>Price outlook.</strong> World Bank Pink Sheet maize (US Gulf, USD/t) converted at monthly average ECB USD/ZAR rates. The model regresses each 1–6-month log return on ONI and the gap from the 12-month average (n = ${p.model.n}, R² ${p.model.r2_6m} at 6 months). This is the global benchmark, not the SAFEX white maize price.</p>
-                <p><strong>Rainfall.</strong> ECMWF SEAS5 ensemble via the Open-Meteo Seasonal API, compared with the ERA5 1991–2020 monthly normal at each site. Raw model output is not bias-corrected. "% of members below 80% of normal" shows how many ensemble members expect a dry month.</p>
-                <p><strong>Weather.</strong> Live 7-day forecast and soil moisture (3–9 cm) from Open-Meteo.</p>
-                <p class="text-xs text-gray-400">These are indicative decision-support figures, not financial or agronomic advice.</p>`;
-        }
-
-        function renderRain(d, id) {
-            const r = d.rainfall.find((x) => x.id === id);
-            if (!r || !r.months.length) { $('#rain-text').textContent = 'Seasonal outlook unavailable for this region right now.'; return; }
-            draw('rain-chart', {
-                type: 'bar',
-                data: { labels: r.months.map((m) => mLabel(m.month)), datasets: [
-                    { label: 'Forecast (mm)', data: r.months.map((m) => m.mm), backgroundColor: r.months.map((m) => (m.pctOfNormal != null && m.pctOfNormal < 80 ? '#f59e0b' : '#2e7d32')), borderRadius: 6 },
-                    { label: '1991–2020 normal', data: r.months.map((m) => m.normalMm), backgroundColor: '#dcefdc', borderRadius: 6 },
-                ] },
-                options: baseOpts({ plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, font: { size: 11 } } },
-                    tooltip: { callbacks: { afterBody: (items) => { const m = r.months[items[0].dataIndex]; return `${m.pctOfNormal ?? '–'}% of normal · ${m.probBelow}% of members dry`; } } } },
-                    scales: { x: { grid: { display: false }, ticks: { font: { size: 10 } } }, y: { beginAtZero: true, ticks: { font: { size: 10 } }, grid: { color: '#f1f1f1' } } } }),
-            });
-            const dry = r.months.filter((m) => m.pctOfNormal != null && m.pctOfNormal < 80).map((m) => mLabel(m.month));
-            const total = r.months.reduce((s, m) => s + m.mm, 0), normal = r.months.reduce((s, m) => s + m.normalMm, 0);
-            $('#rain-text').innerHTML = `Six-month total <strong>${total} mm vs ${normal} mm normal (${Math.round((total / normal) * 100)}%)</strong>. ${dry.length ? `Drier than normal: <strong>${dry.join(', ')}</strong>.` : 'No month is forecast below 80% of normal.'} Amber bars mark months under 80% of normal.`;
-        }
-
-        const wxCache = {};
-        async function loadWeather(d, id) {
-            const r = d.regions.find((x) => x.id === id);
-            $('#wx-region').textContent = r.name.split(' (')[1]?.replace(')', '') || r.name;
-            try {
-                const url = `https://api.open-meteo.com/v1/forecast?latitude=${r.lat}&longitude=${r.lon}&daily=precipitation_sum,temperature_2m_max,temperature_2m_min&hourly=soil_moisture_3_to_9cm&forecast_days=7&timezone=Africa%2FJohannesburg`;
-                const w = wxCache[id] || (wxCache[id] = await fetch(url).then((res) => { if (!res.ok) throw new Error(res.status); return res.json(); }));
-                const rain = w.daily.precipitation_sum.reduce((a, b) => a + (b || 0), 0);
-                const soilNow = w.hourly.soil_moisture_3_to_9cm.find((v) => v != null);
-                const tmax = Math.max(...w.daily.temperature_2m_max);
-                $('#wx-rain').textContent = `${rain.toFixed(0)} mm`;
-                $('#wx-soil').textContent = soilNow != null ? `${Math.round(soilNow * 100)}%` : '–';
-                $('#wx-tmax').textContent = `${Math.round(tmax)}°C`;
-                $('#wx-days').innerHTML = w.daily.time.map((t, i) => {
-                    const p = w.daily.precipitation_sum[i] || 0;
-                    const day = new Date(t + 'T12:00').toLocaleDateString('en-ZA', { weekday: 'short' });
-                    return `<div class="rounded-xl bg-white/5 py-2"><p class="text-brand-100">${day}</p><p class="text-base">${p >= 5 ? '🌧️' : p >= 1 ? '🌦️' : w.daily.temperature_2m_max[i] >= 30 ? '🔥' : '☀️'}</p><p class="font-semibold">${Math.round(w.daily.temperature_2m_max[i])}°</p><p class="text-brand-100">${p.toFixed(0)}mm</p></div>`;
-                }).join('');
-                const soilPct = soilNow != null ? soilNow * 100 : null;
-                let advice;
-                if (r.season === 'summer') {
-                    advice = soilPct != null && soilPct < 15 && rain < 10 ? 'Dry topsoil and little rain ahead: hold off on planting until about 25 mm has fallen.'
-                        : rain >= 25 ? 'Good rain expected: a planting window may open once fields are workable.'
-                        : 'Monitor soil moisture; plant when the topsoil profile is wet enough to germinate.';
-                } else {
-                    advice = tmax >= 32 ? 'Hot spell ahead: watch for heat stress on wheat during grain fill.' : 'Conditions are typical for this stage of the winter-crop season.';
-                }
-                $('#wx-advice').textContent = advice;
-            } catch (err) {
-                $('#wx-advice').textContent = 'Live weather is unavailable right now. Please try again later.';
-            }
-        }
-
-        fetch('data/agri-data.json', { cache: 'no-cache' })
-            .then((res) => { if (!res.ok) throw new Error(res.status); return res.json(); })
-            .then(renderLive)
-            .catch(() => {
-                const box = $('#intel-error');
-                box.textContent = 'Live model data could not be loaded. Please refresh, or check back shortly.';
-                box.classList.remove('hidden');
-                $('#h-alert').textContent = 'Live data temporarily unavailable';
-            });
-
-        // ── Count-up stats & reveal on scroll ───────────────────────────────
-        function countUp(el) {
-            const to = +el.dataset.to;
-            if (reduceMotion) { el.textContent = to.toLocaleString('en-ZA'); return; }
-            const start = performance.now(), dur = 1200;
-            const tick = (t) => { const p = Math.min(1, (t - start) / dur); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))).toLocaleString('en-ZA'); if (p < 1) requestAnimationFrame(tick); };
-            requestAnimationFrame(tick);
-        }
-        if ('IntersectionObserver' in window && !reduceMotion) {
-            const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-                if (!e.isIntersecting) return;
-                e.target.classList.add('visible');
-                $$('.counter', e.target).forEach(countUp);
-                io.unobserve(e.target);
-            }), { threshold: 0.12 });
-            $$('.reveal').forEach((el) => io.observe(el));
-        } else {
-            $$('.reveal').forEach((el) => el.classList.add('visible'));
-            $$('.counter').forEach(countUp);
-        }
     })();
     </script>
 </body>

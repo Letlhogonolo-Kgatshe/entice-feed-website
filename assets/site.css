@@ -1,0 +1,28 @@
+/* Entice Feed shared styles (used with Tailwind CDN) */
+body { -webkit-font-smoothing: antialiased; }
+[x-cloak] { display: none; }
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+}
+.tab-btn[aria-selected="true"] { background: #1b5e20; color: #fff; box-shadow: 0 6px 20px -8px rgba(27,94,32,.6); }
+.tab-btn[aria-selected="true"] svg { color: #ffd600; }
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-icon { transform: rotate(45deg); }
+.grid-bg { background-image: radial-gradient(rgba(46,125,50,.12) 1px, transparent 1px); background-size: 22px 22px; }
+.check, .check-dark { flex: none; width: 1.25rem; height: 1.25rem; margin-top: .1rem; border-radius: 999px; background-repeat: no-repeat; background-position: center; background-size: .75rem; }
+.check { background-color: #dcefdc; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231b5e20' stroke-width='3.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m5 12 5 5 9-10'/%3E%3C/svg%3E"); }
+.check-dark { background-color: #ffd600; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f3812' stroke-width='3.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m5 12 5 5 9-10'/%3E%3C/svg%3E"); }
+.contact-icon { flex: none; width: 2.75rem; height: 2.75rem; border-radius: .9rem; display: grid; place-items: center; background: #f1f8f1; color: #1b5e20; }
+.field { width: 100%; border: 1px solid #e5e7eb; border-radius: .8rem; padding: .7rem .9rem; font-size: .95rem; outline: none; background: #fff; transition: border-color .2s, box-shadow .2s; }
+.field:focus { border-color: #2e7d32; box-shadow: 0 0 0 3px #dcefdc; }
+.field.invalid { border-color: #dc2626; box-shadow: 0 0 0 3px #fee2e2; }
+.error-msg { display: none; color: #dc2626; font-size: .8rem; margin-top: .35rem; }
+.error-msg.show { display: block; }
+#site-header.scrolled { background: rgba(255,255,255,.92); backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+/* Page header used on inner pages */
+.page-head { padding: 8rem 0 3rem; background: linear-gradient(180deg, #f1f8f1, #fff); }
+@media (min-width: 1024px) { .page-head { padding: 9rem 0 3.5rem; } }

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plans & FAQ | Entice Feed</title>
+    <meta name="description" content="Entice Feed subscription plans for smallholders, commercial farms, cooperatives and enterprises, plus answers to common questions.">
+    <meta name="author" content="Entice Feed Pty Ltd">
+    <meta property="og:title" content="Plans & FAQ | Entice Feed">
+    <meta property="og:description" content="Entice Feed subscription plans for smallholders, commercial farms, cooperatives and enterprises, plus answers to common questions.">
+    <meta property="og:image" content="https://letlhogonolo-kgatshe.github.io/entice-feed-website/logo.jpg">
+    <meta name="theme-color" content="#1b5e20">
+    <link rel="icon" href="logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/theme.js"></script>
+    <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="bg-white text-gray-800 font-sans">
+    <main id="main">
+        <!-- Pricing -->
+        <section id="pricing" class="pt-28 lg:pt-32 pb-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto reveal">
+                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">SaaS subscription model</p>
+                    <h1 class="mt-2 text-4xl sm:text-5xl font-extrabold text-brand-900 tracking-tight">Plans for every farm size</h1>
+                    <p class="mt-4 text-gray-600">Flexible subscription tiers for different farm sizes and needs, with pricing that scales as you grow.</p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                    <div class="reveal rounded-3xl border border-gray-200 p-8 flex flex-col">
+                        <h3 class="text-lg font-bold text-brand-900">Smallholder</h3>
+                        <p class="text-sm text-gray-500 mt-1">For individual and emerging farmers</p>
+                        <p class="mt-6 text-3xl font-extrabold text-brand-900">Free pilot</p>
+                        <ul class="mt-6 space-y-3 text-sm text-gray-600 flex-1">
+                            <li class="flex gap-2"><span class="check"></span>Farm profile and plant tracking</li>
+                            <li class="flex gap-2"><span class="check"></span>Market prices and auction access</li>
+                            <li class="flex gap-2"><span class="check"></span>Offline mode and multi-language</li>
+                        </ul>
+                        <a href="contact.html" data-topic="Smallholder plan" class="topic-link mt-8 text-center px-5 py-3 rounded-xl font-semibold border border-brand-200 text-brand-900 hover:border-brand-500 transition">Join the pilot</a>
+                    </div>
+                    <div class="reveal rounded-3xl bg-brand-900 text-white p-8 flex flex-col relative shadow-soft md:-translate-y-3">
+                        <span class="absolute -top-3 left-8 text-xs font-bold bg-harvest-400 text-brand-900 px-3 py-1 rounded-full">Most popular</span>
+                        <h3 class="text-lg font-bold">Commercial</h3>
+                        <p class="text-sm text-brand-100 mt-1">For commercial farms and cooperatives</p>
+                        <p class="mt-6 text-3xl font-extrabold">Monthly plan</p>
+                        <ul class="mt-6 space-y-3 text-sm text-brand-50 flex-1">
+                            <li class="flex gap-2"><span class="check-dark"></span>Everything in Smallholder</li>
+                            <li class="flex gap-2"><span class="check-dark"></span>AI yield forecasts and risk alerts</li>
+                            <li class="flex gap-2"><span class="check-dark"></span>Cooperative tools and resource sharing</li>
+                            <li class="flex gap-2"><span class="check-dark"></span>Sustainability reporting and carbon credits</li>
+                        </ul>
+                        <a href="contact.html" data-topic="Commercial plan pricing" class="topic-link mt-8 text-center px-5 py-3 rounded-xl font-semibold bg-harvest-400 text-brand-900 hover:bg-harvest-300 transition">Get pricing</a>
+                    </div>
+                    <div class="reveal rounded-3xl border border-gray-200 p-8 flex flex-col">
+                        <h3 class="text-lg font-bold text-brand-900">Enterprise</h3>
+                        <p class="text-sm text-gray-500 mt-1">For suppliers, processors, lenders and government</p>
+                        <p class="mt-6 text-3xl font-extrabold text-brand-900">Custom</p>
+                        <ul class="mt-6 space-y-3 text-sm text-gray-600 flex-1">
+                            <li class="flex gap-2"><span class="check"></span>Data dashboards across many farms</li>
+                            <li class="flex gap-2"><span class="check"></span>API integrations and data exports</li>
+                            <li class="flex gap-2"><span class="check"></span>Dedicated onboarding and support</li>
+                        </ul>
+                        <a href="contact.html" data-topic="Enterprise enquiry" class="topic-link mt-8 text-center px-5 py-3 rounded-xl font-semibold border border-brand-200 text-brand-900 hover:border-brand-500 transition">Talk to sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="py-20 bg-brand-50/60">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center reveal">
+                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">FAQ</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Questions, answered</h2>
+                </div>
+                <div class="mt-10 space-y-3" id="faq-list"></div>
+            </div>
+        </section>
+
+        <!-- CTA band -->
+        <section class="py-16">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="reveal rounded-3xl bg-gradient-to-br from-brand-700 to-brand-900 text-white p-10 sm:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-16 w-72 h-72 bg-harvest-400/30 rounded-full blur-3xl" aria-hidden="true"></div>
+                    <div class="relative">
+                        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Unlock the power of data-driven agriculture</h2>
+                        <p class="mt-2 text-brand-100">See Entice Feed working with your own farm data.</p>
+                    </div>
+                    <a href="contact.html" data-topic="Demo request" class="topic-link relative shrink-0 px-6 py-3.5 rounded-xl font-semibold bg-harvest-400 text-brand-900 hover:bg-harvest-300 transition">Book a demo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/site.js"></script>
+
+    <script>
+    (function () {
+        'use strict';
+        const { $, $$, icon, ICONS, reduceMotion } = window.EF;
+        // ── FAQ ─────────────────────────────────────────────────────────────
+        const FAQS = [
+            ['Who is Entice Feed for?', 'Everyone in the agricultural value chain: farmers and producer organisations, input suppliers, financial institutions, buyers and processors, and government bodies.'],
+            ['Do I need a smartphone or good internet?', 'The platform is designed for people with limited technology experience and supports offline use, so data captured in the field syncs when you are back in signal.'],
+            ['Which languages are supported?', 'Multi-language support is a core part of the platform, so farmers can use it in the language they are most comfortable with.'],
+            ['How do produce auctions work?', 'Farmers list produce with grade, quantity and location. Verified buyers and processors bid openly, so prices are transparent and fair.'],
+            ['How can I earn from carbon credits?', 'The platform tracks sustainable practices and environmental impact, creating the records needed to access global carbon credit markets.'],
+            ['Is my farm data safe?', 'Your data is yours. It is only shared with partners you choose, and personal information is handled in line with POPIA.'],
+        ];
+        $('#faq-list').innerHTML = FAQS.map(([q, a]) => `
+            <details class="reveal group rounded-2xl bg-white ring-1 ring-black/5 px-6 py-5">
+                <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold text-brand-900">${q}
+                    <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-brand-50 text-brand-700 grid place-items-center transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+                    </span>
+                </summary>
+                <p class="mt-3 text-gray-600 leading-relaxed">${a}</p>
+            </details>`).join('');
+
+    })();
+    </script>
+</body>
+</html>
