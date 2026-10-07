@@ -63,6 +63,7 @@
                     <a href="#features" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Platform</a>
                     <a href="#ecosystem" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Ecosystem</a>
                     <a href="#ai" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">AI Insights</a>
+                    <a href="#intel" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Live Data</a>
                     <a href="#auctions" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Auctions</a>
                     <a href="#tracking" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Plant Tracking</a>
                     <a href="#pricing" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Plans</a>
@@ -81,6 +82,7 @@
                 <a href="#features" class="px-3 py-3 rounded-lg hover:bg-brand-50">Platform</a>
                 <a href="#ecosystem" class="px-3 py-3 rounded-lg hover:bg-brand-50">Ecosystem</a>
                 <a href="#ai" class="px-3 py-3 rounded-lg hover:bg-brand-50">AI Insights</a>
+                <a href="#intel" class="px-3 py-3 rounded-lg hover:bg-brand-50">Live Data</a>
                 <a href="#auctions" class="px-3 py-3 rounded-lg hover:bg-brand-50">Auctions</a>
                 <a href="#tracking" class="px-3 py-3 rounded-lg hover:bg-brand-50">Plant Tracking</a>
                 <a href="#pricing" class="px-3 py-3 rounded-lg hover:bg-brand-50">Plans</a>
@@ -94,7 +96,7 @@
         <!-- Hero -->
         <section id="home" class="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24 bg-gradient-to-b from-brand-50 via-white to-white">
             <div class="absolute inset-0 grid-bg opacity-60 pointer-events-none" aria-hidden="true"></div>
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-brand-700 bg-white border border-brand-200 rounded-full px-3 py-1.5 shadow-sm">
                         <span class="w-2 h-2 rounded-full bg-harvest-400"></span> Agri-SaaS · Made for South Africa
@@ -123,27 +125,27 @@
                     <div class="relative bg-white rounded-3xl shadow-soft ring-1 ring-black/5 p-5">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-xs text-gray-500">Farm overview · Field A–C</p>
-                                <p class="font-bold text-brand-900">Season yield forecast</p>
+                                <p class="text-xs text-gray-500">Climate watch · South Africa</p>
+                                <p class="font-bold text-brand-900">El Niño index (ONI) &amp; outlook</p>
                             </div>
-                            <span class="text-xs font-semibold text-brand-700 bg-brand-50 px-2.5 py-1 rounded-full">Preview</span>
+                            <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 bg-brand-50 px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span>Live data</span>
                         </div>
-                        <div class="h-44 mt-3"><canvas id="hero-chart" aria-label="Sample yield forecast chart" role="img"></canvas></div>
+                        <div class="h-44 mt-3"><canvas id="hero-chart" aria-label="Oceanic Niño Index for the last two years with a nine-month outlook" role="img"></canvas></div>
                         <div class="grid grid-cols-3 gap-3 mt-4">
-                            <div class="rounded-xl bg-brand-50 p-3"><p class="text-[11px] text-gray-500">Soil moisture</p><p class="font-bold text-brand-900">32%</p></div>
-                            <div class="rounded-xl bg-harvest-300/30 p-3"><p class="text-[11px] text-gray-500">Risk alerts</p><p class="font-bold text-soil-700">2 open</p></div>
-                            <div class="rounded-xl bg-brand-50 p-3"><p class="text-[11px] text-gray-500">Maize bid</p><p class="font-bold text-brand-900">R4 120/t</p></div>
+                            <div class="rounded-xl bg-brand-50 p-3"><p class="text-[11px] text-gray-500" id="h-oni-label">ONI</p><p class="font-bold text-brand-900" id="h-oni">…</p></div>
+                            <div class="rounded-xl bg-harvest-300/30 p-3"><p class="text-[11px] text-gray-500" id="h-yield-label">Harvest outlook</p><p class="font-bold text-soil-700" id="h-yield">…</p></div>
+                            <div class="rounded-xl bg-brand-50 p-3"><p class="text-[11px] text-gray-500">World maize</p><p class="font-bold text-brand-900" id="h-price">…</p></div>
                         </div>
                     </div>
                     <div class="absolute -bottom-6 -left-4 sm:-left-8 bg-white rounded-2xl shadow-soft ring-1 ring-black/5 px-4 py-3 flex items-center gap-3">
                         <span class="w-9 h-9 rounded-full bg-harvest-400 grid place-items-center text-brand-900">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
                         </span>
-                        <div><p class="text-xs text-gray-500">AI risk alert</p><p class="text-sm font-semibold text-brand-900">Field B needs irrigation</p></div>
+                        <div><p class="text-xs text-gray-500">Climate risk alert</p><p class="text-sm font-semibold text-brand-900" id="h-alert">Loading live data…</p></div>
                     </div>
                 </div>
             </div>
-            <p class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-[11px] text-gray-400">Dashboard figures are illustrative sample data.</p>
+            <p class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-[11px] text-gray-400">Live data from NOAA, the World Bank and Open-Meteo · <span id="h-updated">updating weekly</span> · <a href="#intel" class="underline hover:text-brand-700">see methodology</a></p>
         </section>
 
         <!-- Stats -->
@@ -165,7 +167,7 @@
                     <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">How it works</p>
                     <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">From field to market in three steps</h2>
                 </div>
-                <ol class="mt-12 grid md:grid-cols-3 gap-6">
+                <ol class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
                     <li class="reveal relative rounded-3xl border border-gray-100 p-7 bg-white hover:shadow-soft transition">
                         <span class="w-11 h-11 rounded-2xl bg-brand-700 text-white font-bold grid place-items-center">1</span>
                         <h3 class="mt-5 text-lg font-bold text-brand-900">Create your profile</h3>
@@ -193,7 +195,7 @@
                     <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Core differentiation strategy</h2>
                     <p class="mt-4 text-gray-600">Our platform is built on key pillars that set us apart in the agricultural technology landscape.</p>
                 </div>
-                <div id="feature-grid" class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                <div id="feature-grid" class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             </div>
         </section>
 
@@ -205,7 +207,7 @@
                     <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Every stakeholder, one platform</h2>
                     <p class="mt-4 text-gray-600">Our platform connects all key stakeholders in the agricultural value chain, creating a seamless ecosystem for collaboration and growth.</p>
                 </div>
-                <div class="mt-12 grid lg:grid-cols-3 gap-8 reveal">
+                <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8 reveal">
                     <div role="tablist" aria-label="Stakeholders" class="flex lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0" id="eco-tabs"></div>
                     <div class="lg:col-span-2 rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-7 sm:p-9" id="eco-panel" role="tabpanel" tabindex="0"></div>
                 </div>
@@ -215,7 +217,7 @@
         <!-- AI -->
         <section id="ai" class="py-20 bg-brand-900 text-white relative overflow-hidden">
             <div class="absolute -right-24 -top-24 w-96 h-96 bg-brand-500/30 rounded-full blur-3xl" aria-hidden="true"></div>
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="reveal">
                     <p class="text-sm font-semibold text-harvest-400 uppercase tracking-wider">AI &amp; analytics</p>
                     <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">Data-driven agriculture, explained simply</h2>
@@ -228,16 +230,88 @@
                     </ul>
                 </div>
                 <div class="reveal rounded-3xl bg-white/5 ring-1 ring-white/10 p-6">
-                    <div class="flex items-center justify-between gap-3 flex-wrap">
-                        <p class="font-semibold">Maize price forecast (R/ton)</p>
-                        <div class="flex gap-1 text-xs" role="group" aria-label="Forecast horizon">
-                            <button type="button" class="horizon px-3 py-1.5 rounded-full bg-harvest-400 text-brand-900 font-semibold" data-months="6">6 months</button>
-                            <button type="button" class="horizon px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20" data-months="12">12 months</button>
+                    <div class="flex items-start justify-between gap-3 flex-wrap">
+                        <div>
+                            <p class="font-semibold">El Niño vs South African harvests</p>
+                            <p class="text-xs text-brand-100/80 mt-0.5">Cereal yield (kg/ha), with El Niño seasons highlighted</p>
                         </div>
+                        <span class="text-xs font-semibold bg-harvest-400 text-brand-900 px-2.5 py-1 rounded-full" id="ai-badge">Real data</span>
                     </div>
-                    <div class="h-64 mt-4"><canvas id="ai-chart" aria-label="Sample maize price forecast" role="img"></canvas></div>
-                    <p class="mt-3 text-[11px] text-brand-100/70">Illustrative sample data. The shaded band shows the forecast range.</p>
+                    <div class="h-64 mt-4"><canvas id="ai-chart" aria-label="South African cereal yields by year compared with the trend, with El Niño seasons highlighted and next season's projection" role="img"></canvas></div>
+                    <p class="mt-3 text-sm text-brand-50" id="ai-summary"></p>
                 </div>
+            </div>
+        </section>
+
+        <!-- Live climate & market intelligence -->
+        <section id="intel" class="py-20 bg-gradient-to-b from-white to-brand-50/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 reveal">
+                    <div class="max-w-2xl">
+                        <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Live climate &amp; market intelligence</p>
+                        <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Plan the season with real data</h2>
+                        <p class="mt-4 text-gray-600">Forecasts built from public climate and market data, refreshed every week, plus live weather for South Africa's main growing regions.</p>
+                    </div>
+                    <p class="text-xs text-gray-500" id="intel-updated"></p>
+                </div>
+
+                <div id="intel-error" class="hidden mt-8 rounded-2xl bg-amber-50 text-amber-800 p-4 text-sm"></div>
+
+                <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- ENSO -->
+                    <article class="reveal rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-6">
+                        <div class="flex items-start justify-between gap-3">
+                            <div><p class="text-xs text-gray-500">Pacific Ocean · Niño 3.4</p><h3 class="font-bold text-brand-900 text-lg">El Niño–Southern Oscillation</h3></div>
+                            <span id="enso-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-gray-100 text-gray-600">…</span>
+                        </div>
+                        <div class="h-56 mt-4"><canvas id="enso-chart" aria-label="Oceanic Niño Index history and nine-month outlook" role="img"></canvas></div>
+                        <p class="mt-3 text-sm text-gray-600" id="enso-text"></p>
+                    </article>
+
+                    <!-- Price -->
+                    <article class="reveal rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-6">
+                        <div class="flex items-start justify-between gap-3">
+                            <div><p class="text-xs text-gray-500">World maize price in rand</p><h3 class="font-bold text-brand-900 text-lg">6-month price outlook</h3></div>
+                            <span id="price-now" class="text-right"></span>
+                        </div>
+                        <div class="h-56 mt-4"><canvas id="price-chart" aria-label="Maize price in rand per ton for three years with a six-month forecast range" role="img"></canvas></div>
+                        <p class="mt-3 text-sm text-gray-600" id="price-text"></p>
+                    </article>
+
+                    <!-- Rainfall outlook -->
+                    <article class="reveal rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-6">
+                        <div class="flex items-start justify-between gap-3 flex-wrap">
+                            <div><p class="text-xs text-gray-500">ECMWF seasonal ensemble</p><h3 class="font-bold text-brand-900 text-lg">Rainfall outlook vs normal</h3></div>
+                            <label class="text-sm"><span class="sr-only">Region</span>
+                                <select id="region-select" class="field !py-2 !text-sm"></select>
+                            </label>
+                        </div>
+                        <div class="h-56 mt-4"><canvas id="rain-chart" aria-label="Forecast monthly rainfall compared with the 1991 to 2020 normal for the selected region" role="img"></canvas></div>
+                        <p class="mt-3 text-sm text-gray-600" id="rain-text"></p>
+                    </article>
+
+                    <!-- Live weather -->
+                    <article class="reveal rounded-3xl bg-brand-900 text-white shadow-soft p-6">
+                        <div class="flex items-start justify-between gap-3">
+                            <div><p class="text-xs text-brand-100/80">Live · Open-Meteo</p><h3 class="font-bold text-lg">Next 7 days: <span id="wx-region"></span></h3></div>
+                            <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-white/10 px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-harvest-400 animate-pulse"></span>Live</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-3 mt-5">
+                            <div class="rounded-2xl bg-white/10 p-3"><p class="text-[11px] text-brand-100">Rain (7 days)</p><p class="text-xl font-extrabold" id="wx-rain">…</p></div>
+                            <div class="rounded-2xl bg-white/10 p-3"><p class="text-[11px] text-brand-100">Soil moisture</p><p class="text-xl font-extrabold" id="wx-soil">…</p></div>
+                            <div class="rounded-2xl bg-white/10 p-3"><p class="text-[11px] text-brand-100">Max temp</p><p class="text-xl font-extrabold" id="wx-tmax">…</p></div>
+                        </div>
+                        <div class="mt-5 grid grid-cols-7 gap-1.5 text-center text-xs" id="wx-days"></div>
+                        <p class="mt-4 text-sm text-brand-50" id="wx-advice"></p>
+                    </article>
+                </div>
+
+                <details class="mt-8 rounded-2xl bg-white ring-1 ring-black/5 px-6 py-5 reveal">
+                    <summary class="cursor-pointer font-semibold text-brand-900 flex items-center justify-between gap-4">Methodology, sources &amp; limitations
+                        <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-brand-50 text-brand-700 grid place-items-center transition"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg></span>
+                    </summary>
+                    <div class="mt-4 text-sm text-gray-600 space-y-3" id="method-text"></div>
+                </details>
             </div>
         </section>
 
@@ -252,7 +326,7 @@
                     </div>
                     <span class="inline-flex items-center gap-2 text-xs font-semibold text-brand-700 bg-brand-50 px-3 py-1.5 rounded-full self-start md:self-auto"><span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> Live preview (sample lots)</span>
                 </div>
-                <div id="auction-grid" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+                <div id="auction-grid" class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
             </div>
         </section>
 
@@ -294,7 +368,7 @@
                     <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Plans for every farm size</h2>
                     <p class="mt-4 text-gray-600">Flexible subscription tiers for different farm sizes and needs, with pricing that scales as you grow.</p>
                 </div>
-                <div class="mt-12 grid md:grid-cols-3 gap-6 items-stretch">
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
                     <div class="reveal rounded-3xl border border-gray-200 p-8 flex flex-col">
                         <h3 class="text-lg font-bold text-brand-900">Smallholder</h3>
                         <p class="text-sm text-gray-500 mt-1">For individual and emerging farmers</p>
@@ -361,7 +435,7 @@
 
         <!-- Contact -->
         <section id="contact" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-5 gap-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-5 gap-10">
                 <div class="lg:col-span-2 reveal">
                     <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Contact</p>
                     <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Let's grow together</h2>
@@ -373,7 +447,7 @@
                     </ul>
                 </div>
                 <div class="lg:col-span-3 reveal">
-                    <form id="contact-form" class="rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-6 sm:p-8 grid sm:grid-cols-2 gap-5" novalidate>
+                    <form id="contact-form" class="rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 gap-5" novalidate>
                         <div>
                             <label for="c-name" class="text-sm font-medium text-gray-700">Full name</label>
                             <input id="c-name" name="name" required autocomplete="name" class="field mt-1.5" placeholder="Thandi Mokoena">
@@ -419,7 +493,7 @@
 
     <!-- Footer -->
     <footer class="bg-brand-900 text-brand-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             <div>
                 <div class="flex items-center gap-3">
                     <img src="logo.jpg" alt="" class="w-10 h-10 rounded-xl object-cover bg-white">
@@ -598,7 +672,7 @@
             panel.innerHTML = `
                 <h3 class="text-2xl font-bold text-brand-900">${s.title}</h3>
                 <p class="mt-3 text-gray-600">${s.text}</p>
-                <div class="mt-7 grid sm:grid-cols-2 gap-7">${s.groups.map((g) => `
+                <div class="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-7">${s.groups.map((g) => `
                     <div><p class="font-semibold text-brand-900">${g.h}</p>
                     <ul class="mt-3 space-y-2.5 text-sm text-gray-700">${g.items.map((it) => `<li class="flex gap-2"><span class="check"></span>${it}</li>`).join('')}</ul></div>`).join('')}
                 </div>`;
@@ -750,52 +824,197 @@
             status.classList.remove('hidden');
         });
 
-        // ── Charts (sample data) ────────────────────────────────────────────
-        if (window.Chart) {
-            Chart.defaults.font.family = '"Plus Jakarta Sans", system-ui, sans-serif';
-            new Chart($('#hero-chart'), {
-                type: 'bar',
-                data: {
-                    labels: ['Field A', 'Field B', 'Field C', 'Field D'],
-                    datasets: [
-                        { label: 'Last season (t/ha)', data: [6.1, 5.4, 4.8, 5.9], backgroundColor: '#dcefdc', borderRadius: 6 },
-                        { label: 'Forecast (t/ha)', data: [7.2, 5.9, 5.8, 6.8], backgroundColor: '#2e7d32', borderRadius: 6 },
-                    ],
-                },
-                options: { responsive: true, maintainAspectRatio: false, animation: reduceMotion ? false : undefined,
-                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, font: { size: 11 } } } },
-                    scales: { x: { grid: { display: false } }, y: { beginAtZero: true, grid: { color: '#f1f1f1' }, ticks: { font: { size: 10 } } } } },
-            });
-
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            const history = [3850, 3920, 4010, 3960, 4080, 4120];
-            const forecast12 = [4120, 4190, 4260, 4230, 4310, 4380, 4420, 4470, 4440, 4520, 4580, 4610, 4650];
-            const aiChart = new Chart($('#ai-chart'), { type: 'line', data: { labels: [], datasets: [] },
-                options: { responsive: true, maintainAspectRatio: false, animation: reduceMotion ? false : undefined,
-                    interaction: { mode: 'index', intersect: false },
-                    plugins: { legend: { labels: { color: '#dcefdc', boxWidth: 10, usePointStyle: true, filter: (i) => !i.text.startsWith('_') } },
-                               tooltip: { filter: (i) => !i.dataset.label.startsWith('_'), callbacks: { label: (c) => `${c.dataset.label}: R${c.parsed.y.toLocaleString('en-ZA')}/t` } } },
-                    scales: { x: { ticks: { color: '#b9dfba' }, grid: { color: 'rgba(255,255,255,.06)' } },
-                              y: { ticks: { color: '#b9dfba', callback: (v) => 'R' + v.toLocaleString('en-ZA') }, grid: { color: 'rgba(255,255,255,.06)' } } } } });
-            function setHorizon(n) {
-                const fc = forecast12.slice(0, n + 1);
-                const labels = [...months.slice(0, 6).map((m) => m + ' 2025'), ...Array.from({ length: n }, (_, i) => months[(6 + i) % 12] + (6 + i >= 12 ? ' 2026' : ' 2025'))];
-                const pad = Array(5).fill(null);
-                aiChart.data.labels = labels;
-                aiChart.data.datasets = [
-                    { label: 'Actual price', data: [...history, ...Array(n).fill(null)], borderColor: '#ffffff', backgroundColor: '#ffffff', tension: .35, pointRadius: 2 },
-                    { label: 'AI forecast', data: [...pad, ...fc], borderColor: '#ffd600', backgroundColor: '#ffd600', borderDash: [6, 4], tension: .35, pointRadius: 0 },
-                    { label: '_upper', data: [...pad, ...fc.map((v, i) => v + i * 22)], borderColor: 'transparent', backgroundColor: 'rgba(255,214,0,.15)', fill: '+1', pointRadius: 0 },
-                    { label: '_lower', data: [...pad, ...fc.map((v, i) => v - i * 22)], borderColor: 'transparent', pointRadius: 0, fill: false },
-                ];
-                aiChart.update();
-            }
-            $$('.horizon').forEach((b) => b.addEventListener('click', () => {
-                $$('.horizon').forEach((x) => { const on = x === b; x.classList.toggle('bg-harvest-400', on); x.classList.toggle('text-brand-900', on); x.classList.toggle('font-semibold', on); x.classList.toggle('bg-white/10', !on); });
-                setHorizon(+b.dataset.months);
-            }));
-            setHorizon(6);
+        // ── Live data: weekly model output + live weather ───────────────────
+        // data/agri-data.json is rebuilt weekly by scripts/update-data.mjs
+        // (NOAA ONI, World Bank prices & yields, ECB FX, ECMWF seasonal).
+        // The 7-day weather is fetched live from Open-Meteo in the browser.
+        const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const mLabel = (k) => `${MONTHS[+k.slice(5, 7) - 1]} ${k.slice(2, 4)}`;
+        const zar = (n) => 'R' + Math.round(n).toLocaleString('en-ZA');
+        const sign = (n) => (n > 0 ? '+' : '') + n;
+        const charts = {};
+        const chartReady = Boolean(window.Chart);
+        if (chartReady) Chart.defaults.font.family = '"Plus Jakarta Sans", system-ui, sans-serif';
+        const baseOpts = (extra = {}) => ({
+            responsive: true, maintainAspectRatio: false, animation: reduceMotion ? false : undefined,
+            interaction: { mode: 'index', intersect: false },
+            plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, font: { size: 11 }, filter: (i) => !i.text.startsWith('_') } },
+                       tooltip: { filter: (i) => !i.dataset.label.startsWith('_') } },
+            ...extra,
+        });
+        function draw(id, config) {
+            if (!chartReady) return;
+            if (charts[id]) charts[id].destroy();
+            charts[id] = new Chart(document.getElementById(id), config);
         }
+        const ensoColor = (o) => (o >= 0.5 ? '#d97706' : o <= -0.5 ? '#2563eb' : '#9ca3af');
+
+        function renderEnso(d, dark) {
+            const hist = d.enso.history.slice(dark ? -24 : -48), fc = d.enso.forecast;
+            const labels = [...hist.map((h) => mLabel(h.month)), ...fc.map((f) => mLabel(f.month))];
+            const pad = Array(hist.length - 1).fill(null);
+            const lastVal = hist[hist.length - 1].oni;
+            return {
+                type: 'line',
+                data: { labels, datasets: [
+                    { label: 'Observed ONI', data: [...hist.map((h) => h.oni), ...fc.map(() => null)], borderColor: '#1b5e20', backgroundColor: '#1b5e20', tension: .3, pointRadius: 0, borderWidth: 2.5,
+                      segment: { borderColor: (c) => ensoColor(c.p1.parsed.y) } },
+                    { label: 'Outlook', data: [...pad, lastVal, ...fc.map((f) => f.oni)], borderColor: '#f5c400', borderDash: [5, 4], pointRadius: 0, tension: .3 },
+                    { label: '_hi', data: [...pad, lastVal, ...fc.map((f) => f.hi)], borderColor: 'transparent', backgroundColor: 'rgba(255,214,0,.18)', fill: '+1', pointRadius: 0 },
+                    { label: '_lo', data: [...pad, lastVal, ...fc.map((f) => f.lo)], borderColor: 'transparent', pointRadius: 0, fill: false },
+                    { label: '_el', data: labels.map(() => 0.5), borderColor: 'rgba(217,119,6,.35)', borderDash: [2, 3], pointRadius: 0, borderWidth: 1 },
+                    { label: '_la', data: labels.map(() => -0.5), borderColor: 'rgba(37,99,235,.35)', borderDash: [2, 3], pointRadius: 0, borderWidth: 1 },
+                ] },
+                options: baseOpts({ plugins: { legend: { display: !dark, position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, font: { size: 11 }, filter: (i) => !i.text.startsWith('_') } },
+                                                tooltip: { filter: (i) => !i.dataset.label.startsWith('_') } },
+                    scales: { x: { ticks: { maxTicksLimit: 8, font: { size: 10 } }, grid: { display: false } },
+                              y: { suggestedMin: -2, suggestedMax: 2.5, ticks: { font: { size: 10 } }, grid: { color: '#f1f1f1' } } } }),
+            };
+        }
+
+        function renderLive(d) {
+            const e = d.enso.latest, y = d.yield, p = d.price;
+            const lastPrice = p.history[p.history.length - 1];
+            const updated = new Date(d.updated).toLocaleDateString('en-ZA', { day: 'numeric', month: 'long', year: 'numeric' });
+
+            // Hero
+            $('#h-oni-label').textContent = `ONI (${mLabel(e.month)})`;
+            $('#h-oni').textContent = sign(e.oni);
+            $('#h-yield-label').textContent = `${y.outlook.harvestYear} harvest`;
+            $('#h-yield').textContent = `${sign(y.outlook.changeVsTrendPct)}% vs trend`;
+            $('#h-price').textContent = `${zar(lastPrice.zar)}/t`;
+            $('#h-alert').textContent = e.phase === 'El Niño' ? `${e.strength[0].toUpperCase() + e.strength.slice(1)} El Niño: plan for drought risk`
+                : e.phase === 'La Niña' ? 'La Niña: wetter summer, watch for flooding' : 'ENSO neutral: normal season odds';
+            $('#h-updated').textContent = `updated ${updated}`;
+            draw('hero-chart', renderEnso(d, true));
+
+            // ENSO card
+            const badge = $('#enso-badge');
+            badge.textContent = `${e.strength ? e.strength + ' ' : ''}${e.phase}`;
+            badge.className = 'text-xs font-bold px-3 py-1 rounded-full capitalize ' + (e.phase === 'El Niño' ? 'bg-amber-100 text-amber-800' : e.phase === 'La Niña' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-600');
+            const endFc = d.enso.forecast[d.enso.forecast.length - 1];
+            $('#enso-text').innerHTML = `The Oceanic Niño Index was <strong>${sign(e.oni)}</strong> in ${mLabel(e.month)}. Readings above +0.5 mean El Niño, which for South Africa usually brings a <strong>hotter, drier summer</strong> in the maize belt. The outlook keeps it near <strong>${sign(endFc.oni)}</strong> by ${mLabel(endFc.month)}.`;
+            draw('enso-chart', renderEnso(d, false));
+
+            // AI section: yields vs El Niño
+            const yh = y.history.slice(-25);
+            const yLabels = [...yh.map((r) => String(r.year)), `${y.outlook.harvestYear}*`];
+            draw('ai-chart', {
+                type: 'bar',
+                data: { labels: yLabels, datasets: [
+                    { type: 'bar', label: 'Actual yield', data: [...yh.map((r) => r.kgha), null], backgroundColor: yh.map((r) => (r.oni >= 0.5 ? '#ffd600' : 'rgba(255,255,255,.55)')), borderRadius: 4 },
+                    { type: 'bar', label: 'Projected', data: [...yh.map(() => null), y.outlook.predictedKgha], backgroundColor: '#f97316', borderRadius: 4 },
+                    { type: 'line', label: 'Trend', data: [...yh.map((r) => r.trend), y.outlook.trendKgha], borderColor: '#b9dfba', borderDash: [5, 4], pointRadius: 0, borderWidth: 1.5 },
+                ] },
+                options: baseOpts({ plugins: { legend: { position: 'bottom', labels: { color: '#dcefdc', boxWidth: 10, usePointStyle: true, font: { size: 11 } } },
+                    tooltip: { callbacks: { afterBody: (items) => { const r = yh[items[0].dataIndex]; return r ? `Growing-season ONI: ${sign(r.oni)}` : `Season ONI (outlook): ${sign(y.outlook.seasonOni)}`; } } } },
+                    scales: { x: { stacked: true, ticks: { color: '#b9dfba', maxTicksLimit: 9, font: { size: 10 } }, grid: { display: false } },
+                              y: { ticks: { color: '#b9dfba', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,.06)' } } } }),
+            });
+            $('#ai-summary').innerHTML = `Over ${y.model.n} seasons, every +1 on the growing-season ONI cut yields by about <strong>${Math.abs(y.model.betaPctPerOni)}%</strong> against the long-term trend (yellow bars are El Niño years). With the current outlook, the <strong>${y.outlook.harvestYear} harvest</strong> is projected near <strong>${y.outlook.predictedKgha.toLocaleString('en-ZA')} kg/ha (${sign(y.outlook.changeVsTrendPct)}% vs trend)</strong>.`;
+
+            // Price
+            const ph = p.history, pf = p.forecast;
+            const pLabels = [...ph.map((h) => mLabel(h.month)), ...pf.map((f) => mLabel(f.month))];
+            const ppad = Array(ph.length - 1).fill(null);
+            const pLast = lastPrice.zar;
+            draw('price-chart', {
+                type: 'line',
+                data: { labels: pLabels, datasets: [
+                    { label: 'Actual (R/t)', data: [...ph.map((h) => h.zar), ...pf.map(() => null)], borderColor: '#1b5e20', backgroundColor: '#1b5e20', tension: .3, pointRadius: 0, borderWidth: 2.5 },
+                    { label: 'Forecast', data: [...ppad, pLast, ...pf.map((f) => f.zar)], borderColor: '#f5c400', borderDash: [5, 4], pointRadius: 0, tension: .3, borderWidth: 2 },
+                    { label: 'If ENSO were neutral', data: [...ppad, pLast, ...pf.map((f) => f.neutralZar)], borderColor: '#9ca3af', borderDash: [2, 3], pointRadius: 0, tension: .3, borderWidth: 1.5 },
+                    { label: '_hi', data: [...ppad, pLast, ...pf.map((f) => f.hi)], borderColor: 'transparent', backgroundColor: 'rgba(255,214,0,.18)', fill: '+1', pointRadius: 0 },
+                    { label: '_lo', data: [...ppad, pLast, ...pf.map((f) => f.lo)], borderColor: 'transparent', pointRadius: 0, fill: false },
+                ] },
+                options: baseOpts({ plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, font: { size: 11 }, filter: (i) => !i.text.startsWith('_') } },
+                    tooltip: { filter: (i) => !i.dataset.label.startsWith('_'), callbacks: { label: (c) => `${c.dataset.label}: ${zar(c.parsed.y)}` } } },
+                    scales: { x: { ticks: { maxTicksLimit: 8, font: { size: 10 } }, grid: { display: false } },
+                              y: { ticks: { font: { size: 10 }, callback: (v) => zar(v) }, grid: { color: '#f1f1f1' } } } }),
+            });
+            const pEnd = pf[pf.length - 1];
+            $('#price-now').innerHTML = `<span class="block text-xl font-extrabold text-brand-900">${zar(pLast)}</span><span class="text-[11px] text-gray-500">per ton · ${mLabel(lastPrice.month)}</span>`;
+            const dir = p.model.oniEffect6mPct < 0 ? 'lower' : 'higher';
+            $('#price-text').innerHTML = `Forecast for ${mLabel(pEnd.month)}: <strong>${zar(pEnd.zar)}/t</strong> (range ${zar(pEnd.lo)}–${zar(pEnd.hi)}). Historically, El Niño has meant <strong>${dir} world maize prices</strong> (${sign(p.model.oniEffect6mPct)}% per +1 ONI over six months), because it tends to favour US crops. Local South African prices can move the other way when drought cuts our own harvest and pushes prices towards import parity.`;
+
+            // Rainfall + regions
+            const sel = $('#region-select');
+            sel.innerHTML = d.rainfall.map((r) => `<option value="${r.id}">${r.name} · ${r.crop}</option>`).join('');
+            sel.addEventListener('change', () => { renderRain(d, sel.value); loadWeather(d, sel.value); });
+            renderRain(d, sel.value);
+            loadWeather(d, sel.value);
+
+            // Footer bits
+            $('#intel-updated').textContent = `Model data updated ${updated}`;
+            $('#method-text').innerHTML = `
+                <p><strong>El Niño outlook.</strong> Monthly Oceanic Niño Index from NOAA (1950–present), projected forward with a fitted persistence model (AR(1), φ = ${d.enso.model.phi}). This is a statistical extension, not NOAA's official forecast. See the <a class="underline" href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/" target="_blank" rel="noopener">CPC ENSO advisory</a>.</p>
+                <p><strong>Harvest outlook.</strong> ${y.model.type}, fitted on South African cereal yields (World Bank, ${y.model.n} seasons since 1980). Effect: ${y.model.betaPctPerOni}% per +1 ONI (±${y.model.betaSe}), trend +${y.model.trendPctPerYear}%/year, R² ${y.model.r2}. The 80% range for ${y.outlook.harvestYear} is ${y.outlook.lo.toLocaleString('en-ZA')}–${y.outlook.hi.toLocaleString('en-ZA')} kg/ha.</p>
+                <p><strong>Price outlook.</strong> World Bank Pink Sheet maize (US Gulf, USD/t) converted at monthly average ECB USD/ZAR rates. The model regresses each 1–6-month log return on ONI and the gap from the 12-month average (n = ${p.model.n}, R² ${p.model.r2_6m} at 6 months). This is the global benchmark, not the SAFEX white maize price.</p>
+                <p><strong>Rainfall.</strong> ECMWF SEAS5 ensemble via the Open-Meteo Seasonal API, compared with the ERA5 1991–2020 monthly normal at each site. Raw model output is not bias-corrected. "% of members below 80% of normal" shows how many ensemble members expect a dry month.</p>
+                <p><strong>Weather.</strong> Live 7-day forecast and soil moisture (3–9 cm) from Open-Meteo.</p>
+                <p class="text-xs text-gray-400">These are indicative decision-support figures, not financial or agronomic advice.</p>`;
+        }
+
+        function renderRain(d, id) {
+            const r = d.rainfall.find((x) => x.id === id);
+            if (!r || !r.months.length) { $('#rain-text').textContent = 'Seasonal outlook unavailable for this region right now.'; return; }
+            draw('rain-chart', {
+                type: 'bar',
+                data: { labels: r.months.map((m) => mLabel(m.month)), datasets: [
+                    { label: 'Forecast (mm)', data: r.months.map((m) => m.mm), backgroundColor: r.months.map((m) => (m.pctOfNormal != null && m.pctOfNormal < 80 ? '#f59e0b' : '#2e7d32')), borderRadius: 6 },
+                    { label: '1991–2020 normal', data: r.months.map((m) => m.normalMm), backgroundColor: '#dcefdc', borderRadius: 6 },
+                ] },
+                options: baseOpts({ plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, font: { size: 11 } } },
+                    tooltip: { callbacks: { afterBody: (items) => { const m = r.months[items[0].dataIndex]; return `${m.pctOfNormal ?? '–'}% of normal · ${m.probBelow}% of members dry`; } } } },
+                    scales: { x: { grid: { display: false }, ticks: { font: { size: 10 } } }, y: { beginAtZero: true, ticks: { font: { size: 10 } }, grid: { color: '#f1f1f1' } } } }),
+            });
+            const dry = r.months.filter((m) => m.pctOfNormal != null && m.pctOfNormal < 80).map((m) => mLabel(m.month));
+            const total = r.months.reduce((s, m) => s + m.mm, 0), normal = r.months.reduce((s, m) => s + m.normalMm, 0);
+            $('#rain-text').innerHTML = `Six-month total <strong>${total} mm vs ${normal} mm normal (${Math.round((total / normal) * 100)}%)</strong>. ${dry.length ? `Drier than normal: <strong>${dry.join(', ')}</strong>.` : 'No month is forecast below 80% of normal.'} Amber bars mark months under 80% of normal.`;
+        }
+
+        const wxCache = {};
+        async function loadWeather(d, id) {
+            const r = d.regions.find((x) => x.id === id);
+            $('#wx-region').textContent = r.name.split(' (')[1]?.replace(')', '') || r.name;
+            try {
+                const url = `https://api.open-meteo.com/v1/forecast?latitude=${r.lat}&longitude=${r.lon}&daily=precipitation_sum,temperature_2m_max,temperature_2m_min&hourly=soil_moisture_3_to_9cm&forecast_days=7&timezone=Africa%2FJohannesburg`;
+                const w = wxCache[id] || (wxCache[id] = await fetch(url).then((res) => { if (!res.ok) throw new Error(res.status); return res.json(); }));
+                const rain = w.daily.precipitation_sum.reduce((a, b) => a + (b || 0), 0);
+                const soilNow = w.hourly.soil_moisture_3_to_9cm.find((v) => v != null);
+                const tmax = Math.max(...w.daily.temperature_2m_max);
+                $('#wx-rain').textContent = `${rain.toFixed(0)} mm`;
+                $('#wx-soil').textContent = soilNow != null ? `${Math.round(soilNow * 100)}%` : '–';
+                $('#wx-tmax').textContent = `${Math.round(tmax)}°C`;
+                $('#wx-days').innerHTML = w.daily.time.map((t, i) => {
+                    const p = w.daily.precipitation_sum[i] || 0;
+                    const day = new Date(t + 'T12:00').toLocaleDateString('en-ZA', { weekday: 'short' });
+                    return `<div class="rounded-xl bg-white/5 py-2"><p class="text-brand-100">${day}</p><p class="text-base">${p >= 5 ? '🌧️' : p >= 1 ? '🌦️' : w.daily.temperature_2m_max[i] >= 30 ? '🔥' : '☀️'}</p><p class="font-semibold">${Math.round(w.daily.temperature_2m_max[i])}°</p><p class="text-brand-100">${p.toFixed(0)}mm</p></div>`;
+                }).join('');
+                const soilPct = soilNow != null ? soilNow * 100 : null;
+                let advice;
+                if (r.season === 'summer') {
+                    advice = soilPct != null && soilPct < 15 && rain < 10 ? 'Dry topsoil and little rain ahead: hold off on planting until about 25 mm has fallen.'
+                        : rain >= 25 ? 'Good rain expected: a planting window may open once fields are workable.'
+                        : 'Monitor soil moisture; plant when the topsoil profile is wet enough to germinate.';
+                } else {
+                    advice = tmax >= 32 ? 'Hot spell ahead: watch for heat stress on wheat during grain fill.' : 'Conditions are typical for this stage of the winter-crop season.';
+                }
+                $('#wx-advice').textContent = advice;
+            } catch (err) {
+                $('#wx-advice').textContent = 'Live weather is unavailable right now. Please try again later.';
+            }
+        }
+
+        fetch('data/agri-data.json', { cache: 'no-cache' })
+            .then((res) => { if (!res.ok) throw new Error(res.status); return res.json(); })
+            .then(renderLive)
+            .catch(() => {
+                const box = $('#intel-error');
+                box.textContent = 'Live model data could not be loaded. Please refresh, or check back shortly.';
+                box.classList.remove('hidden');
+                $('#h-alert').textContent = 'Live data temporarily unavailable';
+            });
 
         // ── Count-up stats & reveal on scroll ───────────────────────────────
         function countUp(el) {
