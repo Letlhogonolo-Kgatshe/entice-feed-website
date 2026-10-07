@@ -1,680 +1,823 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Entice Feed: Your Agri-SaaS platform for smart farming and sustainable growth in South Africa.">
-    <meta name="keywords" content="Agri-SaaS, Farming, AI Analytics, Plant Tracking, Sustainability">
+    <title>Entice Feed | Agricultural SaaS for South Africa</title>
+    <meta name="description" content="Entice Feed is an agricultural Software-as-a-Service platform connecting farmers, suppliers, buyers, financiers and government in one smart, inclusive digital ecosystem.">
     <meta name="author" content="Entice Feed Pty Ltd">
-    <title>Entice Feed - Agricultural SaaS Platform</title>
+    <meta property="og:title" content="Entice Feed | Agricultural SaaS for South Africa">
+    <meta property="og:description" content="One platform for the whole agricultural value chain: AI insights, produce auctions, plant tracking and carbon credits.">
+    <meta property="og:image" content="logo.jpg">
+    <meta name="theme-color" content="#1b5e20">
+    <link rel="icon" href="logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] },
+                    colors: {
+                        brand: { 50: '#f1f8f1', 100: '#dcefdc', 200: '#b9dfba', 500: '#2e7d32', 600: '#256b29', 700: '#1b5e20', 900: '#0f3812' },
+                        harvest: { 300: '#ffe566', 400: '#ffd600', 500: '#f5c400' },
+                        soil: { 500: '#795548', 700: '#4e342e' },
+                    },
+                    boxShadow: { soft: '0 10px 40px -12px rgba(27, 94, 32, 0.25)' },
+                },
+            },
+        };
+    </script>
     <style>
-        :root {
-            --primary: #2e7d32;      /* Deep Green */
-            --secondary: #ffd600;    /* Gold */
-            --accent: #795548;       /* Brown */
-            --background: #f5f5f5;   /* Light Gray */
-            --white: #fff;
-            --text: #222;
+        body { -webkit-font-smoothing: antialiased; }
+        [x-cloak] { display: none; }
+        .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
         }
-
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            background: var(--background);
-            color: var(--text);
-            scroll-behavior: smooth;
-        }
-
-        header {
-            background: var(--primary);
-            color: var(--white);
-            padding: 1.5rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 50;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-        }
-
-        header img {
-            height: 50px;
-            margin-right: 1rem;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin-left: 2rem;
-            font-weight: bold;
-            transition: color 0.2s;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: var(--secondary);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--secondary);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        main {
-            margin-top: 5rem; /* Initial value, adjusted dynamically via JS */
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
-            padding: 2rem 2.5rem;
-        }
-
-        section {
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            color: var(--primary);
-            margin-top: 0;
-            font-size: 2rem;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 3px;
-            bottom: -8px;
-            left: 0;
-            background-color: var(--secondary);
-        }
-
-        .feature-card {
-            background: var(--background);
-            border-left: 6px solid var(--secondary);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-card h3 {
-            color: var(--accent);
-            margin-top: 0;
-        }
-
-        .cta {
-            background: var(--secondary);
-            color: var(--primary);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-top: 2rem;
-        }
-
-        .tab-link {
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .tab-link.active {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .plant-table, .report-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        .plant-table th, .plant-table td, .report-table th, .report-table td {
-            border: 1px solid #ddd;
-            padding: 0.75rem;
-            text-align: left;
-        }
-
-        .plant-table th, .report-table th {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--white);
-            z-index: 100;
-            padding: 2rem;
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .contact-form input, .contact-form textarea, .newsletter-signup input {
-            width: 100%;
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .contact-form input[type="submit"], .newsletter-signup button {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .contact-form input[type="submit"]:hover, .newsletter-signup button:hover {
-            background: var(--accent);
-        }
-
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-
-        #home {
-            position: relative;
-            top: 0;
-            scroll-margin-top: 5rem; /* Initial value, adjusted dynamically via JS */
-        }
-
-        .bg-primary:hover {
-            background-color: var(--accent);
-        }
-
-        .bg-secondary:hover {
-            background-color: var(--accent);
-        }
-
-        #back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            display: none;
-        }
-
-        #back-to-top:hover {
-            background: var(--accent);
-        }
-
-        @media (max-width: 800px) {
-            main { padding: 1rem; }
-            .features { flex-direction: column; }
-            .md\\:flex-row { flex-direction: column; }
-            .md\\:w-1\\/2, .md\\:w-1\\/3, .md\\:w-2\\/3 { width: 100%; }
-            .hidden.md\\:flex, .hidden.md\\:block { display: none; }
-            .md\\:hidden { display: block; }
-        }
-
-        @media (max-width: 640px) {
-            #home svg text {
-                font-size: 10px; /* Ensure SVG text is legible on small screens */
-            }
-        }
+        .tab-btn[aria-selected="true"] { background: #1b5e20; color: #fff; box-shadow: 0 6px 20px -8px rgba(27,94,32,.6); }
+        .tab-btn[aria-selected="true"] svg { color: #ffd600; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] .faq-icon { transform: rotate(45deg); }
+        .grid-bg { background-image: radial-gradient(rgba(46,125,50,.12) 1px, transparent 1px); background-size: 22px 22px; }
     </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <header>
-        <img src="logo.jpg" alt="Entice Feed Logo">
-        <h1>Entice Feed</h1>
-        <nav class="hidden md:flex space-x-8">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#features" class="nav-link">Features</a>
-            <a href="#ecosystem" class="nav-link">Ecosystem</a>
-            <a href="#ai" class="nav-link">AI Solutions</a>
-            <a href="#auctions" class="nav-link">Auctions</a>
-            <a href="#tracking" class="nav-link">Plant Tracking</a>
-            <a href="#contact" class="nav-link">Contact</a>
+<body class="bg-white text-gray-800 font-sans">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] bg-brand-700 text-white px-4 py-2 rounded-lg">Skip to content</a>
+
+    <!-- Header -->
+    <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-18 py-3">
+                <a href="#home" class="flex items-center gap-3" aria-label="Entice Feed home">
+                    <img src="logo.jpg" alt="" class="w-10 h-10 rounded-xl object-cover bg-white ring-1 ring-black/5">
+                    <span class="text-xl font-extrabold tracking-tight text-brand-900">Entice<span class="text-brand-500">Feed</span></span>
+                </a>
+                <nav class="hidden lg:flex items-center gap-1 text-sm font-medium" aria-label="Main">
+                    <a href="#features" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Platform</a>
+                    <a href="#ecosystem" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Ecosystem</a>
+                    <a href="#ai" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">AI Insights</a>
+                    <a href="#auctions" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Auctions</a>
+                    <a href="#tracking" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Plant Tracking</a>
+                    <a href="#pricing" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">Plans</a>
+                    <a href="#faq" class="nav-link px-3 py-2 rounded-lg text-gray-600 hover:text-brand-700 hover:bg-brand-50">FAQ</a>
+                </nav>
+                <div class="hidden lg:flex items-center gap-3">
+                    <a href="#contact" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-brand-700 text-white hover:bg-brand-900 transition shadow-soft">Request a demo</a>
+                </div>
+                <button id="menu-btn" class="lg:hidden w-11 h-11 grid place-items-center rounded-xl text-brand-900 hover:bg-brand-50" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <nav id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-100 shadow-lg" aria-label="Mobile">
+            <div class="px-4 py-4 grid gap-1 text-base font-medium">
+                <a href="#features" class="px-3 py-3 rounded-lg hover:bg-brand-50">Platform</a>
+                <a href="#ecosystem" class="px-3 py-3 rounded-lg hover:bg-brand-50">Ecosystem</a>
+                <a href="#ai" class="px-3 py-3 rounded-lg hover:bg-brand-50">AI Insights</a>
+                <a href="#auctions" class="px-3 py-3 rounded-lg hover:bg-brand-50">Auctions</a>
+                <a href="#tracking" class="px-3 py-3 rounded-lg hover:bg-brand-50">Plant Tracking</a>
+                <a href="#pricing" class="px-3 py-3 rounded-lg hover:bg-brand-50">Plans</a>
+                <a href="#faq" class="px-3 py-3 rounded-lg hover:bg-brand-50">FAQ</a>
+                <a href="#contact" class="mt-2 px-3 py-3 rounded-xl bg-brand-700 text-white text-center font-semibold">Request a demo</a>
+            </div>
         </nav>
-        <div class="hidden md:block">
-            <button type="button" class="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-accent" aria-label="Investor Login">Investor Login</button>
-        </div>
-        <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-white" aria-label="Open Mobile Menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu">
-        <div class="flex justify-end">
-            <button id="close-menu-button" class="text-gray-700" aria-label="Close Mobile Menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-        </div>
-        <div class="flex flex-col space-y-4 mt-8">
-            <a href="#home" class="text-gray-700 hover:text-primary text-xl py-2">Home</a>
-            <a href="#features" class="text-gray-700 hover:text-primary text-xl py-2">Features</a>
-            <a href="#ecosystem" class="text-gray-700 hover:text-primary text-xl py-2">Ecosystem</a>
-            <a href="#ai" class="text-gray-700 hover:text-primary text-xl py-2">AI Solutions</a>
-            <a href="#auctions" class="text-gray-700 hover:text-primary text-xl py-2">Auctions</a>
-            <a href="#tracking" class="text-gray-700 hover:text-primary text-xl py-2">Plant Tracking</a>
-            <a href="#contact" class="text-gray-700 hover:text-primary text-xl py-2">Contact</a>
-            <button type="button" class="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-accent" aria-label="Investor Login">Investor Login</button>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="bg-background fade-in">
-            <div class="container mx-auto px-4 py-16">
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/2 mb-8 md:mb-0">
-                        <h2 class="text-4xl md:text-5xl font-bold text-primary leading-tight mb-4">Revolutionizing South African Agriculture</h2>
-                        <p class="text-lg text-gray-700 mb-8">Entice Feed is building a differentiated Agricultural Software-as-a-Service platform that connects all players in the agricultural value chain through a smart, inclusive digital ecosystem.</p>
-                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                            <button type="button" class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-accent" aria-label="Request a Demo">Request Demo</button>
-                            <button type="button" class="bg-secondary text-primary px-8 py-3 rounded-full font-medium hover:bg-accent" aria-label="View Investor Deck">Investor Deck</button>
-                        </div>
+    <main id="main">
+        <!-- Hero -->
+        <section id="home" class="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24 bg-gradient-to-b from-brand-50 via-white to-white">
+            <div class="absolute inset-0 grid-bg opacity-60 pointer-events-none" aria-hidden="true"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-brand-700 bg-white border border-brand-200 rounded-full px-3 py-1.5 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-harvest-400"></span> Agri-SaaS · Made for South Africa
+                    </p>
+                    <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-brand-900 leading-[1.05]">
+                        Revolutionizing South African <span class="relative whitespace-nowrap text-brand-500">agriculture<svg class="absolute -bottom-2 left-0 w-full h-3 text-harvest-400" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9c50-6 146-8 196-2" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/></svg></span>
+                    </h1>
+                    <p class="mt-6 text-lg text-gray-600 max-w-xl">Entice Feed is building a differentiated Agricultural Software-as-a-Service platform that connects all players in the agricultural value chain through a smart, inclusive digital ecosystem.</p>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                        <a href="#contact" data-topic="Demo request" class="topic-link inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-xl font-semibold bg-brand-700 text-white hover:bg-brand-900 transition shadow-soft">
+                            Request a demo
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </a>
+                        <a href="#contact" data-topic="Investor deck request" class="topic-link inline-flex justify-center items-center px-6 py-3.5 rounded-xl font-semibold bg-white text-brand-900 border border-brand-200 hover:border-brand-500 transition">Get the investor deck</a>
                     </div>
-                    <div class="md:w-1/2">
-                        <div class="relative">
-                            <svg class="w-full h-auto" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="50" y="50" width="500" height="300" rx="20" fill="#f5f5f5" stroke="#2e7d32" stroke-width="2"/>
-                                <circle cx="300" cy="200" r="120" fill="#ffd600" opacity="0.3"/>
-                                <path d="M150,250 Q300,100 450,250" stroke="#2e7d32" stroke-width="4" fill="none"/>
-                                <circle cx="150" cy="250" r="15" fill="#795548"/>
-                                <circle cx="300" cy="130" r="15" fill="#795548"/>
-                                <circle cx="450" cy="250" r="15" fill="#795548"/>
-                                <rect x="120" y="280" width="60" height="40" rx="5" fill="#2e7d32"/>
-                                <rect x="270" y="280" width="60" height="40" rx="5" fill="#2e7d32"/>
-                                <rect x="420" y="280" width="60" height="40" rx="5" fill="#2e7d32"/>
-                                <text x="150" y="305" text-anchor="middle" fill="white" font-size="12">Farmers</text>
-                                <text x="300" y="305" text-anchor="middle" fill="white" font-size="12">Platform</text>
-                                <text x="450" y="305" text-anchor="middle" fill="white" font-size="12">Buyers</text>
-                                <path d="M100,100 L120,120 M100,120 L120,100" stroke="#ffd600" stroke-width="2"/>
-                                <path d="M480,100 L500,120 M480,120 L500,100" stroke="#ffd600" stroke-width="2"/>
-                                <path d="M100,280 L120,300 M100,300 L120,280" stroke="#ffd600" stroke-width="2"/>
-                                <path d="M480,280 L500,300 M480,300 L500,280" stroke="#ffd600" stroke-width="2"/>
-                            </svg>
-                        </div>
-                    </div>
+                    <dl class="mt-10 grid grid-cols-3 gap-6 max-w-md">
+                        <div><dt class="text-xs text-gray-500">Value chain</dt><dd class="font-bold text-brand-900">5 stakeholders</dd></div>
+                        <div><dt class="text-xs text-gray-500">Works</dt><dd class="font-bold text-brand-900">Offline-first</dd></div>
+                        <div><dt class="text-xs text-gray-500">Built in</dt><dd class="font-bold text-brand-900">South Africa</dd></div>
+                    </dl>
                 </div>
-            </div>
-        </section>
 
-        <!-- Stats Section -->
-        <section>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="text-4xl font-bold text-primary mb-2">85%</div>
-                    <div class="text-gray-600">Increased Efficiency</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-bold text-primary mb-2">30+</div>
-                    <div class="text-gray-600">Partner Organizations</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-bold text-primary mb-2">5,000+</div>
-                    <div class="text-gray-600">Farmers Connected</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-bold text-primary mb-2">20%</div>
-                    <div class="text-gray-600">Yield Improvement</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features">
-            <h2>Core Differentiation Strategy</h2>
-            <p class="text-gray-600 mt-6 max-w-2xl mx-auto">Our platform is built on five key pillars that set us apart in the agricultural technology landscape.</p>
-            <div class="features grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-                <div class="feature-card">
-                    <h3>B2B Ecosystem Integration</h3>
-                    <p>A seamless Business-to-Business ecosystem connecting farmers, suppliers, buyers, financial institutions, and government bodies.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Simplified operations</li>
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Enhanced collaboration</li>
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Streamlined value chain</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <h3>Analytics & AI</h3>
-                    <p>Predictive analytics and AI providing insights on crop yields, market trends, risk alerts, and more.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Data-driven decisions</li>
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Yield optimization</li>
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Risk mitigation</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <h3>Sustainability & Carbon Credits</h3>
-                    <p>Features supporting sustainable farming and enabling access to global carbon credit markets.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Environmental impact tracking</li>
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Carbon credit monetization</li>
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Sustainable practice guidance</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <h3>User-Friendly Interface</h3>
-                    <p>Intuitive and accessible platform for both digitally skilled users and those with limited technology experience.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Simplified navigation</li>
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Multi-language support</li>
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Offline capabilities</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <h3>Branding & Community</h3>
-                    <p>Strong branding and strategic marketing campaigns to build trust within farming communities.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Community engagement</li>
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Educational resources</li>
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Trust building initiatives</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <h3>SaaS Subscription Model</h3>
-                    <p>Flexible subscription tiers catering to different farm sizes and needs with scalable pricing.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Tiered pricing plans</li>
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Regular updates</li>
-                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Cloud-based access</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ecosystem Section -->
-        <section id="ecosystem">
-            <h2>Ecosystem Integration</h2>
-            <p class="text-gray-600 mt-6 max-w-2xl mx-auto">Our platform connects all key stakeholders in the agricultural value chain, creating a seamless ecosystem for collaboration and growth.</p>
-            <div class="flex flex-col md:flex-row mt-8">
-                <div class="md:w-1/3 mb-8 md:mb-0">
-                    <h3 class="font-semibold text-dark mb-4">Key Stakeholders</h3>
-                    <ul class="space-y-4">
-                        <li class="tab-link active" data-tab="farmers">
-                            <div class="flex items-center p-3 rounded-lg tab-link active">
-                                <i class="fas fa-users w-6 h-6 mr-3"></i>Farmers & Producers
-                            </div>
-                        </li>
-                        <li class="tab-link" data-tab="suppliers">
-                            <div class="flex items-center p-3 rounded-lg">
-                                <i class="fas fa-box w-6 h-6 mr-3"></i>Input Suppliers
-                            </div>
-                        </li>
-                        <li class="tab-link" data-tab="financial">
-                            <div class="flex items-center p-3 rounded-lg">
-                                <i class="fas fa-university w-6 h-6 mr-3"></i>Financial Institutions
-                            </div>
-                        </li>
-                        <li class="tab-link" data-tab="buyers">
-                            <div class="flex items-center p-3 rounded-lg">
-                                <i class="fas fa-shopping-cart w-6 h-6 mr-3"></i>Buyers & Processors
-                            </div>
-                        </li>
-                        <li class="tab-link" data-tab="government">
-                            <div class="flex items-center p-3 rounded-lg">
-                                <i class="fas fa-building w-6 h-6 mr-3"></i>Government Bodies
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="md:w-2/3 md:pl-8">
-                    <div class="tab-content active" id="farmers">
-                        <h3 class="font-semibold text-dark mb-4">Farmers & Producer Organizations</h3>
-                        <p class="text-gray-600 mb-6">Our platform empowers farmers and producer organizations with tools to optimize operations, access markets, and implement sustainable practices.</p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Product preview -->
+                <div class="relative">
+                    <div class="absolute -top-8 -right-8 w-64 h-64 bg-harvest-300/40 rounded-full blur-3xl" aria-hidden="true"></div>
+                    <div class="relative bg-white rounded-3xl shadow-soft ring-1 ring-black/5 p-5">
+                        <div class="flex items-center justify-between">
                             <div>
-                                <h4 class="font-medium text-dark mb-2">Key Organizations</h4>
-                                <ul class="text-gray-600 space-y-2">
-                                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Agri South Africa (AgriSA)</li>
-                                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>National African Farmers Union (NAFU)</li>
-                                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>African Farmers Association of South Africa (AFASA)</li>
-                                </ul>
+                                <p class="text-xs text-gray-500">Farm overview · Field A–C</p>
+                                <p class="font-bold text-brand-900">Season yield forecast</p>
                             </div>
-                            <div>
-                                <h4 class="font-medium text-dark mb-2">Platform Benefits</h4>
-                                <ul class="text-gray-600 space-y-2">
-                                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Profile creation and management</li>
-                                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Cooperative tools and resource sharing</li>
-                                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Sustainability reporting and certification</li>
-                                    <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Market access and price discovery</li>
-                                </ul>
-                            </div>
+                            <span class="text-xs font-semibold text-brand-700 bg-brand-50 px-2.5 py-1 rounded-full">Preview</span>
+                        </div>
+                        <div class="h-44 mt-3"><canvas id="hero-chart" aria-label="Sample yield forecast chart" role="img"></canvas></div>
+                        <div class="grid grid-cols-3 gap-3 mt-4">
+                            <div class="rounded-xl bg-brand-50 p-3"><p class="text-[11px] text-gray-500">Soil moisture</p><p class="font-bold text-brand-900">32%</p></div>
+                            <div class="rounded-xl bg-harvest-300/30 p-3"><p class="text-[11px] text-gray-500">Risk alerts</p><p class="font-bold text-soil-700">2 open</p></div>
+                            <div class="rounded-xl bg-brand-50 p-3"><p class="text-[11px] text-gray-500">Maize bid</p><p class="font-bold text-brand-900">R4 120/t</p></div>
                         </div>
                     </div>
-                    <!-- Placeholder for other tab contents -->
-                    <div class="tab-content" id="suppliers">
-                        <h3 class="font-semibold text-dark mb-4">Input Suppliers</h3>
-                        <p class="text-gray-600 mb-6">Suppliers can connect with farmers, manage inventory, and streamline supply chains through our platform.</p>
+                    <div class="absolute -bottom-6 -left-4 sm:-left-8 bg-white rounded-2xl shadow-soft ring-1 ring-black/5 px-4 py-3 flex items-center gap-3">
+                        <span class="w-9 h-9 rounded-full bg-harvest-400 grid place-items-center text-brand-900">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+                        </span>
+                        <div><p class="text-xs text-gray-500">AI risk alert</p><p class="text-sm font-semibold text-brand-900">Field B needs irrigation</p></div>
                     </div>
-                    <div class="tab-content" id="financial">
-                        <h3 class="font-semibold text-dark mb-4">Financial Institutions</h3>
-                        <p class="text-gray-600 mb-6">Financial partners gain access to farmer data for better credit risk assessment and loan offerings.</p>
+                </div>
+            </div>
+            <p class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-[11px] text-gray-400">Dashboard figures are illustrative sample data.</p>
+        </section>
+
+        <!-- Stats -->
+        <section aria-label="Impact" class="py-12">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+                    <div class="rounded-2xl bg-brand-900 text-white p-6"><p class="text-4xl font-extrabold"><span class="counter" data-to="85">0</span>%</p><p class="text-sm text-brand-100 mt-1">Increased efficiency</p></div>
+                    <div class="rounded-2xl bg-brand-50 p-6"><p class="text-4xl font-extrabold text-brand-900"><span class="counter" data-to="30">0</span>+</p><p class="text-sm text-gray-600 mt-1">Partner organisations</p></div>
+                    <div class="rounded-2xl bg-brand-50 p-6"><p class="text-4xl font-extrabold text-brand-900"><span class="counter" data-to="5000">0</span>+</p><p class="text-sm text-gray-600 mt-1">Farmers connected</p></div>
+                    <div class="rounded-2xl bg-harvest-400 p-6"><p class="text-4xl font-extrabold text-brand-900"><span class="counter" data-to="20">0</span>%</p><p class="text-sm text-brand-900/80 mt-1">Yield improvement</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section id="how" class="py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto reveal">
+                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">How it works</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">From field to market in three steps</h2>
+                </div>
+                <ol class="mt-12 grid md:grid-cols-3 gap-6">
+                    <li class="reveal relative rounded-3xl border border-gray-100 p-7 bg-white hover:shadow-soft transition">
+                        <span class="w-11 h-11 rounded-2xl bg-brand-700 text-white font-bold grid place-items-center">1</span>
+                        <h3 class="mt-5 text-lg font-bold text-brand-900">Create your profile</h3>
+                        <p class="mt-2 text-gray-600">Register your farm, cooperative or business, add fields and crops, and choose who you want to connect with.</p>
+                    </li>
+                    <li class="reveal relative rounded-3xl border border-gray-100 p-7 bg-white hover:shadow-soft transition">
+                        <span class="w-11 h-11 rounded-2xl bg-brand-700 text-white font-bold grid place-items-center">2</span>
+                        <h3 class="mt-5 text-lg font-bold text-brand-900">Track and get insights</h3>
+                        <p class="mt-2 text-gray-600">Log plant status, even offline. AI turns weather, soil and history into yield forecasts and early risk alerts.</p>
+                    </li>
+                    <li class="reveal relative rounded-3xl border border-gray-100 p-7 bg-white hover:shadow-soft transition">
+                        <span class="w-11 h-11 rounded-2xl bg-harvest-400 text-brand-900 font-bold grid place-items-center">3</span>
+                        <h3 class="mt-5 text-lg font-bold text-brand-900">Sell, finance and grow</h3>
+                        <p class="mt-2 text-gray-600">List produce on auctions, share verified records with lenders, and earn from sustainable practices through carbon credits.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="py-20 bg-brand-50/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto reveal">
+                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">The platform</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Core differentiation strategy</h2>
+                    <p class="mt-4 text-gray-600">Our platform is built on key pillars that set us apart in the agricultural technology landscape.</p>
+                </div>
+                <div id="feature-grid" class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </div>
+        </section>
+
+        <!-- Ecosystem -->
+        <section id="ecosystem" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto reveal">
+                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Ecosystem integration</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Every stakeholder, one platform</h2>
+                    <p class="mt-4 text-gray-600">Our platform connects all key stakeholders in the agricultural value chain, creating a seamless ecosystem for collaboration and growth.</p>
+                </div>
+                <div class="mt-12 grid lg:grid-cols-3 gap-8 reveal">
+                    <div role="tablist" aria-label="Stakeholders" class="flex lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0" id="eco-tabs"></div>
+                    <div class="lg:col-span-2 rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-7 sm:p-9" id="eco-panel" role="tabpanel" tabindex="0"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI -->
+        <section id="ai" class="py-20 bg-brand-900 text-white relative overflow-hidden">
+            <div class="absolute -right-24 -top-24 w-96 h-96 bg-brand-500/30 rounded-full blur-3xl" aria-hidden="true"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <p class="text-sm font-semibold text-harvest-400 uppercase tracking-wider">AI &amp; analytics</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">Data-driven agriculture, explained simply</h2>
+                    <p class="mt-4 text-brand-100">Our platform uses AI and machine learning to deliver:</p>
+                    <ul class="mt-6 space-y-4">
+                        <li class="flex gap-3"><span class="check-dark"></span><span>Yield prediction based on weather, soil and historical data</span></li>
+                        <li class="flex gap-3"><span class="check-dark"></span><span>Market price forecasting and demand analysis</span></li>
+                        <li class="flex gap-3"><span class="check-dark"></span><span>Automated risk alerts for disease, drought and pests</span></li>
+                        <li class="flex gap-3"><span class="check-dark"></span><span>Personalised recommendations for crop management</span></li>
+                    </ul>
+                </div>
+                <div class="reveal rounded-3xl bg-white/5 ring-1 ring-white/10 p-6">
+                    <div class="flex items-center justify-between gap-3 flex-wrap">
+                        <p class="font-semibold">Maize price forecast (R/ton)</p>
+                        <div class="flex gap-1 text-xs" role="group" aria-label="Forecast horizon">
+                            <button type="button" class="horizon px-3 py-1.5 rounded-full bg-harvest-400 text-brand-900 font-semibold" data-months="6">6 months</button>
+                            <button type="button" class="horizon px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20" data-months="12">12 months</button>
+                        </div>
                     </div>
-                    <div class="tab-content" id="buyers">
-                        <h3 class="font-semibold text-dark mb-4">Buyers & Processors</h3>
-                        <p class="text-gray-600 mb-6">Buyers can source produce directly, ensuring transparency and fair pricing.</p>
+                    <div class="h-64 mt-4"><canvas id="ai-chart" aria-label="Sample maize price forecast" role="img"></canvas></div>
+                    <p class="mt-3 text-[11px] text-brand-100/70">Illustrative sample data. The shaded band shows the forecast range.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auctions -->
+        <section id="auctions" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 reveal">
+                    <div class="max-w-2xl">
+                        <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Produce auctions</p>
+                        <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Fair prices through open bidding</h2>
+                        <p class="mt-4 text-gray-600">Farmers list produce, verified buyers and processors bid, and everyone sees transparent prices, with no middlemen taking the margin.</p>
                     </div>
-                    <div class="tab-content" id="government">
-                        <h3 class="font-semibold text-dark mb-4">Government Bodies</h3>
-                        <p class="text-gray-600 mb-6">Government agencies can monitor agricultural trends and support policy-making with real-time data.</p>
+                    <span class="inline-flex items-center gap-2 text-xs font-semibold text-brand-700 bg-brand-50 px-3 py-1.5 rounded-full self-start md:self-auto"><span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> Live preview (sample lots)</span>
+                </div>
+                <div id="auction-grid" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+            </div>
+        </section>
+
+        <!-- Plant tracking -->
+        <section id="tracking" class="py-20 bg-brand-50/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-2xl reveal">
+                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Plant tracking</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Monitor crop health in real time</h2>
+                    <p class="mt-4 text-gray-600">See the status of every field and greenhouse at a glance, and act on problems before they cost you a harvest.</p>
+                </div>
+                <div class="mt-10 rounded-3xl bg-white ring-1 ring-black/5 shadow-soft overflow-hidden reveal">
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row gap-3 sm:items-center justify-between border-b border-gray-100">
+                        <div class="relative sm:w-72">
+                            <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="m20 20-3.5-3.5"/></svg>
+                            <label for="plant-search" class="sr-only">Search crops or locations</label>
+                            <input id="plant-search" type="search" placeholder="Search crop or location" class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none text-sm">
+                        </div>
+                        <div class="flex gap-2 text-sm overflow-x-auto" role="group" aria-label="Filter by status" id="status-filters"></div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-50 text-left text-xs uppercase tracking-wider text-gray-500">
+                                <tr><th class="px-5 py-3 font-semibold">Crop</th><th class="px-5 py-3 font-semibold">Location</th><th class="px-5 py-3 font-semibold">Status</th><th class="px-5 py-3 font-semibold">Moisture</th><th class="px-5 py-3 font-semibold">Last update</th></tr>
+                            </thead>
+                            <tbody id="plant-body" class="divide-y divide-gray-100"></tbody>
+                        </table>
+                    </div>
+                    <p id="plant-empty" class="hidden p-8 text-center text-gray-500 text-sm">No crops match your search.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto reveal">
+                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">SaaS subscription model</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Plans for every farm size</h2>
+                    <p class="mt-4 text-gray-600">Flexible subscription tiers for different farm sizes and needs, with pricing that scales as you grow.</p>
+                </div>
+                <div class="mt-12 grid md:grid-cols-3 gap-6 items-stretch">
+                    <div class="reveal rounded-3xl border border-gray-200 p-8 flex flex-col">
+                        <h3 class="text-lg font-bold text-brand-900">Smallholder</h3>
+                        <p class="text-sm text-gray-500 mt-1">For individual and emerging farmers</p>
+                        <p class="mt-6 text-3xl font-extrabold text-brand-900">Free pilot</p>
+                        <ul class="mt-6 space-y-3 text-sm text-gray-600 flex-1">
+                            <li class="flex gap-2"><span class="check"></span>Farm profile and plant tracking</li>
+                            <li class="flex gap-2"><span class="check"></span>Market prices and auction access</li>
+                            <li class="flex gap-2"><span class="check"></span>Offline mode and multi-language</li>
+                        </ul>
+                        <a href="#contact" data-topic="Smallholder plan" class="topic-link mt-8 text-center px-5 py-3 rounded-xl font-semibold border border-brand-200 text-brand-900 hover:border-brand-500 transition">Join the pilot</a>
+                    </div>
+                    <div class="reveal rounded-3xl bg-brand-900 text-white p-8 flex flex-col relative shadow-soft md:-translate-y-3">
+                        <span class="absolute -top-3 left-8 text-xs font-bold bg-harvest-400 text-brand-900 px-3 py-1 rounded-full">Most popular</span>
+                        <h3 class="text-lg font-bold">Commercial</h3>
+                        <p class="text-sm text-brand-100 mt-1">For commercial farms and cooperatives</p>
+                        <p class="mt-6 text-3xl font-extrabold">Monthly plan</p>
+                        <ul class="mt-6 space-y-3 text-sm text-brand-50 flex-1">
+                            <li class="flex gap-2"><span class="check-dark"></span>Everything in Smallholder</li>
+                            <li class="flex gap-2"><span class="check-dark"></span>AI yield forecasts and risk alerts</li>
+                            <li class="flex gap-2"><span class="check-dark"></span>Cooperative tools and resource sharing</li>
+                            <li class="flex gap-2"><span class="check-dark"></span>Sustainability reporting and carbon credits</li>
+                        </ul>
+                        <a href="#contact" data-topic="Commercial plan pricing" class="topic-link mt-8 text-center px-5 py-3 rounded-xl font-semibold bg-harvest-400 text-brand-900 hover:bg-harvest-300 transition">Get pricing</a>
+                    </div>
+                    <div class="reveal rounded-3xl border border-gray-200 p-8 flex flex-col">
+                        <h3 class="text-lg font-bold text-brand-900">Enterprise</h3>
+                        <p class="text-sm text-gray-500 mt-1">For suppliers, processors, lenders and government</p>
+                        <p class="mt-6 text-3xl font-extrabold text-brand-900">Custom</p>
+                        <ul class="mt-6 space-y-3 text-sm text-gray-600 flex-1">
+                            <li class="flex gap-2"><span class="check"></span>Data dashboards across many farms</li>
+                            <li class="flex gap-2"><span class="check"></span>API integrations and data exports</li>
+                            <li class="flex gap-2"><span class="check"></span>Dedicated onboarding and support</li>
+                        </ul>
+                        <a href="#contact" data-topic="Enterprise enquiry" class="topic-link mt-8 text-center px-5 py-3 rounded-xl font-semibold border border-brand-200 text-brand-900 hover:border-brand-500 transition">Talk to sales</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- AI Solutions Section -->
-        <section id="ai">
-            <h2>AI & Analytics</h2>
-            <p>Our platform uses advanced AI and machine learning to deliver:</p>
-            <ul class="text-gray-600 space-y-2">
-                <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Yield prediction based on weather, soil, and historical data</li>
-                <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Market price forecasting and demand analysis</li>
-                <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Automated risk alerts (disease, drought, pests)</li>
-                <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Personalized recommendations for crop management</li>
-            </ul>
-            <div class="cta">
-                <span>Unlock the power of data-driven agriculture with Entice Feed!</span>
+        <!-- FAQ -->
+        <section id="faq" class="py-20 bg-brand-50/60">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center reveal">
+                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">FAQ</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Questions, answered</h2>
+                </div>
+                <div class="mt-10 space-y-3" id="faq-list"></div>
             </div>
         </section>
 
-        <!-- Plant Tracking Section -->
-        <section id="tracking">
-            <h2>Plant Tracking</h2>
-            <p>Monitor crop health and status in real-time with our advanced tracking tools.</p>
-            <table class="plant-table">
-                <thead>
-                    <tr>
-                        <th>Plant</th>
-                        <th>Location</th>
-                        <th>Status</th>
-                        <th>Last Update</th>
-                    </tr>
-                </thead>
-                <tbody id="plantTableBody"></tbody>
-            </table>
+        <!-- CTA band -->
+        <section class="py-16">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="reveal rounded-3xl bg-gradient-to-br from-brand-700 to-brand-900 text-white p-10 sm:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-16 w-72 h-72 bg-harvest-400/30 rounded-full blur-3xl" aria-hidden="true"></div>
+                    <div class="relative">
+                        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Unlock the power of data-driven agriculture</h2>
+                        <p class="mt-2 text-brand-100">See Entice Feed working with your own farm data.</p>
+                    </div>
+                    <a href="#contact" data-topic="Demo request" class="topic-link relative shrink-0 px-6 py-3.5 rounded-xl font-semibold bg-harvest-400 text-brand-900 hover:bg-harvest-300 transition">Book a demo</a>
+                </div>
+            </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <div class="contact-info">
-                <p><strong>Location:</strong> 123 Agri Lane, Johannesburg, South Africa</p>
-                <p><strong>Phone:</strong> <a href="tel:+27115550123">+27 11 555 0123</a></p>
-                <p><strong>Email:</strong> <a href="mailto:invest@enticefeed.com">invest@enticefeed.com</a></p>
+        <!-- Contact -->
+        <section id="contact" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-5 gap-10">
+                <div class="lg:col-span-2 reveal">
+                    <p class="text-sm font-semibold text-brand-500 uppercase tracking-wider">Contact</p>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">Let's grow together</h2>
+                    <p class="mt-4 text-gray-600">Farmers, partners and investors: tell us what you need and our team will get back to you.</p>
+                    <ul class="mt-8 space-y-5">
+                        <li class="flex gap-4"><span class="contact-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><p class="text-sm text-gray-500">Location</p><p class="font-semibold text-brand-900">123 Agri Lane, Johannesburg, South Africa</p></div></li>
+                        <li class="flex gap-4"><span class="contact-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span><div><p class="text-sm text-gray-500">Phone</p><a href="tel:+27115550123" class="font-semibold text-brand-900 hover:text-brand-500">+27 11 555 0123</a></div></li>
+                        <li class="flex gap-4"><span class="contact-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="m3 7 9 6 9-6"/></svg></span><div><p class="text-sm text-gray-500">Email</p><a href="mailto:invest@enticefeed.com" class="font-semibold text-brand-900 hover:text-brand-500">invest@enticefeed.com</a></div></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-3 reveal">
+                    <form id="contact-form" class="rounded-3xl bg-white ring-1 ring-black/5 shadow-soft p-6 sm:p-8 grid sm:grid-cols-2 gap-5" novalidate>
+                        <div>
+                            <label for="c-name" class="text-sm font-medium text-gray-700">Full name</label>
+                            <input id="c-name" name="name" required autocomplete="name" class="field mt-1.5" placeholder="Thandi Mokoena">
+                            <p class="error-msg" data-for="c-name">Please enter your name.</p>
+                        </div>
+                        <div>
+                            <label for="c-email" class="text-sm font-medium text-gray-700">Email</label>
+                            <input id="c-email" name="email" type="email" required autocomplete="email" class="field mt-1.5" placeholder="you@farm.co.za">
+                            <p class="error-msg" data-for="c-email">Please enter a valid email address.</p>
+                        </div>
+                        <div>
+                            <label for="c-role" class="text-sm font-medium text-gray-700">I am a…</label>
+                            <select id="c-role" name="role" class="field mt-1.5">
+                                <option>Farmer / producer</option>
+                                <option>Cooperative</option>
+                                <option>Input supplier</option>
+                                <option>Buyer / processor</option>
+                                <option>Financial institution</option>
+                                <option>Government body</option>
+                                <option>Investor</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="c-topic" class="text-sm font-medium text-gray-700">Topic</label>
+                            <input id="c-topic" name="topic" class="field mt-1.5" value="Demo request">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="c-message" class="text-sm font-medium text-gray-700">Message</label>
+                            <textarea id="c-message" name="message" rows="4" required class="field mt-1.5" placeholder="Tell us about your farm or organisation…"></textarea>
+                            <p class="error-msg" data-for="c-message">Please add a short message.</p>
+                        </div>
+                        <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <label class="flex items-start gap-2 text-sm text-gray-600"><input id="c-news" type="checkbox" class="mt-1 accent-brand-700"> Also send me monthly farming tips</label>
+                            <button type="submit" class="px-6 py-3.5 rounded-xl font-semibold bg-brand-700 text-white hover:bg-brand-900 transition">Send message</button>
+                        </div>
+                        <p class="sm:col-span-2 text-xs text-gray-400">Sending opens your email app with the message ready to go. We only use your details to reply to you, in line with POPIA.</p>
+                        <p id="form-status" class="sm:col-span-2 hidden text-sm rounded-xl bg-brand-50 text-brand-900 px-4 py-3" role="status"></p>
+                    </form>
+                </div>
             </div>
-            <div class="contact-form">
-                <h3>Get in Touch</h3>
-                <form>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required aria-required="true" aria-label="Your Name">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required aria-required="true" aria-label="Your Email">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4" required aria-required="true" aria-label="Your Message"></textarea>
-                    <input type="submit" value="Send" class="btn btn-primary">
-                </form>
-            </div>
-            <div class="newsletter-signup">
-                <h3>Newsletter Signup</h3>
-                <p>Get farming tips monthly.</p>
-                <form>
-                    <input type="email" name="email" placeholder="Your Email" required aria-label="Newsletter Email">
-                    <button type="submit" aria-label="Subscribe to Newsletter">Subscribe</button>
-                </form>
-            </div>
-            <h3>Join Our Community</h3>
-            <ul>
-                <li><a href="#">Join our WhatsApp Group</a></li>
-                <li><a href="#">Join our Telegram Group</a></li>
-            </ul>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer>
-        <p>© 2025 Entice Feed Pty Ltd. All rights reserved.</p>
+    <footer class="bg-brand-900 text-brand-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div>
+                <div class="flex items-center gap-3">
+                    <img src="logo.jpg" alt="" class="w-10 h-10 rounded-xl object-cover bg-white">
+                    <span class="text-xl font-extrabold text-white">Entice<span class="text-harvest-400">Feed</span></span>
+                </div>
+                <p class="mt-4 text-sm">A smart, inclusive digital ecosystem for South African agriculture.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white">Platform</p>
+                <ul class="mt-4 space-y-2 text-sm">
+                    <li><a href="#ai" class="hover:text-white">AI insights</a></li>
+                    <li><a href="#auctions" class="hover:text-white">Produce auctions</a></li>
+                    <li><a href="#tracking" class="hover:text-white">Plant tracking</a></li>
+                    <li><a href="#pricing" class="hover:text-white">Plans</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white">Company</p>
+                <ul class="mt-4 space-y-2 text-sm">
+                    <li><a href="#ecosystem" class="hover:text-white">Ecosystem</a></li>
+                    <li><a href="#contact" data-topic="Investor deck request" class="topic-link hover:text-white">Investors</a></li>
+                    <li><a href="#faq" class="hover:text-white">FAQ</a></li>
+                    <li><a href="#contact" class="hover:text-white">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white">Get in touch</p>
+                <ul class="mt-4 space-y-2 text-sm">
+                    <li>123 Agri Lane, Johannesburg</li>
+                    <li><a href="tel:+27115550123" class="hover:text-white">+27 11 555 0123</a></li>
+                    <li><a href="mailto:invest@enticefeed.com" class="hover:text-white">invest@enticefeed.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between gap-2 text-xs">
+                <p>© <span id="year"></span> Entice Feed Pty Ltd. All rights reserved.</p>
+                <p>Proudly South African 🇿🇦</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
+    <button id="back-to-top" class="fixed bottom-5 right-5 z-40 w-12 h-12 rounded-full bg-harvest-400 text-brand-900 shadow-soft grid place-items-center opacity-0 pointer-events-none transition" aria-label="Back to top">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m6 15 6-6 6 6"/></svg>
+    </button>
+
+    <style>
+        .check, .check-dark { flex: none; width: 1.25rem; height: 1.25rem; margin-top: .1rem; border-radius: 999px; background-repeat: no-repeat; background-position: center; background-size: .75rem; }
+        .check { background-color: #dcefdc; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231b5e20' stroke-width='3.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m5 12 5 5 9-10'/%3E%3C/svg%3E"); }
+        .check-dark { background-color: #ffd600; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f3812' stroke-width='3.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m5 12 5 5 9-10'/%3E%3C/svg%3E"); }
+        .contact-icon { flex: none; width: 2.75rem; height: 2.75rem; border-radius: .9rem; display: grid; place-items: center; background: #f1f8f1; color: #1b5e20; }
+        .field { width: 100%; border: 1px solid #e5e7eb; border-radius: .8rem; padding: .7rem .9rem; font-size: .95rem; outline: none; background: #fff; transition: border-color .2s, box-shadow .2s; }
+        .field:focus { border-color: #2e7d32; box-shadow: 0 0 0 3px #dcefdc; }
+        .field.invalid { border-color: #dc2626; box-shadow: 0 0 0 3px #fee2e2; }
+        .error-msg { display: none; color: #dc2626; font-size: .8rem; margin-top: .35rem; }
+        .error-msg.show { display: block; }
+        #site-header.scrolled { background: rgba(255,255,255,.92); backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+    </style>
 
     <script>
-        // Dynamic Header Height Adjustment
-        document.addEventListener('DOMContentLoaded', () => {
-            const header = document.querySelector('header');
-            const main = document.querySelector('main');
-            const homeSection = document.querySelector('#home');
-            const headerHeight = header.offsetHeight;
-            main.style.marginTop = `${headerHeight}px`;
-            homeSection.style.scrollMarginTop = `${headerHeight}px`;
-        });
+    (function () {
+        'use strict';
+        const $ = (s, r = document) => r.querySelector(s);
+        const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const icon = (d) => `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="${d}"/></svg>`;
+        const ICONS = {
+            network: 'M7.5 7.5a3 3 0 1 0 0-.01M16.5 7.5a3 3 0 1 0 0-.01M12 16.5a3 3 0 1 0 0-.01M9 9.5l2 4.5M15 9.5l-2 4.5M10 7.5h4',
+            chart: 'M4 20V10m6 10V4m6 16v-7m4 7H2',
+            leaf: 'M5 19c9 0 14-5 14-14-9 0-14 5-14 14Zm0 0 7-7',
+            hand: 'M8 13V5.5a1.5 1.5 0 0 1 3 0V12m0-1V4.5a1.5 1.5 0 0 1 3 0V12m0-1.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L3.6 14.6a1.5 1.5 0 0 1 2.4-1.8L8 15',
+            users: 'M16 19v-1a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v1m20 0v-1a4 4 0 0 0-3-3.9M15 3.1a4 4 0 0 1 0 7.8M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z',
+            cloud: 'M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9a4.5 4.5 0 0 0 1 9Z',
+            box: 'M21 8 12 3 3 8m18 0-9 5m9-5v8l-9 5m0-8L3 8m9 5v8M3 8v8l9 5',
+            bank: 'M3 10h18M5 10v8m4-8v8m6-8v8m4-8v8M3 21h18M12 3l9 5H3l9-5Z',
+            cart: 'M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.7a1 1 0 0 0 1-.8L20 8H6.2M9 20.5a.5.5 0 1 0 0-.01M17 20.5a.5.5 0 1 0 0-.01',
+            gov: 'M4 21V10m16 11V10M12 3 2 8h20L12 3ZM8 21v-7h8v7M2 21h20',
+        };
 
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenuButton = document.getElementById('close-menu-button');
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
+        // ── Header & mobile menu ────────────────────────────────────────────
+        const header = $('#site-header');
+        const onScroll = () => {
+            header.classList.toggle('scrolled', window.scrollY > 10);
+            const top = $('#back-to-top');
+            const show = window.scrollY > 600;
+            top.classList.toggle('opacity-0', !show);
+            top.classList.toggle('pointer-events-none', !show);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        $('#back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
 
-        closeMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
+        const menuBtn = $('#menu-btn'), menu = $('#mobile-menu');
+        const setMenu = (open) => {
+            menu.classList.toggle('hidden', !open);
+            menuBtn.setAttribute('aria-expanded', open);
+            menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            $('#menu-icon').innerHTML = open ? '<path stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/>' : '<path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/>';
+            if (open) header.classList.add('scrolled'); else onScroll();
+        };
+        menuBtn.addEventListener('click', () => setMenu(menu.classList.contains('hidden')));
+        $$('#mobile-menu a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
-        // Tab Functionality
-        const tabLinks = document.querySelectorAll('.tab-link');
-        const tabContents = document.querySelectorAll('.tab-content');
+        // Active nav link while scrolling
+        const sections = $$('main section[id]');
+        const navLinks = $$('.nav-link');
+        if ('IntersectionObserver' in window) {
+            const spy = new IntersectionObserver((entries) => {
+                entries.forEach((e) => {
+                    if (!e.isIntersecting) return;
+                    navLinks.forEach((l) => {
+                        const on = l.getAttribute('href') === '#' + e.target.id;
+                        l.classList.toggle('text-brand-700', on);
+                        l.classList.toggle('bg-brand-50', on);
+                    });
+                });
+            }, { rootMargin: '-45% 0px -50% 0px' });
+            sections.forEach((s) => spy.observe(s));
+        }
 
-        tabLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                tabLinks.forEach(l => l.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
-                link.classList.add('active');
-                document.getElementById(link.dataset.tab).classList.add('active');
-            });
-        });
+        // Header offset for anchor jumps
+        sections.forEach((s) => (s.style.scrollMarginTop = '80px'));
 
-        // Plant Tracking Data
-        const plants = [
-            { name: "Maize", location: "Field A", status: "Healthy", lastUpdate: "2024-06-10 09:15" },
-            { name: "Wheat", location: "Field B", status: "Needs Water", lastUpdate: "2024-06-10 09:10" },
-            { name: "Soybean", location: "Greenhouse 1", status: "Healthy", lastUpdate: "2024-06-10 09:05" },
+        // Pre-fill the contact topic from CTAs
+        $$('.topic-link').forEach((a) => a.addEventListener('click', () => { $('#c-topic').value = a.dataset.topic; }));
+
+        // ── Features ────────────────────────────────────────────────────────
+        const FEATURES = [
+            { icon: 'network', title: 'B2B ecosystem integration', text: 'A seamless business-to-business ecosystem connecting farmers, suppliers, buyers, financial institutions and government bodies.', points: ['Simplified operations', 'Enhanced collaboration', 'Streamlined value chain'] },
+            { icon: 'chart', title: 'Analytics & AI', text: 'Predictive analytics and AI providing insights on crop yields, market trends, risk alerts and more.', points: ['Data-driven decisions', 'Yield optimisation', 'Risk mitigation'] },
+            { icon: 'leaf', title: 'Sustainability & carbon credits', text: 'Features that support sustainable farming and open access to global carbon credit markets.', points: ['Environmental impact tracking', 'Carbon credit monetisation', 'Sustainable practice guidance'] },
+            { icon: 'hand', title: 'User-friendly interface', text: 'Intuitive and accessible for digitally skilled users and for those with limited technology experience.', points: ['Simplified navigation', 'Multi-language support', 'Offline capabilities'] },
+            { icon: 'users', title: 'Branding & community', text: 'Strong branding and strategic campaigns that build trust within farming communities.', points: ['Community engagement', 'Educational resources', 'Trust-building initiatives'] },
+            { icon: 'cloud', title: 'SaaS subscription model', text: 'Flexible subscription tiers for different farm sizes and needs, with pricing that scales.', points: ['Tiered pricing plans', 'Regular updates', 'Cloud-based access'] },
         ];
-        const plantTableBody = document.getElementById('plantTableBody');
-        plants.forEach(plant => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${plant.name}</td>
-                <td>${plant.location}</td>
-                <td>${plant.status}</td>
-                <td>${plant.lastUpdate}</td>
-            `;
-            plantTableBody.appendChild(row);
+        $('#feature-grid').innerHTML = FEATURES.map((f) => `
+            <article class="reveal group rounded-3xl bg-white p-7 ring-1 ring-black/5 hover:shadow-soft hover:-translate-y-1 transition duration-300">
+                <span class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-700 grid place-items-center group-hover:bg-brand-700 group-hover:text-harvest-400 transition">${icon(ICONS[f.icon])}</span>
+                <h3 class="mt-5 text-lg font-bold text-brand-900">${f.title}</h3>
+                <p class="mt-2 text-gray-600 text-sm leading-relaxed">${f.text}</p>
+                <ul class="mt-5 space-y-2 text-sm text-gray-700">${f.points.map((p) => `<li class="flex gap-2"><span class="check"></span>${p}</li>`).join('')}</ul>
+            </article>`).join('');
+
+        // ── Ecosystem tabs ──────────────────────────────────────────────────
+        const STAKEHOLDERS = [
+            { id: 'farmers', icon: 'users', label: 'Farmers & producers', title: 'Farmers & producer organisations',
+              text: 'Our platform gives farmers and producer organisations the tools to optimise operations, access markets and adopt sustainable practices.',
+              groups: [{ h: 'Key organisations', items: ['Agri South Africa (AgriSA)', 'National African Farmers Union (NAFU)', 'African Farmers Association of South Africa (AFASA)'] },
+                       { h: 'Platform benefits', items: ['Profile creation and management', 'Cooperative tools and resource sharing', 'Sustainability reporting and certification', 'Market access and price discovery'] }] },
+            { id: 'suppliers', icon: 'box', label: 'Input suppliers', title: 'Input suppliers',
+              text: 'Suppliers can connect with farmers, manage inventory and streamline supply chains through the platform.',
+              groups: [{ h: 'Platform benefits', items: ['Reach farmers by region and crop', 'Demand signals from planting data', 'Inventory and order management', 'Direct ordering and delivery tracking'] }] },
+            { id: 'financial', icon: 'bank', label: 'Financial institutions', title: 'Financial institutions',
+              text: 'Financial partners gain access to farmer data for better credit risk assessment and loan offerings.',
+              groups: [{ h: 'Platform benefits', items: ['Verified production and sales history', 'Data-backed credit risk assessment', 'Input finance and crop insurance offers', 'Portfolio monitoring with risk alerts'] }] },
+            { id: 'buyers', icon: 'cart', label: 'Buyers & processors', title: 'Buyers & processors',
+              text: 'Buyers can source produce directly, with transparency and fair pricing.',
+              groups: [{ h: 'Platform benefits', items: ['Produce auctions and direct contracts', 'Traceability from field to factory', 'Forward visibility of supply', 'Quality and certification records'] }] },
+            { id: 'government', icon: 'gov', label: 'Government bodies', title: 'Government bodies',
+              text: 'Government agencies can monitor agricultural trends and support policy-making with real-time data.',
+              groups: [{ h: 'Platform benefits', items: ['Regional production dashboards', 'Early warning for drought and disease', 'Targeting of support programmes', 'Sustainability and emissions reporting'] }] },
+        ];
+        const tabs = $('#eco-tabs'), panel = $('#eco-panel');
+        tabs.innerHTML = STAKEHOLDERS.map((s, i) => `
+            <button type="button" role="tab" id="tab-${s.id}" aria-controls="eco-panel" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-id="${s.id}"
+                class="tab-btn shrink-0 flex items-center gap-3 px-4 py-3.5 rounded-2xl text-left font-semibold text-brand-900 bg-brand-50 hover:bg-brand-100 transition whitespace-nowrap">
+                <span class="text-brand-500">${icon(ICONS[s.icon])}</span>${s.label}
+            </button>`).join('');
+        function showTab(id, focus) {
+            const s = STAKEHOLDERS.find((x) => x.id === id);
+            $$('.tab-btn', tabs).forEach((b) => { const on = b.dataset.id === id; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); });
+            panel.setAttribute('aria-labelledby', 'tab-' + id);
+            panel.innerHTML = `
+                <h3 class="text-2xl font-bold text-brand-900">${s.title}</h3>
+                <p class="mt-3 text-gray-600">${s.text}</p>
+                <div class="mt-7 grid sm:grid-cols-2 gap-7">${s.groups.map((g) => `
+                    <div><p class="font-semibold text-brand-900">${g.h}</p>
+                    <ul class="mt-3 space-y-2.5 text-sm text-gray-700">${g.items.map((it) => `<li class="flex gap-2"><span class="check"></span>${it}</li>`).join('')}</ul></div>`).join('')}
+                </div>`;
+        }
+        tabs.addEventListener('click', (e) => { const b = e.target.closest('.tab-btn'); if (b) showTab(b.dataset.id); });
+        tabs.addEventListener('keydown', (e) => {
+            if (!['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+            e.preventDefault();
+            const ids = STAKEHOLDERS.map((s) => s.id);
+            const cur = ids.indexOf($('.tab-btn[aria-selected="true"]', tabs).dataset.id);
+            const step = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : -1;
+            showTab(ids[(cur + step + ids.length) % ids.length], true);
+        });
+        showTab('farmers');
+
+        // ── Auctions (sample lots) ──────────────────────────────────────────
+        const now = Date.now();
+        const LOTS = [
+            { crop: 'Yellow maize', grade: 'Grade YM1', qty: '120 t', region: 'Free State', bid: 4120, bids: 14, ends: now + 2 * 3600e3 + 14 * 60e3, emoji: '🌽' },
+            { crop: 'Wheat', grade: 'Grade B1', qty: '80 t', region: 'Western Cape', bid: 5350, bids: 9, ends: now + 5 * 3600e3 + 3 * 60e3, emoji: '🌾' },
+            { crop: 'Soybeans', grade: 'Grade 1', qty: '45 t', region: 'Mpumalanga', bid: 7980, bids: 21, ends: now + 47 * 60e3, emoji: '🫘' },
+            { crop: 'Sunflower seed', grade: 'Grade FH1', qty: '60 t', region: 'North West', bid: 8240, bids: 6, ends: now + 26 * 3600e3, emoji: '🌻' },
+        ];
+        const rand = (n) => n.toLocaleString('en-ZA');
+        const fmtLeft = (ms) => {
+            if (ms <= 0) return 'Closed';
+            const h = Math.floor(ms / 3600e3), m = Math.floor((ms % 3600e3) / 60e3), s = Math.floor((ms % 60e3) / 1000);
+            return h > 23 ? `${Math.floor(h / 24)}d ${h % 24}h` : `${h}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`;
+        };
+        function renderLots() {
+            $('#auction-grid').innerHTML = LOTS.map((l, i) => `
+                <article class="reveal visible rounded-3xl bg-white ring-1 ring-black/5 p-5 flex flex-col hover:shadow-soft transition">
+                    <div class="flex items-start justify-between">
+                        <span class="text-4xl" aria-hidden="true">${l.emoji}</span>
+                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full ${l.ends - Date.now() < 3600e3 ? 'bg-red-50 text-red-600' : 'bg-brand-50 text-brand-700'}" data-countdown="${i}">${fmtLeft(l.ends - Date.now())}</span>
+                    </div>
+                    <h3 class="mt-4 font-bold text-brand-900">${l.crop}</h3>
+                    <p class="text-xs text-gray-500">${l.grade} · ${l.qty} · ${l.region}</p>
+                    <div class="mt-4 flex items-end justify-between">
+                        <div><p class="text-[11px] text-gray-500">Current bid</p><p class="text-xl font-extrabold text-brand-900">R${rand(l.bid)}<span class="text-xs font-medium text-gray-500">/t</span></p></div>
+                        <p class="text-xs text-gray-500">${l.bids} bids</p>
+                    </div>
+                    <button type="button" class="bid-btn mt-4 py-2.5 rounded-xl text-sm font-semibold bg-brand-700 text-white hover:bg-brand-900 transition" data-lot="${i}">Place sample bid</button>
+                </article>`).join('');
+        }
+        renderLots();
+        $('#auction-grid').addEventListener('click', (e) => {
+            const b = e.target.closest('.bid-btn');
+            if (!b) return;
+            const lot = LOTS[+b.dataset.lot];
+            lot.bid += 25; lot.bids += 1;
+            renderLots();
+            const btn = $(`.bid-btn[data-lot="${b.dataset.lot}"]`);
+            btn.textContent = `✓ Bid placed: R${rand(lot.bid)}/t`;
+            btn.classList.replace('bg-brand-700', 'bg-harvest-400');
+            btn.classList.replace('text-white', 'text-brand-900');
+        });
+        setInterval(() => {
+            $$('[data-countdown]').forEach((el) => { el.textContent = fmtLeft(LOTS[+el.dataset.countdown].ends - Date.now()); });
+        }, 1000);
+
+        // ── Plant tracking ──────────────────────────────────────────────────
+        const STATUS = {
+            'Healthy':     'bg-brand-50 text-brand-700',
+            'Needs water': 'bg-amber-50 text-amber-700',
+            'Pest risk':   'bg-red-50 text-red-600',
+            'Harvest due': 'bg-blue-50 text-blue-700',
+        };
+        const minsAgo = (m) => m < 60 ? `${m} min ago` : `${Math.round(m / 60)} h ago`;
+        const PLANTS = [
+            { crop: 'Maize',     loc: 'Field A',      status: 'Healthy',     moisture: 34, ago: 4 },
+            { crop: 'Wheat',     loc: 'Field B',      status: 'Needs water', moisture: 18, ago: 9 },
+            { crop: 'Soybean',   loc: 'Greenhouse 1', status: 'Healthy',     moisture: 41, ago: 14 },
+            { crop: 'Tomatoes',  loc: 'Greenhouse 2', status: 'Pest risk',   moisture: 37, ago: 22 },
+            { crop: 'Sunflower', loc: 'Field C',      status: 'Harvest due', moisture: 26, ago: 65 },
+            { crop: 'Potatoes',  loc: 'Field D',      status: 'Healthy',     moisture: 31, ago: 130 },
+        ];
+        let statusFilter = 'All';
+        $('#status-filters').innerHTML = ['All', ...Object.keys(STATUS)].map((s) =>
+            `<button type="button" class="status-btn shrink-0 px-3 py-1.5 rounded-full border transition ${s === 'All' ? 'bg-brand-700 text-white border-brand-700' : 'border-gray-200 text-gray-600 hover:border-brand-500'}" data-status="${s}" aria-pressed="${s === 'All'}">${s}</button>`).join('');
+        function renderPlants() {
+            const q = $('#plant-search').value.trim().toLowerCase();
+            const rows = PLANTS.filter((p) => (statusFilter === 'All' || p.status === statusFilter) && (`${p.crop} ${p.loc}`.toLowerCase().includes(q)));
+            $('#plant-body').innerHTML = rows.map((p) => `
+                <tr class="hover:bg-gray-50/70">
+                    <td class="px-5 py-4 font-semibold text-brand-900">${p.crop}</td>
+                    <td class="px-5 py-4 text-gray-600">${p.loc}</td>
+                    <td class="px-5 py-4"><span class="text-xs font-semibold px-2.5 py-1 rounded-full ${STATUS[p.status]}">${p.status}</span></td>
+                    <td class="px-5 py-4"><div class="flex items-center gap-2"><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full ${p.moisture < 20 ? 'bg-amber-500' : 'bg-brand-500'}" style="width:${p.moisture * 2}%"></div></div><span class="text-gray-600 tabular-nums">${p.moisture}%</span></div></td>
+                    <td class="px-5 py-4 text-gray-500 whitespace-nowrap">${minsAgo(p.ago)}</td>
+                </tr>`).join('');
+            $('#plant-empty').classList.toggle('hidden', rows.length > 0);
+        }
+        $('#plant-search').addEventListener('input', renderPlants);
+        $('#status-filters').addEventListener('click', (e) => {
+            const b = e.target.closest('.status-btn');
+            if (!b) return;
+            statusFilter = b.dataset.status;
+            $$('.status-btn').forEach((x) => {
+                const on = x === b;
+                x.setAttribute('aria-pressed', on);
+                x.classList.toggle('bg-brand-700', on); x.classList.toggle('text-white', on); x.classList.toggle('border-brand-700', on);
+                x.classList.toggle('text-gray-600', !on); x.classList.toggle('border-gray-200', !on);
+            });
+            renderPlants();
+        });
+        renderPlants();
+
+        // ── FAQ ─────────────────────────────────────────────────────────────
+        const FAQS = [
+            ['Who is Entice Feed for?', 'Everyone in the agricultural value chain: farmers and producer organisations, input suppliers, financial institutions, buyers and processors, and government bodies.'],
+            ['Do I need a smartphone or good internet?', 'The platform is designed for people with limited technology experience and supports offline use, so data captured in the field syncs when you are back in signal.'],
+            ['Which languages are supported?', 'Multi-language support is a core part of the platform, so farmers can use it in the language they are most comfortable with.'],
+            ['How do produce auctions work?', 'Farmers list produce with grade, quantity and location. Verified buyers and processors bid openly, so prices are transparent and fair.'],
+            ['How can I earn from carbon credits?', 'The platform tracks sustainable practices and environmental impact, creating the records needed to access global carbon credit markets.'],
+            ['Is my farm data safe?', 'Your data is yours. It is only shared with partners you choose, and personal information is handled in line with POPIA.'],
+        ];
+        $('#faq-list').innerHTML = FAQS.map(([q, a]) => `
+            <details class="reveal group rounded-2xl bg-white ring-1 ring-black/5 px-6 py-5">
+                <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold text-brand-900">${q}
+                    <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-brand-50 text-brand-700 grid place-items-center transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+                    </span>
+                </summary>
+                <p class="mt-3 text-gray-600 leading-relaxed">${a}</p>
+            </details>`).join('');
+
+        // ── Contact form ────────────────────────────────────────────────────
+        const form = $('#contact-form');
+        const fields = { 'c-name': (v) => v.trim().length > 1, 'c-email': (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), 'c-message': (v) => v.trim().length > 4 };
+        function validate(id) {
+            const el = $('#' + id), ok = fields[id](el.value);
+            el.classList.toggle('invalid', !ok);
+            el.setAttribute('aria-invalid', !ok);
+            $(`.error-msg[data-for="${id}"]`).classList.toggle('show', !ok);
+            return ok;
+        }
+        Object.keys(fields).forEach((id) => $('#' + id).addEventListener('blur', () => validate(id)));
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const ok = Object.keys(fields).map(validate).every(Boolean);
+            if (!ok) { $('.field.invalid', form).focus(); return; }
+            const subject = `${$('#c-topic').value || 'Enquiry'} from ${$('#c-name').value.trim()}`;
+            const body = [`Name: ${$('#c-name').value.trim()}`, `Email: ${$('#c-email').value.trim()}`, `I am a: ${$('#c-role').value}`,
+                          `Monthly farming tips: ${$('#c-news').checked ? 'Yes' : 'No'}`, '', $('#c-message').value.trim()].join('\n');
+            window.location.href = `mailto:invest@enticefeed.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const status = $('#form-status');
+            status.textContent = 'Your email app should open with your message ready. If it didn\'t, email us at invest@enticefeed.com.';
+            status.classList.remove('hidden');
         });
 
-        // Back to Top Button
-        const backToTop = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
-        });
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        // ── Charts (sample data) ────────────────────────────────────────────
+        if (window.Chart) {
+            Chart.defaults.font.family = '"Plus Jakarta Sans", system-ui, sans-serif';
+            new Chart($('#hero-chart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Field A', 'Field B', 'Field C', 'Field D'],
+                    datasets: [
+                        { label: 'Last season (t/ha)', data: [6.1, 5.4, 4.8, 5.9], backgroundColor: '#dcefdc', borderRadius: 6 },
+                        { label: 'Forecast (t/ha)', data: [7.2, 5.9, 5.8, 6.8], backgroundColor: '#2e7d32', borderRadius: 6 },
+                    ],
+                },
+                options: { responsive: true, maintainAspectRatio: false, animation: reduceMotion ? false : undefined,
+                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true, font: { size: 11 } } } },
+                    scales: { x: { grid: { display: false } }, y: { beginAtZero: true, grid: { color: '#f1f1f1' }, ticks: { font: { size: 10 } } } } },
+            });
+
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const history = [3850, 3920, 4010, 3960, 4080, 4120];
+            const forecast12 = [4120, 4190, 4260, 4230, 4310, 4380, 4420, 4470, 4440, 4520, 4580, 4610, 4650];
+            const aiChart = new Chart($('#ai-chart'), { type: 'line', data: { labels: [], datasets: [] },
+                options: { responsive: true, maintainAspectRatio: false, animation: reduceMotion ? false : undefined,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: { legend: { labels: { color: '#dcefdc', boxWidth: 10, usePointStyle: true, filter: (i) => !i.text.startsWith('_') } },
+                               tooltip: { filter: (i) => !i.dataset.label.startsWith('_'), callbacks: { label: (c) => `${c.dataset.label}: R${c.parsed.y.toLocaleString('en-ZA')}/t` } } },
+                    scales: { x: { ticks: { color: '#b9dfba' }, grid: { color: 'rgba(255,255,255,.06)' } },
+                              y: { ticks: { color: '#b9dfba', callback: (v) => 'R' + v.toLocaleString('en-ZA') }, grid: { color: 'rgba(255,255,255,.06)' } } } } });
+            function setHorizon(n) {
+                const fc = forecast12.slice(0, n + 1);
+                const labels = [...months.slice(0, 6).map((m) => m + ' 2025'), ...Array.from({ length: n }, (_, i) => months[(6 + i) % 12] + (6 + i >= 12 ? ' 2026' : ' 2025'))];
+                const pad = Array(5).fill(null);
+                aiChart.data.labels = labels;
+                aiChart.data.datasets = [
+                    { label: 'Actual price', data: [...history, ...Array(n).fill(null)], borderColor: '#ffffff', backgroundColor: '#ffffff', tension: .35, pointRadius: 2 },
+                    { label: 'AI forecast', data: [...pad, ...fc], borderColor: '#ffd600', backgroundColor: '#ffd600', borderDash: [6, 4], tension: .35, pointRadius: 0 },
+                    { label: '_upper', data: [...pad, ...fc.map((v, i) => v + i * 22)], borderColor: 'transparent', backgroundColor: 'rgba(255,214,0,.15)', fill: '+1', pointRadius: 0 },
+                    { label: '_lower', data: [...pad, ...fc.map((v, i) => v - i * 22)], borderColor: 'transparent', pointRadius: 0, fill: false },
+                ];
+                aiChart.update();
+            }
+            $$('.horizon').forEach((b) => b.addEventListener('click', () => {
+                $$('.horizon').forEach((x) => { const on = x === b; x.classList.toggle('bg-harvest-400', on); x.classList.toggle('text-brand-900', on); x.classList.toggle('font-semibold', on); x.classList.toggle('bg-white/10', !on); });
+                setHorizon(+b.dataset.months);
+            }));
+            setHorizon(6);
+        }
+
+        // ── Count-up stats & reveal on scroll ───────────────────────────────
+        function countUp(el) {
+            const to = +el.dataset.to;
+            if (reduceMotion) { el.textContent = to.toLocaleString('en-ZA'); return; }
+            const start = performance.now(), dur = 1200;
+            const tick = (t) => { const p = Math.min(1, (t - start) / dur); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))).toLocaleString('en-ZA'); if (p < 1) requestAnimationFrame(tick); };
+            requestAnimationFrame(tick);
+        }
+        if ('IntersectionObserver' in window && !reduceMotion) {
+            const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+                if (!e.isIntersecting) return;
+                e.target.classList.add('visible');
+                $$('.counter', e.target).forEach(countUp);
+                io.unobserve(e.target);
+            }), { threshold: 0.12 });
+            $$('.reveal').forEach((el) => io.observe(el));
+        } else {
+            $$('.reveal').forEach((el) => el.classList.add('visible'));
+            $$('.counter').forEach(countUp);
+        }
+    })();
     </script>
 </body>
 </html>
