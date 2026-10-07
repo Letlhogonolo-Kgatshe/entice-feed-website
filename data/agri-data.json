@@ -1,0 +1,1189 @@
+{
+ "updated": "2026-10-07T10:20:49.516Z",
+ "regions": [
+  {
+   "id": "fs",
+   "name": "Free State (Bothaville)",
+   "crop": "Maize",
+   "lat": -27.39,
+   "lon": 26.62,
+   "season": "summer"
+  },
+  {
+   "id": "nw",
+   "name": "North West (Lichtenburg)",
+   "crop": "Maize",
+   "lat": -26.15,
+   "lon": 26.16,
+   "season": "summer"
+  },
+  {
+   "id": "mp",
+   "name": "Mpumalanga (Bethal)",
+   "crop": "Maize & soybeans",
+   "lat": -26.46,
+   "lon": 29.47,
+   "season": "summer"
+  },
+  {
+   "id": "kzn",
+   "name": "KwaZulu-Natal (Greytown)",
+   "crop": "Maize & sugarcane",
+   "lat": -29.06,
+   "lon": 30.59,
+   "season": "summer"
+  },
+  {
+   "id": "wc",
+   "name": "Western Cape (Malmesbury)",
+   "crop": "Wheat",
+   "lat": -33.46,
+   "lon": 18.73,
+   "season": "winter"
+  }
+ ],
+ "enso": {
+  "latest": {
+   "month": "2026-08",
+   "oni": 2.16,
+   "phase": "El Niño",
+   "strength": "very strong"
+  },
+  "history": [
+   {
+    "month": "2021-09",
+    "oni": -0.63
+   },
+   {
+    "month": "2021-10",
+    "oni": -0.76
+   },
+   {
+    "month": "2021-11",
+    "oni": -0.91
+   },
+   {
+    "month": "2021-12",
+    "oni": -0.87
+   },
+   {
+    "month": "2022-01",
+    "oni": -0.82
+   },
+   {
+    "month": "2022-02",
+    "oni": -0.79
+   },
+   {
+    "month": "2022-03",
+    "oni": -0.86
+   },
+   {
+    "month": "2022-04",
+    "oni": -0.95
+   },
+   {
+    "month": "2022-05",
+    "oni": -0.9
+   },
+   {
+    "month": "2022-06",
+    "oni": -0.78
+   },
+   {
+    "month": "2022-07",
+    "oni": -0.76
+   },
+   {
+    "month": "2022-08",
+    "oni": -0.87
+   },
+   {
+    "month": "2022-09",
+    "oni": -0.97
+   },
+   {
+    "month": "2022-10",
+    "oni": -0.94
+   },
+   {
+    "month": "2022-11",
+    "oni": -0.85
+   },
+   {
+    "month": "2022-12",
+    "oni": -0.71
+   },
+   {
+    "month": "2023-01",
+    "oni": -0.54
+   },
+   {
+    "month": "2023-02",
+    "oni": -0.29
+   },
+   {
+    "month": "2023-03",
+    "oni": -0.02
+   },
+   {
+    "month": "2023-04",
+    "oni": 0.27
+   },
+   {
+    "month": "2023-05",
+    "oni": 0.57
+   },
+   {
+    "month": "2023-06",
+    "oni": 0.84
+   },
+   {
+    "month": "2023-07",
+    "oni": 1.12
+   },
+   {
+    "month": "2023-08",
+    "oni": 1.37
+   },
+   {
+    "month": "2023-09",
+    "oni": 1.6
+   },
+   {
+    "month": "2023-10",
+    "oni": 1.83
+   },
+   {
+    "month": "2023-11",
+    "oni": 1.99
+   },
+   {
+    "month": "2023-12",
+    "oni": 2.06
+   },
+   {
+    "month": "2024-01",
+    "oni": 1.92
+   },
+   {
+    "month": "2024-02",
+    "oni": 1.62
+   },
+   {
+    "month": "2024-03",
+    "oni": 1.26
+   },
+   {
+    "month": "2024-04",
+    "oni": 0.82
+   },
+   {
+    "month": "2024-05",
+    "oni": 0.49
+   },
+   {
+    "month": "2024-06",
+    "oni": 0.22
+   },
+   {
+    "month": "2024-07",
+    "oni": 0.08
+   },
+   {
+    "month": "2024-08",
+    "oni": -0.07
+   },
+   {
+    "month": "2024-09",
+    "oni": -0.17
+   },
+   {
+    "month": "2024-10",
+    "oni": -0.21
+   },
+   {
+    "month": "2024-11",
+    "oni": -0.3
+   },
+   {
+    "month": "2024-12",
+    "oni": -0.42
+   },
+   {
+    "month": "2025-01",
+    "oni": -0.45
+   },
+   {
+    "month": "2025-02",
+    "oni": -0.24
+   },
+   {
+    "month": "2025-03",
+    "oni": -0.06
+   },
+   {
+    "month": "2025-04",
+    "oni": 0.02
+   },
+   {
+    "month": "2025-05",
+    "oni": -0.02
+   },
+   {
+    "month": "2025-06",
+    "oni": -0.04
+   },
+   {
+    "month": "2025-07",
+    "oni": -0.11
+   },
+   {
+    "month": "2025-08",
+    "oni": -0.26
+   },
+   {
+    "month": "2025-09",
+    "oni": -0.43
+   },
+   {
+    "month": "2025-10",
+    "oni": -0.57
+   },
+   {
+    "month": "2025-11",
+    "oni": -0.61
+   },
+   {
+    "month": "2025-12",
+    "oni": -0.6
+   },
+   {
+    "month": "2026-01",
+    "oni": -0.39
+   },
+   {
+    "month": "2026-02",
+    "oni": -0.21
+   },
+   {
+    "month": "2026-03",
+    "oni": 0.11
+   },
+   {
+    "month": "2026-04",
+    "oni": 0.46
+   },
+   {
+    "month": "2026-05",
+    "oni": 0.95
+   },
+   {
+    "month": "2026-06",
+    "oni": 1.39
+   },
+   {
+    "month": "2026-07",
+    "oni": 1.8
+   },
+   {
+    "month": "2026-08",
+    "oni": 2.16
+   }
+  ],
+  "forecast": [
+   {
+    "month": "2026-09",
+    "oni": 2.11,
+    "lo": 1.86,
+    "hi": 2.36
+   },
+   {
+    "month": "2026-10",
+    "oni": 2.06,
+    "lo": 1.71,
+    "hi": 2.41
+   },
+   {
+    "month": "2026-11",
+    "oni": 2.01,
+    "lo": 1.59,
+    "hi": 2.43
+   },
+   {
+    "month": "2026-12",
+    "oni": 1.96,
+    "lo": 1.48,
+    "hi": 2.44
+   },
+   {
+    "month": "2027-01",
+    "oni": 1.91,
+    "lo": 1.38,
+    "hi": 2.45
+   },
+   {
+    "month": "2027-02",
+    "oni": 1.87,
+    "lo": 1.3,
+    "hi": 2.44
+   },
+   {
+    "month": "2027-03",
+    "oni": 1.83,
+    "lo": 1.21,
+    "hi": 2.44
+   },
+   {
+    "month": "2027-04",
+    "oni": 1.78,
+    "lo": 1.14,
+    "hi": 2.43
+   },
+   {
+    "month": "2027-05",
+    "oni": 1.74,
+    "lo": 1.06,
+    "hi": 2.42
+   }
+  ],
+  "model": {
+   "type": "AR(1) persistence",
+   "phi": 0.974,
+   "sigma": 0.195,
+   "n": 919
+  }
+ },
+ "yield": {
+  "history": [
+   {
+    "year": 1980,
+    "kgha": 2017,
+    "oni": 0.55,
+    "trend": 1365
+   },
+   {
+    "year": 1981,
+    "kgha": 2680,
+    "oni": -0.16,
+    "trend": 1409
+   },
+   {
+    "year": 1982,
+    "kgha": 1660,
+    "oni": -0.05,
+    "trend": 1455
+   },
+   {
+    "year": 1983,
+    "kgha": 960,
+    "oni": 2.13,
+    "trend": 1502
+   },
+   {
+    "year": 1984,
+    "kgha": 1084,
+    "oni": -0.73,
+    "trend": 1551
+   },
+   {
+    "year": 1985,
+    "kgha": 1576,
+    "oni": -0.99,
+    "trend": 1601
+   },
+   {
+    "year": 1986,
+    "kgha": 1589,
+    "oni": -0.4,
+    "trend": 1653
+   },
+   {
+    "year": 1987,
+    "kgha": 1629,
+    "oni": 1.19,
+    "trend": 1707
+   },
+   {
+    "year": 1988,
+    "kgha": 1672,
+    "oni": 0.93,
+    "trend": 1762
+   },
+   {
+    "year": 1989,
+    "kgha": 2282,
+    "oni": -1.69,
+    "trend": 1819
+   },
+   {
+    "year": 1990,
+    "kgha": 1877,
+    "oni": 0.03,
+    "trend": 1878
+   },
+   {
+    "year": 1991,
+    "kgha": 1986,
+    "oni": 0.37,
+    "trend": 1939
+   },
+   {
+    "year": 1992,
+    "kgha": 945,
+    "oni": 1.52,
+    "trend": 2002
+   },
+   {
+    "year": 1993,
+    "kgha": 2160,
+    "oni": -0.01,
+    "trend": 2066
+   },
+   {
+    "year": 1994,
+    "kgha": 2585,
+    "oni": 0.06,
+    "trend": 2133
+   },
+   {
+    "year": 1995,
+    "kgha": 1419,
+    "oni": 0.95,
+    "trend": 2203
+   },
+   {
+    "year": 1996,
+    "kgha": 2490,
+    "oni": -0.91,
+    "trend": 2274
+   },
+   {
+    "year": 1997,
+    "kgha": 2272,
+    "oni": -0.45,
+    "trend": 2348
+   },
+   {
+    "year": 1998,
+    "kgha": 2182,
+    "oni": 2.24,
+    "trend": 2424
+   },
+   {
+    "year": 1999,
+    "kgha": 2191,
+    "oni": -1.47,
+    "trend": 2502
+   },
+   {
+    "year": 2000,
+    "kgha": 2766,
+    "oni": -1.54,
+    "trend": 2583
+   },
+   {
+    "year": 2001,
+    "kgha": 2424,
+    "oni": -0.67,
+    "trend": 2667
+   },
+   {
+    "year": 2002,
+    "kgha": 2773,
+    "oni": -0.19,
+    "trend": 2754
+   },
+   {
+    "year": 2003,
+    "kgha": 2537,
+    "oni": 1,
+    "trend": 2843
+   },
+   {
+    "year": 2004,
+    "kgha": 2778,
+    "oni": 0.35,
+    "trend": 2935
+   },
+   {
+    "year": 2005,
+    "kgha": 3310,
+    "oni": 0.64,
+    "trend": 3030
+   },
+   {
+    "year": 2006,
+    "kgha": 3141,
+    "oni": -0.76,
+    "trend": 3128
+   },
+   {
+    "year": 2007,
+    "kgha": 2790,
+    "oni": 0.69,
+    "trend": 3230
+   },
+   {
+    "year": 2008,
+    "kgha": 4063,
+    "oni": -1.56,
+    "trend": 3334
+   },
+   {
+    "year": 2009,
+    "kgha": 4406,
+    "oni": -0.73,
+    "trend": 3442
+   },
+   {
+    "year": 2010,
+    "kgha": 4150,
+    "oni": 1.41,
+    "trend": 3554
+   },
+   {
+    "year": 2011,
+    "kgha": 4017,
+    "oni": -1.38,
+    "trend": 3669
+   },
+   {
+    "year": 2012,
+    "kgha": 4244,
+    "oni": -0.81,
+    "trend": 3788
+   },
+   {
+    "year": 2013,
+    "kgha": 4043,
+    "oni": -0.14,
+    "trend": 3911
+   },
+   {
+    "year": 2014,
+    "kgha": 4900,
+    "oni": -0.21,
+    "trend": 4038
+   },
+   {
+    "year": 2015,
+    "kgha": 3348,
+    "oni": 0.7,
+    "trend": 4168
+   },
+   {
+    "year": 2016,
+    "kgha": 3623,
+    "oni": 2.58,
+    "trend": 4303
+   },
+   {
+    "year": 2017,
+    "kgha": 5332,
+    "oni": -0.31,
+    "trend": 4443
+   },
+   {
+    "year": 2018,
+    "kgha": 4652,
+    "oni": -0.78,
+    "trend": 4587
+   },
+   {
+    "year": 2019,
+    "kgha": 4102,
+    "oni": 0.91,
+    "trend": 4736
+   },
+   {
+    "year": 2020,
+    "kgha": 5121,
+    "oni": 0.63,
+    "trend": 4889
+   },
+   {
+    "year": 2021,
+    "kgha": 5494,
+    "oni": -1,
+    "trend": 5047
+   },
+   {
+    "year": 2022,
+    "kgha": 5310,
+    "oni": -0.85,
+    "trend": 5211
+   },
+   {
+    "year": 2023,
+    "kgha": 5703,
+    "oni": -0.6,
+    "trend": 5380
+   },
+   {
+    "year": 2024,
+    "kgha": 4562,
+    "oni": 1.9,
+    "trend": 5554
+   }
+  ],
+  "model": {
+   "type": "log(yield) = a + trend·year + β·ONI(Nov–Feb)",
+   "betaPctPerOni": -8.8,
+   "betaSe": 2.9,
+   "trendPctPerYear": 3.24,
+   "r2": 0.82,
+   "n": 45
+  },
+  "outlook": {
+   "harvestYear": 2027,
+   "seasonOni": 1.94,
+   "trendKgha": 6112,
+   "predictedKgha": 5109,
+   "changeVsTrendPct": -16.4,
+   "lo": 3922,
+   "hi": 6656
+  }
+ },
+ "price": {
+  "history": [
+   {
+    "month": "2023-10",
+    "zar": 4399,
+    "usd": 230.7,
+    "fx": 19.07
+   },
+   {
+    "month": "2023-11",
+    "zar": 3918,
+    "usd": 211.3,
+    "fx": 18.54
+   },
+   {
+    "month": "2023-12",
+    "zar": 3852,
+    "usd": 206.5,
+    "fx": 18.66
+   },
+   {
+    "month": "2024-01",
+    "zar": 3736,
+    "usd": 198.6,
+    "fx": 18.81
+   },
+   {
+    "month": "2024-02",
+    "zar": 3593,
+    "usd": 189.1,
+    "fx": 19
+   },
+   {
+    "month": "2024-03",
+    "zar": 3593,
+    "usd": 190.6,
+    "fx": 18.85
+   },
+   {
+    "month": "2024-04",
+    "zar": 3617,
+    "usd": 191.7,
+    "fx": 18.87
+   },
+   {
+    "month": "2024-05",
+    "zar": 3642,
+    "usd": 197.8,
+    "fx": 18.41
+   },
+   {
+    "month": "2024-06",
+    "zar": 3545,
+    "usd": 192.5,
+    "fx": 18.42
+   },
+   {
+    "month": "2024-07",
+    "zar": 3238,
+    "usd": 177.4,
+    "fx": 18.25
+   },
+   {
+    "month": "2024-08",
+    "zar": 3072,
+    "usd": 170.3,
+    "fx": 18.04
+   },
+   {
+    "month": "2024-09",
+    "zar": 3259,
+    "usd": 185,
+    "fx": 17.62
+   },
+   {
+    "month": "2024-10",
+    "zar": 3344,
+    "usd": 190.3,
+    "fx": 17.57
+   },
+   {
+    "month": "2024-11",
+    "zar": 3609,
+    "usd": 201.3,
+    "fx": 17.93
+   },
+   {
+    "month": "2024-12",
+    "zar": 3686,
+    "usd": 202.6,
+    "fx": 18.19
+   },
+   {
+    "month": "2025-01",
+    "zar": 4014,
+    "usd": 214.4,
+    "fx": 18.72
+   },
+   {
+    "month": "2025-02",
+    "zar": 4083,
+    "usd": 220.9,
+    "fx": 18.48
+   },
+   {
+    "month": "2025-03",
+    "zar": 3789,
+    "usd": 207.4,
+    "fx": 18.27
+   },
+   {
+    "month": "2025-04",
+    "zar": 4064,
+    "usd": 215,
+    "fx": 18.9
+   },
+   {
+    "month": "2025-05",
+    "zar": 3691,
+    "usd": 203.9,
+    "fx": 18.1
+   },
+   {
+    "month": "2025-06",
+    "zar": 3502,
+    "usd": 196.1,
+    "fx": 17.86
+   },
+   {
+    "month": "2025-07",
+    "zar": 3412,
+    "usd": 192,
+    "fx": 17.77
+   },
+   {
+    "month": "2025-08",
+    "zar": 3289,
+    "usd": 185.5,
+    "fx": 17.73
+   },
+   {
+    "month": "2025-09",
+    "zar": 3446,
+    "usd": 197.4,
+    "fx": 17.46
+   },
+   {
+    "month": "2025-10",
+    "zar": 3423,
+    "usd": 198.1,
+    "fx": 17.28
+   },
+   {
+    "month": "2025-11",
+    "zar": 3479,
+    "usd": 202,
+    "fx": 17.22
+   },
+   {
+    "month": "2025-12",
+    "zar": 3464,
+    "usd": 205.7,
+    "fx": 16.84
+   },
+   {
+    "month": "2026-01",
+    "zar": 3331,
+    "usd": 204.5,
+    "fx": 16.29
+   },
+   {
+    "month": "2026-02",
+    "zar": 3354,
+    "usd": 209.6,
+    "fx": 16
+   },
+   {
+    "month": "2026-03",
+    "zar": 3562,
+    "usd": 212.7,
+    "fx": 16.75
+   },
+   {
+    "month": "2026-04",
+    "zar": 3539,
+    "usd": 214,
+    "fx": 16.54
+   },
+   {
+    "month": "2026-05",
+    "zar": 3562,
+    "usd": 216.2,
+    "fx": 16.48
+   },
+   {
+    "month": "2026-06",
+    "zar": 3229,
+    "usd": 197.1,
+    "fx": 16.38
+   },
+   {
+    "month": "2026-07",
+    "zar": 3515,
+    "usd": 213.4,
+    "fx": 16.47
+   },
+   {
+    "month": "2026-08",
+    "zar": 3620,
+    "usd": 224,
+    "fx": 16.16
+   },
+   {
+    "month": "2026-09",
+    "zar": 3884,
+    "usd": 239.6,
+    "fx": 16.21
+   }
+  ],
+  "forecast": [
+   {
+    "month": "2026-10",
+    "zar": 3828,
+    "lo": 3515,
+    "hi": 4168,
+    "neutralZar": 3911
+   },
+   {
+    "month": "2026-11",
+    "zar": 3738,
+    "lo": 3287,
+    "hi": 4250,
+    "neutralZar": 3927
+   },
+   {
+    "month": "2026-12",
+    "zar": 3651,
+    "lo": 3121,
+    "hi": 4271,
+    "neutralZar": 3945
+   },
+   {
+    "month": "2027-01",
+    "zar": 3553,
+    "lo": 2958,
+    "hi": 4268,
+    "neutralZar": 3958
+   },
+   {
+    "month": "2027-02",
+    "zar": 3463,
+    "lo": 2809,
+    "hi": 4269,
+    "neutralZar": 3966
+   },
+   {
+    "month": "2027-03",
+    "zar": 3396,
+    "lo": 2695,
+    "hi": 4279,
+    "neutralZar": 3978
+   }
+  ],
+  "model": {
+   "type": "6-month log return ~ ONI + (price − 12-month mean)",
+   "oniEffect6mPct": -7.1,
+   "oniEffect6mSe": 1.3,
+   "r2_6m": 0.09,
+   "n": 304
+  },
+  "source": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx"
+ },
+ "rainfall": [
+  {
+   "id": "fs",
+   "name": "Free State (Bothaville)",
+   "crop": "Maize",
+   "lat": -27.39,
+   "lon": 26.62,
+   "season": "summer",
+   "months": [
+    {
+     "month": "2026-10",
+     "mm": 34,
+     "normalMm": 52,
+     "pctOfNormal": 65,
+     "probBelow": 75
+    },
+    {
+     "month": "2026-11",
+     "mm": 99,
+     "normalMm": 66,
+     "pctOfNormal": 150,
+     "probBelow": 27
+    },
+    {
+     "month": "2026-12",
+     "mm": 85,
+     "normalMm": 87,
+     "pctOfNormal": 97,
+     "probBelow": 45
+    },
+    {
+     "month": "2027-01",
+     "mm": 85,
+     "normalMm": 91,
+     "pctOfNormal": 93,
+     "probBelow": 47
+    },
+    {
+     "month": "2027-02",
+     "mm": 90,
+     "normalMm": 72,
+     "pctOfNormal": 125,
+     "probBelow": 31
+    },
+    {
+     "month": "2027-03",
+     "mm": 76,
+     "normalMm": 59,
+     "pctOfNormal": 129,
+     "probBelow": 41
+    }
+   ]
+  },
+  {
+   "id": "nw",
+   "name": "North West (Lichtenburg)",
+   "crop": "Maize",
+   "lat": -26.15,
+   "lon": 26.16,
+   "season": "summer",
+   "months": [
+    {
+     "month": "2026-10",
+     "mm": 31,
+     "normalMm": 49,
+     "pctOfNormal": 65,
+     "probBelow": 80
+    },
+    {
+     "month": "2026-11",
+     "mm": 85,
+     "normalMm": 70,
+     "pctOfNormal": 122,
+     "probBelow": 33
+    },
+    {
+     "month": "2026-12",
+     "mm": 88,
+     "normalMm": 95,
+     "pctOfNormal": 93,
+     "probBelow": 49
+    },
+    {
+     "month": "2027-01",
+     "mm": 86,
+     "normalMm": 91,
+     "pctOfNormal": 95,
+     "probBelow": 45
+    },
+    {
+     "month": "2027-02",
+     "mm": 87,
+     "normalMm": 95,
+     "pctOfNormal": 91,
+     "probBelow": 41
+    },
+    {
+     "month": "2027-03",
+     "mm": 62,
+     "normalMm": 72,
+     "pctOfNormal": 86,
+     "probBelow": 49
+    }
+   ]
+  },
+  {
+   "id": "mp",
+   "name": "Mpumalanga (Bethal)",
+   "crop": "Maize & soybeans",
+   "lat": -26.46,
+   "lon": 29.47,
+   "season": "summer",
+   "months": [
+    {
+     "month": "2026-10",
+     "mm": 66,
+     "normalMm": 89,
+     "pctOfNormal": 73,
+     "probBelow": 65
+    },
+    {
+     "month": "2026-11",
+     "mm": 161,
+     "normalMm": 114,
+     "pctOfNormal": 141,
+     "probBelow": 6
+    },
+    {
+     "month": "2026-12",
+     "mm": 144,
+     "normalMm": 144,
+     "pctOfNormal": 100,
+     "probBelow": 29
+    },
+    {
+     "month": "2027-01",
+     "mm": 133,
+     "normalMm": 131,
+     "pctOfNormal": 102,
+     "probBelow": 29
+    },
+    {
+     "month": "2027-02",
+     "mm": 114,
+     "normalMm": 93,
+     "pctOfNormal": 122,
+     "probBelow": 18
+    },
+    {
+     "month": "2027-03",
+     "mm": 96,
+     "normalMm": 89,
+     "pctOfNormal": 109,
+     "probBelow": 33
+    }
+   ]
+  },
+  {
+   "id": "kzn",
+   "name": "KwaZulu-Natal (Greytown)",
+   "crop": "Maize & sugarcane",
+   "lat": -29.06,
+   "lon": 30.59,
+   "season": "summer",
+   "months": [
+    {
+     "month": "2026-10",
+     "mm": 65,
+     "normalMm": 70,
+     "pctOfNormal": 92,
+     "probBelow": 47
+    },
+    {
+     "month": "2026-11",
+     "mm": 135,
+     "normalMm": 93,
+     "pctOfNormal": 146,
+     "probBelow": 2
+    },
+    {
+     "month": "2026-12",
+     "mm": 121,
+     "normalMm": 107,
+     "pctOfNormal": 113,
+     "probBelow": 27
+    },
+    {
+     "month": "2027-01",
+     "mm": 113,
+     "normalMm": 107,
+     "pctOfNormal": 106,
+     "probBelow": 25
+    },
+    {
+     "month": "2027-02",
+     "mm": 104,
+     "normalMm": 94,
+     "pctOfNormal": 111,
+     "probBelow": 24
+    },
+    {
+     "month": "2027-03",
+     "mm": 89,
+     "normalMm": 79,
+     "pctOfNormal": 113,
+     "probBelow": 22
+    }
+   ]
+  },
+  {
+   "id": "wc",
+   "name": "Western Cape (Malmesbury)",
+   "crop": "Wheat",
+   "lat": -33.46,
+   "lon": 18.73,
+   "season": "winter",
+   "months": [
+    {
+     "month": "2026-10",
+     "mm": 25,
+     "normalMm": 32,
+     "pctOfNormal": 80,
+     "probBelow": 61
+    },
+    {
+     "month": "2026-11",
+     "mm": 26,
+     "normalMm": 28,
+     "pctOfNormal": 92,
+     "probBelow": 57
+    },
+    {
+     "month": "2026-12",
+     "mm": 24,
+     "normalMm": 16,
+     "pctOfNormal": 149,
+     "probBelow": 29
+    },
+    {
+     "month": "2027-01",
+     "mm": 23,
+     "normalMm": 13,
+     "pctOfNormal": 173,
+     "probBelow": 33
+    },
+    {
+     "month": "2027-02",
+     "mm": 16,
+     "normalMm": 12,
+     "pctOfNormal": 132,
+     "probBelow": 43
+    },
+    {
+     "month": "2027-03",
+     "mm": 19,
+     "normalMm": 14,
+     "pctOfNormal": 134,
+     "probBelow": 43
+    }
+   ]
+  }
+ ],
+ "sources": {
+  "oni": "NOAA PSL / CPC Oceanic Niño Index — https://psl.noaa.gov/data/correlation/oni.data",
+  "yield": "World Bank WDI AG.YLD.CREL.KG (cereal yield, South Africa)",
+  "maize": "World Bank Commodity Price Data (Pink Sheet), Maize (US Gulf), USD/t",
+  "fx": "Frankfurter (European Central Bank reference rates), USD/ZAR",
+  "rainfall": "Open-Meteo Seasonal API (ECMWF SEAS5 ensemble) and ERA5 1991–2020 climatology"
+ }
+}

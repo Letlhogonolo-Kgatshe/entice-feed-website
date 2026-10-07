@@ -1,0 +1,8 @@
+{
+  "name": "entice-feed-data",
+  "private": true,
+  "description": "Builds data/agri-data.json (ENSO, yields, maize prices, seasonal rainfall) for the Entice Feed site",
+  "type": "module",
+  "scripts": { "update": "node update-data.mjs" },
+  "dependencies": { "xlsx": "0.18.5" }
+}
