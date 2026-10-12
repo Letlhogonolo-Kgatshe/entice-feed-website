@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-07T10:29:16.453Z",
+ "updated": "2026-10-12T12:30:38.312Z",
  "regions": [
   {
    "id": "fs",
@@ -927,18 +927,11 @@
    "season": "summer",
    "months": [
     {
-     "month": "2026-10",
-     "mm": 34,
-     "normalMm": 52,
-     "pctOfNormal": 65,
-     "probBelow": 75
-    },
-    {
      "month": "2026-11",
-     "mm": 99,
+     "mm": 93,
      "normalMm": 66,
-     "pctOfNormal": 150,
-     "probBelow": 27
+     "pctOfNormal": 141,
+     "probBelow": 10
     },
     {
      "month": "2026-12",
@@ -979,18 +972,11 @@
    "season": "summer",
    "months": [
     {
-     "month": "2026-10",
-     "mm": 31,
-     "normalMm": 49,
-     "pctOfNormal": 65,
-     "probBelow": 80
-    },
-    {
      "month": "2026-11",
-     "mm": 85,
+     "mm": 81,
      "normalMm": 70,
-     "pctOfNormal": 122,
-     "probBelow": 33
+     "pctOfNormal": 116,
+     "probBelow": 27
     },
     {
      "month": "2026-12",
@@ -1031,18 +1017,11 @@
    "season": "summer",
    "months": [
     {
-     "month": "2026-10",
-     "mm": 66,
-     "normalMm": 89,
-     "pctOfNormal": 73,
-     "probBelow": 65
-    },
-    {
      "month": "2026-11",
-     "mm": 161,
+     "mm": 151,
      "normalMm": 114,
-     "pctOfNormal": 141,
-     "probBelow": 6
+     "pctOfNormal": 133,
+     "probBelow": 4
     },
     {
      "month": "2026-12",
@@ -1083,18 +1062,11 @@
    "season": "summer",
    "months": [
     {
-     "month": "2026-10",
-     "mm": 65,
-     "normalMm": 70,
-     "pctOfNormal": 92,
-     "probBelow": 47
-    },
-    {
      "month": "2026-11",
-     "mm": 135,
+     "mm": 127,
      "normalMm": 93,
-     "pctOfNormal": 146,
-     "probBelow": 2
+     "pctOfNormal": 137,
+     "probBelow": 8
     },
     {
      "month": "2026-12",
@@ -1135,18 +1107,11 @@
    "season": "winter",
    "months": [
     {
-     "month": "2026-10",
-     "mm": 25,
-     "normalMm": 32,
-     "pctOfNormal": 80,
-     "probBelow": 61
-    },
-    {
      "month": "2026-11",
-     "mm": 26,
+     "mm": 19,
      "normalMm": 28,
-     "pctOfNormal": 92,
-     "probBelow": 57
+     "pctOfNormal": 68,
+     "probBelow": 73
     },
     {
      "month": "2026-12",
