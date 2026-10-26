@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-19T10:21:33.347Z",
+ "updated": "2026-10-26T10:36:26.040Z",
  "regions": [
   {
    "id": "fs",
@@ -928,21 +928,21 @@
    "months": [
     {
      "month": "2026-11",
-     "mm": 106,
+     "mm": 109,
      "normalMm": 66,
-     "pctOfNormal": 162,
+     "pctOfNormal": 166,
      "probBelow": 12
     },
     {
      "month": "2026-12",
-     "mm": 90,
+     "mm": 97,
      "normalMm": 87,
-     "pctOfNormal": 102,
-     "probBelow": 37
+     "pctOfNormal": 111,
+     "probBelow": 39
     },
     {
      "month": "2027-01",
-     "mm": 96,
+     "mm": 97,
      "normalMm": 91,
      "pctOfNormal": 106,
      "probBelow": 43
@@ -958,8 +958,15 @@
      "month": "2027-03",
      "mm": 66,
      "normalMm": 59,
-     "pctOfNormal": 112,
-     "probBelow": 49
+     "pctOfNormal": 113,
+     "probBelow": 47
+    },
+    {
+     "month": "2027-04",
+     "mm": 41,
+     "normalMm": 42,
+     "pctOfNormal": 98,
+     "probBelow": 57
     }
    ]
   },
@@ -973,17 +980,17 @@
    "months": [
     {
      "month": "2026-11",
-     "mm": 102,
+     "mm": 96,
      "normalMm": 70,
-     "pctOfNormal": 146,
-     "probBelow": 14
+     "pctOfNormal": 138,
+     "probBelow": 12
     },
     {
      "month": "2026-12",
-     "mm": 85,
+     "mm": 94,
      "normalMm": 95,
-     "pctOfNormal": 90,
-     "probBelow": 57
+     "pctOfNormal": 99,
+     "probBelow": 39
     },
     {
      "month": "2027-01",
@@ -1005,6 +1012,13 @@
      "normalMm": 72,
      "pctOfNormal": 88,
      "probBelow": 55
+    },
+    {
+     "month": "2027-04",
+     "mm": 32,
+     "normalMm": 40,
+     "pctOfNormal": 81,
+     "probBelow": 61
     }
    ]
   },
@@ -1018,38 +1032,45 @@
    "months": [
     {
      "month": "2026-11",
-     "mm": 164,
+     "mm": 152,
      "normalMm": 114,
-     "pctOfNormal": 145,
-     "probBelow": 6
+     "pctOfNormal": 133,
+     "probBelow": 14
     },
     {
      "month": "2026-12",
-     "mm": 150,
-     "normalMm": 145,
+     "mm": 151,
+     "normalMm": 144,
      "pctOfNormal": 104,
-     "probBelow": 35
+     "probBelow": 29
     },
     {
      "month": "2027-01",
      "mm": 140,
      "normalMm": 131,
      "pctOfNormal": 107,
-     "probBelow": 24
+     "probBelow": 22
     },
     {
      "month": "2027-02",
      "mm": 108,
      "normalMm": 93,
      "pctOfNormal": 116,
-     "probBelow": 22
+     "probBelow": 24
     },
     {
      "month": "2027-03",
      "mm": 77,
      "normalMm": 89,
-     "pctOfNormal": 87,
+     "pctOfNormal": 86,
      "probBelow": 51
+    },
+    {
+     "month": "2027-04",
+     "mm": 47,
+     "normalMm": 41,
+     "pctOfNormal": 115,
+     "probBelow": 55
     }
    ]
   },
@@ -1063,16 +1084,16 @@
    "months": [
     {
      "month": "2026-11",
-     "mm": 139,
+     "mm": 131,
      "normalMm": 93,
-     "pctOfNormal": 150,
-     "probBelow": 0
+     "pctOfNormal": 142,
+     "probBelow": 10
     },
     {
      "month": "2026-12",
-     "mm": 117,
+     "mm": 123,
      "normalMm": 107,
-     "pctOfNormal": 109,
+     "pctOfNormal": 115,
      "probBelow": 24
     },
     {
@@ -1080,21 +1101,28 @@
      "mm": 120,
      "normalMm": 107,
      "pctOfNormal": 112,
-     "probBelow": 22
+     "probBelow": 24
     },
     {
      "month": "2027-02",
      "mm": 101,
      "normalMm": 94,
-     "pctOfNormal": 107,
+     "pctOfNormal": 108,
      "probBelow": 25
     },
     {
      "month": "2027-03",
-     "mm": 86,
+     "mm": 87,
      "normalMm": 79,
-     "pctOfNormal": 109,
+     "pctOfNormal": 110,
      "probBelow": 27
+    },
+    {
+     "month": "2027-04",
+     "mm": 46,
+     "normalMm": 45,
+     "pctOfNormal": 101,
+     "probBelow": 35
     }
    ]
   },
@@ -1108,17 +1136,17 @@
    "months": [
     {
      "month": "2026-11",
-     "mm": 21,
+     "mm": 18,
      "normalMm": 28,
-     "pctOfNormal": 73,
-     "probBelow": 67
+     "pctOfNormal": 63,
+     "probBelow": 73
     },
     {
      "month": "2026-12",
-     "mm": 26,
+     "mm": 24,
      "normalMm": 16,
-     "pctOfNormal": 158,
-     "probBelow": 39
+     "pctOfNormal": 151,
+     "probBelow": 33
     },
     {
      "month": "2027-01",
@@ -1138,7 +1166,14 @@
      "month": "2027-03",
      "mm": 21,
      "normalMm": 14,
-     "pctOfNormal": 147,
+     "pctOfNormal": 145,
+     "probBelow": 47
+    },
+    {
+     "month": "2027-04",
+     "mm": 44,
+     "normalMm": 40,
+     "pctOfNormal": 109,
      "probBelow": 47
     }
    ]
