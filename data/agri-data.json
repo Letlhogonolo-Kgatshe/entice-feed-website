@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T10:36:26.040Z",
+ "updated": "2026-11-02T12:54:41.483Z",
  "regions": [
   {
    "id": "fs",
@@ -925,50 +925,8 @@
    "lat": -27.39,
    "lon": 26.62,
    "season": "summer",
-   "months": [
-    {
-     "month": "2026-11",
-     "mm": 109,
-     "normalMm": 66,
-     "pctOfNormal": 166,
-     "probBelow": 12
-    },
-    {
-     "month": "2026-12",
-     "mm": 97,
-     "normalMm": 87,
-     "pctOfNormal": 111,
-     "probBelow": 39
-    },
-    {
-     "month": "2027-01",
-     "mm": 97,
-     "normalMm": 91,
-     "pctOfNormal": 106,
-     "probBelow": 43
-    },
-    {
-     "month": "2027-02",
-     "mm": 86,
-     "normalMm": 72,
-     "pctOfNormal": 119,
-     "probBelow": 29
-    },
-    {
-     "month": "2027-03",
-     "mm": 66,
-     "normalMm": 59,
-     "pctOfNormal": 113,
-     "probBelow": 47
-    },
-    {
-     "month": "2027-04",
-     "mm": 41,
-     "normalMm": 42,
-     "pctOfNormal": 98,
-     "probBelow": 57
-    }
-   ]
+   "months": [],
+   "error": true
   },
   {
    "id": "nw",
@@ -977,50 +935,8 @@
    "lat": -26.15,
    "lon": 26.16,
    "season": "summer",
-   "months": [
-    {
-     "month": "2026-11",
-     "mm": 96,
-     "normalMm": 70,
-     "pctOfNormal": 138,
-     "probBelow": 12
-    },
-    {
-     "month": "2026-12",
-     "mm": 94,
-     "normalMm": 95,
-     "pctOfNormal": 99,
-     "probBelow": 39
-    },
-    {
-     "month": "2027-01",
-     "mm": 94,
-     "normalMm": 91,
-     "pctOfNormal": 103,
-     "probBelow": 31
-    },
-    {
-     "month": "2027-02",
-     "mm": 78,
-     "normalMm": 95,
-     "pctOfNormal": 82,
-     "probBelow": 51
-    },
-    {
-     "month": "2027-03",
-     "mm": 63,
-     "normalMm": 72,
-     "pctOfNormal": 88,
-     "probBelow": 55
-    },
-    {
-     "month": "2027-04",
-     "mm": 32,
-     "normalMm": 40,
-     "pctOfNormal": 81,
-     "probBelow": 61
-    }
-   ]
+   "months": [],
+   "error": true
   },
   {
    "id": "mp",
@@ -1029,50 +945,8 @@
    "lat": -26.46,
    "lon": 29.47,
    "season": "summer",
-   "months": [
-    {
-     "month": "2026-11",
-     "mm": 152,
-     "normalMm": 114,
-     "pctOfNormal": 133,
-     "probBelow": 14
-    },
-    {
-     "month": "2026-12",
-     "mm": 151,
-     "normalMm": 144,
-     "pctOfNormal": 104,
-     "probBelow": 29
-    },
-    {
-     "month": "2027-01",
-     "mm": 140,
-     "normalMm": 131,
-     "pctOfNormal": 107,
-     "probBelow": 22
-    },
-    {
-     "month": "2027-02",
-     "mm": 108,
-     "normalMm": 93,
-     "pctOfNormal": 116,
-     "probBelow": 24
-    },
-    {
-     "month": "2027-03",
-     "mm": 77,
-     "normalMm": 89,
-     "pctOfNormal": 86,
-     "probBelow": 51
-    },
-    {
-     "month": "2027-04",
-     "mm": 47,
-     "normalMm": 41,
-     "pctOfNormal": 115,
-     "probBelow": 55
-    }
-   ]
+   "months": [],
+   "error": true
   },
   {
    "id": "kzn",
@@ -1081,50 +955,8 @@
    "lat": -29.06,
    "lon": 30.59,
    "season": "summer",
-   "months": [
-    {
-     "month": "2026-11",
-     "mm": 131,
-     "normalMm": 93,
-     "pctOfNormal": 142,
-     "probBelow": 10
-    },
-    {
-     "month": "2026-12",
-     "mm": 123,
-     "normalMm": 107,
-     "pctOfNormal": 115,
-     "probBelow": 24
-    },
-    {
-     "month": "2027-01",
-     "mm": 120,
-     "normalMm": 107,
-     "pctOfNormal": 112,
-     "probBelow": 24
-    },
-    {
-     "month": "2027-02",
-     "mm": 101,
-     "normalMm": 94,
-     "pctOfNormal": 108,
-     "probBelow": 25
-    },
-    {
-     "month": "2027-03",
-     "mm": 87,
-     "normalMm": 79,
-     "pctOfNormal": 110,
-     "probBelow": 27
-    },
-    {
-     "month": "2027-04",
-     "mm": 46,
-     "normalMm": 45,
-     "pctOfNormal": 101,
-     "probBelow": 35
-    }
-   ]
+   "months": [],
+   "error": true
   },
   {
    "id": "wc",
@@ -1133,50 +965,8 @@
    "lat": -33.46,
    "lon": 18.73,
    "season": "winter",
-   "months": [
-    {
-     "month": "2026-11",
-     "mm": 18,
-     "normalMm": 28,
-     "pctOfNormal": 63,
-     "probBelow": 73
-    },
-    {
-     "month": "2026-12",
-     "mm": 24,
-     "normalMm": 16,
-     "pctOfNormal": 151,
-     "probBelow": 33
-    },
-    {
-     "month": "2027-01",
-     "mm": 14,
-     "normalMm": 13,
-     "pctOfNormal": 109,
-     "probBelow": 47
-    },
-    {
-     "month": "2027-02",
-     "mm": 14,
-     "normalMm": 12,
-     "pctOfNormal": 114,
-     "probBelow": 43
-    },
-    {
-     "month": "2027-03",
-     "mm": 21,
-     "normalMm": 14,
-     "pctOfNormal": 145,
-     "probBelow": 47
-    },
-    {
-     "month": "2027-04",
-     "mm": 44,
-     "normalMm": 40,
-     "pctOfNormal": 109,
-     "probBelow": 47
-    }
-   ]
+   "months": [],
+   "error": true
   }
  ],
  "sources": {
